@@ -47,26 +47,26 @@ The plugin adds no hooks, no MCP servers and no scripts.
 
 ```mermaid
 flowchart TD
-    A[Designer request] --> B[Supervisor: frame goal, output, constraints, acceptance criteria]
-    B --> C{Blocking human decision missing?}
-    C -- yes --> D[Ask ONE question + recommendation]
+    A["Designer request"] --> B["Supervisor: frame goal, output, constraints, acceptance criteria"]
+    B --> C{"Blocking human decision missing?"}
+    C -- "yes" --> D["Ask ONE question + recommendation"]
     D --> B
-    C -- no --> E{Simple task?}
-    E -- yes --> F[Single step]
-    E -- no --> G[Split at real dependency / decision boundaries]
+    C -- "no" --> E{"Simple task?"}
+    E -- "yes" --> F["Single step"]
+    E -- "no" --> G["Split at real dependency / decision boundaries"]
     G --> F
-    F --> H[Load only the needed domain skill(s)]
-    H --> I[Choose route: sources, executor, output, verification]
-    I --> J[Do the step]
-    J --> K[Review: standards, states, a11y, responsive, design-system consistency]
-    K --> L[Report: produced / checked / misses / recommendation]
-    L --> M{Human decides}
-    M -- revise / retry / redirect --> F
-    M -- next step --> G
-    M -- stop --> Z[End]
-    M -- all accepted --> N[final_ready]
-    N --> O[independent-final-qa agent: fresh, scope-only]
-    O --> P[Report shown unchanged → Human accepts or revises]
+    F --> H["Load only the needed domain skill(s)"]
+    H --> I["Choose route: sources, executor, output, verification"]
+    I --> J["Do the step"]
+    J --> K["Review: standards, states, a11y, responsive, design-system consistency"]
+    K --> L["Report: produced / checked / misses / recommendation"]
+    L --> M{"Human decides"}
+    M -- "revise / retry / redirect" --> F
+    M -- "next step" --> G
+    M -- "stop" --> Z["End"]
+    M -- "all accepted" --> N["final_ready"]
+    N --> O["independent-final-qa agent: fresh, scope-only"]
+    O --> P["Report shown unchanged → Human accepts or revises"]
 ```
 
 Key rules: it never invents facts or silently makes product decisions; it never retries, repairs or escalates on its own; a technical "pass" is advice, not approval.
