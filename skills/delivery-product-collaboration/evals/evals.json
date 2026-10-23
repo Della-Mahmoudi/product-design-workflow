@@ -1,0 +1,169 @@
+{
+  "skill_name": "delivery-product-collaboration",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Mark this feature Ready for Dev. We only have the default desktop screen right now; developers can figure out the rest.",
+      "expected_output": "[Case A] Verdict Not Ready, explained by implementation-critical gaps (required states, alternate flows, responsive behavior beyond desktop, component/token mapping, accessibility contract, content status, technical unknowns), with hard blockers separated from non-blocking gaps and a short unblock plan; nothing is invented to fill the gaps.",
+      "files": [],
+      "expectations": [
+        "States the verdict as Not Ready, not Ready.",
+        "Explains the verdict by implementation-critical gaps rather than visual polish.",
+        "Names missing required states (at least loading, empty and error) and responsive behavior beyond the default desktop screen as gaps.",
+        "Explicitly separates hard blockers from non-blocking documentation gaps.",
+        "Does not invent states, flows, error copy, breakpoints or keyboard behavior and present them as the feature's design.",
+        "Gives a concise unblock plan stating what must be supplied and by whom or by which role.",
+        "Does not produce a full Ready-for-Dev manifest or a Given/When/Then acceptance-criteria set."
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "The developer implementation looks almost identical to Figma. QA it and tell me if we can approve it.",
+      "expected_output": "[Case B] Does not approve on visual similarity; fixes or requests the baseline and build details, considers behavioral and accessibility parity, marks uninspected dimensions as not inspected, and gives a design QA verdict (or says one cannot be given yet) without claiming the release decision.",
+      "files": [],
+      "expectations": [
+        "Explains that visual similarity covers one state, one viewport and one theme, and does not approve on that basis.",
+        "States or requests the approved baseline (artifact and version) and the build details (environment, viewport, theme, role).",
+        "Considers behavioral and accessibility parity such as states, keyboard, focus and semantics, not only spacing, colour and pixels.",
+        "Marks every dimension it could not inspect as not inspected instead of reporting it as verified.",
+        "Reports no fabricated defects; any issue stated has expected, actual, impact and evidence and a BLOCKER/MAJOR/MINOR/POLISH severity.",
+        "Presents its answer as a design QA verdict and names an accountable owner (or the team's process) for the final release decision."
+      ]
+    },
+    {
+      "id": 3,
+      "prompt": "The developer says building a custom dropdown is easier than using our existing Select component. Should we let them?",
+      "expected_output": "[Case C] A decision packet, not a yes/no on principle: requirement vs Select capability, the gap (or that none is shown), accessibility, maintenance and consistency impacts, the possible outcomes, who decides, and an exception record if custom is accepted; the extended Select API is left to design-systems-consistency.",
+      "files": [],
+      "expectations": [
+        "Does not answer yes or no on principle and treats 'easier' as a claim to examine, not as a demonstrated gap.",
+        "Asks for or examines the dropdown requirement and the existing Select component's capabilities instead of inventing them.",
+        "Evaluates accessibility impact (keyboard model, naming, focus management, announcements a custom build would have to re-implement) and maintenance or design-system cost.",
+        "Lays out the outcomes (reuse Select, extend Select via the design-system owner, compose from system parts, justified custom) and when each applies.",
+        "Requires an approved-deviation record with reason, owner, scope and sunset or migration condition if custom is accepted.",
+        "Does not design the extended Select API, props or variants, routing that to design-systems-consistency.",
+        "Names who decides rather than deciding unilaterally."
+      ]
+    },
+    {
+      "id": 4,
+      "prompt": "The Figma section is already marked Ready for Dev. Can we send it to engineering?",
+      "expected_output": "[Case D] Treats the Figma status as workflow metadata, runs or requests the minimum implementation-critical readiness checks, and gives a Ready / Not Ready / Ready with conditions verdict based on those checks — not Ready without evidence.",
+      "files": [],
+      "expectations": [
+        "Does not treat the Figma Ready-for-Dev status as evidence that the design is complete.",
+        "Explains that the status is workflow metadata and that readiness is decided by the skill's readiness checks.",
+        "Checks or lists implementation-critical items to verify, such as required states, error flows, destructive or permission behavior, responsive behavior, component/token mapping, accessibility behavior, content status and technical unknowns.",
+        "Gives a verdict in the skill's vocabulary and does not return Ready without supporting evidence.",
+        "Does not make Figma or its status a precondition for handoff.",
+        "Does not fetch Figma documentation or produce a full manifest."
+      ]
+    },
+    {
+      "id": 5,
+      "prompt": "Our Button component has different properties in Figma and code. Which one should be the source of truth and how should we reconcile them?",
+      "expected_output": "[Case E — should not trigger] If invoked, a short routing note: this is system-object parity (Figma Button vs code Button) owned by design-systems-consistency; no source of truth is chosen and no API is designed.",
+      "files": [],
+      "expectations": [
+        "Identifies the request as system-object to system-object parity (Figma Button vs code Button).",
+        "Routes Figma/code reusable Button parity to design-systems-consistency.",
+        "Does not choose a source of truth or propose a reconciled prop or API mapping.",
+        "Does not run feature implementation QA or produce handoff artifacts.",
+        "Keeps the response to a short routing note."
+      ]
+    },
+    {
+      "id": 6,
+      "prompt": "The new checkout is on staging. Compare it with the approved design and tell me whether design QA passes.",
+      "expected_output": "[Case F] Feature implementation QA kept in Skill 07: baseline and build fixed or requested, checkout-relevant behavioral, state, accessibility, content and visual dimensions selected, only supported defects reported with severity, uninspected dimensions marked, and a design QA verdict that is not presented as the release decision.",
+      "files": [],
+      "expectations": [
+        "Keeps feature implementation QA in Skill 07 rather than routing it elsewhere.",
+        "Establishes or requests the approved baseline (design version, acceptance criteria, post-handoff changes).",
+        "Establishes or requests the build context (staging build, viewports, browsers, roles, test data).",
+        "Checks or plans checks beyond visuals, including behavior against acceptance criteria, error and loading states, and keyboard/focus/form-error accessibility.",
+        "Reports only defects it can support, each with expected, actual, impact, evidence and severity.",
+        "Marks uninspected dimensions as not inspected.",
+        "Gives a design QA verdict without presenting it as the organization's final release decision.",
+        "Does not redesign checkout or invent behavior it could not inspect."
+      ]
+    },
+    {
+      "id": 7,
+      "prompt": "We are handing off this delete dialog, but nobody decided what happens to focus after cancel. Can you fill that in so we can mark it Ready?",
+      "expected_output": "[Case G] Refuses to invent the focus behavior; classifies it as a missing design decision routed to interaction-design (unless an approved system dialog contract already defines it); the dialog is not marked Ready while the decision is open.",
+      "files": [],
+      "expectations": [
+        "Identifies focus behavior after Cancel as an implementation-critical interaction and accessibility decision.",
+        "Does not invent missing focus behavior or write an acceptance criterion that decides it.",
+        "Classifies the gap as a missing design decision and routes behavior definition to interaction-design.",
+        "Checks or asks whether an approved system dialog/modal contract already defines focus restoration before treating the gap as open.",
+        "Does not mark the dialog Ready; blocks readiness while the decision is open, or conditions the rest of the handoff on it with an owner."
+      ]
+    },
+    {
+      "id": 8,
+      "prompt": "Define the analytics event, properties and metric for successful Saved Search creation.",
+      "expected_output": "[Case H — should not trigger] If invoked, routes measurement-contract definition to prototype-testing-analytics and defines nothing; may note that Skill 07 later carries the approved contract into handoff and verifies its implementation.",
+      "files": [],
+      "expectations": [
+        "Routes tracking-plan definition to prototype-testing-analytics.",
+        "Does not define an event name, properties or a metric.",
+        "Does not write analytics acceptance criteria for an undefined contract.",
+        "Keeps any description of Skill 07's later role (handoff and implementation verification) brief."
+      ]
+    },
+    {
+      "id": 9,
+      "prompt": "Our approved tracking plan says `saved_search_created` fires only after the server confirms creation. Engineering says it's done. Verify the implementation.",
+      "expected_output": "[Case I] Verifies the build against the approved measurement contract — trigger only after server confirmation, not on click, failure or retry; required properties when supplied — with named evidence, not-inspected labels where there is no access, and impact-based classification; the event and metric are not redefined.",
+      "files": [],
+      "expectations": [
+        "Verifies tracking implementation without redefining the metric, event or trigger.",
+        "Does not accept 'engineering says it's done' as evidence.",
+        "Checks or plans to check that saved_search_created fires only after server-confirmed creation and not on click, on failure, or twice on retry or double-submit.",
+        "Checks required properties against the plan when supplied, or asks for the property list instead of inventing one.",
+        "Names the evidence needed (for example network or analytics debugger observation on staging with success and failure paths) and marks checks not inspected if there is no access.",
+        "Classifies a trigger mismatch as an implementation defect (or a product/design decision if engineering proposes different semantics) with impact-based severity."
+      ]
+    },
+    {
+      "id": 10,
+      "prompt": "Dev asks whether this label is final or still placeholder copy.",
+      "expected_output": "[Case J] Quick-mode answer to the single question: the label's content status from the supplied evidence, or 'unknown' plus the source or owner to ask; nothing else.",
+      "files": [],
+      "expectations": [
+        "Uses Quick mode for a narrow developer content-status question and answers only that question.",
+        "Uses content-status terms such as Final, Approved placeholder or Unknown, or equivalent wording.",
+        "With no artifact or content source supplied, says the status is unknown and asks for the source or names the content owner instead of guessing.",
+        "Does not produce a manifest, a full readiness audit, acceptance criteria, or a responsive or accessibility audit.",
+        "Keeps the response to a few lines."
+      ]
+    },
+    {
+      "id": 11,
+      "prompt": "Engineering confirmed that the API cannot support undo, but the approved interaction depends on undo. What do we do?",
+      "expected_output": "[Case K] Records a Confirmed technical constraint, names the affected approved behavior and its dependants, states that a product/design decision is required, routes the replacement interaction to interaction-design (with PM for the trade-off), and invents no replacement.",
+      "files": [],
+      "expectations": [
+        "Records the API limitation as a Confirmed technical constraint.",
+        "Identifies the affected approved behavior (undo) and what depends on it, such as destructive-action safety and related acceptance criteria.",
+        "States that a product/design decision is required and routes the interaction redesign to interaction-design, with PM for the product trade-off.",
+        "Does not silently redesign around a confirmed API limitation; any alternative appears only as an engineering-supplied option or an option for the owner to decide.",
+        "Notes that the affected part is not Ready (or is conditioned) until the decision is made, and that artifacts, acceptance criteria and the change log are updated afterwards."
+      ]
+    },
+    {
+      "id": 12,
+      "prompt": "The implemented page feels too dense. Can you redesign the spacing, typography and hierarchy?",
+      "expected_output": "[Case L — should not trigger] If invoked, routes visual redesign to ui-visual-design and proposes no new values; distinguishes a build that departs from the approved visual design (an implementation mismatch Skill 07 can document) from a design that is itself too dense.",
+      "files": [],
+      "expectations": [
+        "Routes visual redesign of spacing, typography and hierarchy to ui-visual-design.",
+        "Does not propose new spacing values, a type scale or a new hierarchy.",
+        "Distinguishes an implementation mismatch with the approved design (which Skill 07 can document) from a problem in the approved design itself.",
+        "Does not produce a full QA report or handoff artifacts."
+      ]
+    }
+  ]
+}

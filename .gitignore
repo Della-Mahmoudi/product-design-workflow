@@ -1,0 +1,11 @@
+.DS_Store
+Thumbs.db
+*.zip
+*.plugin
+*.log
+.env
+.env.*
+node_modules/
+.vscode/
+.idea/
+*.swp

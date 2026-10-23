@@ -1,0 +1,132 @@
+{
+  "skill_name": "ui-visual-design",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Redesign this dense B2B analytics dashboard to feel cleaner and more modern. We already have an established component library, typography scale, color tokens, and spacing tokens.",
+      "expected_output": "Triggers ui-visual-design in Standard mode. With no dashboard or design system attached, it asks for them (or inspects connected design tools) before prescribing values; any guidance is hierarchy-first, mapped to existing tokens and components, and leaves navigation and IA untouched.",
+      "files": [],
+      "expectations": [
+        "Asks for the dashboard (screenshot or Figma frame) and the design system's tokens and components, or inspects them through connected tools, before prescribing any spacing, type or color value.",
+        "Every value it does give names an existing token, style or component, or is a clearly marked placeholder for a token role; it presents no raw spacing, font-size or color value as a decision.",
+        "Reads 'cleaner and more modern' as clarity (hierarchy, fewer containers, less chrome, calmer color), not as a new aesthetic.",
+        "Does not propose a new type scale, palette or visual language.",
+        "Does not copy Carbon, Material or Fluent styling.",
+        "Leaves navigation and IA unchanged, or flags any structural issue as a [DEPENDENCY].",
+        "Does not write token governance, naming conventions or component APIs.",
+        "Produces no dark-mode spec, multi-platform rules or multiple visual directions, and does not browse the web."
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "Create the visual specification for a responsive account/settings screen that must work from compact mobile widths to large desktop, support long translated strings, RTL, dark mode, validation messages, and 200% text zoom.",
+      "expected_output": "Triggers ui-visual-design in Deep mode. Produces a visual spec for the responsive settings screen with per-width-range layouts, content-stress, RTL, dark-mode, validation-presentation and 200% text rules, using [PROVISIONAL] values because no design system is supplied, and flags interaction and IA decisions instead of making them.",
+      "files": [],
+      "expectations": [
+        "Specifies a layout for each width range (at least compact and wide) with content priority, rather than scaling one layout.",
+        "Marks invented values such as breakpoints, spacing and type sizes as [PROVISIONAL], since no design system was supplied.",
+        "Specifies that buttons, tabs and labels size to their content and wrap instead of using fixed English-width containers.",
+        "Specifies RTL with start/end terms, mirroring the layout and directional icons but not digits, logos or checkmarks.",
+        "Describes dark mode with theme tokens and per-state contrast checks, not as inverted colors.",
+        "Presents validation errors as text plus an icon plus color at the field, with space reserved so messages don't overlap.",
+        "Does not decide when validation fires; flags it as an interaction decision.",
+        "Uses extra width on wide screens only for panes the approved structure provides, or flags [DEPENDENCY: IA]; does not invent new settings navigation.",
+        "Covers 200% text, reflow at 320 CSS px, target sizes and focus visibility.",
+        "Phrases accessibility as 'designed to address SC …' and never claims WCAG compliance.",
+        "Does not apply or browse Apple or Material guidance."
+      ]
+    },
+    {
+      "id": 3,
+      "prompt": "Refine the high-fidelity UI of this native iOS feature. Interaction behavior is already approved. Focus only on visual presentation and platform fit.",
+      "expected_output": "Triggers ui-visual-design. With no screens attached it asks for them instead of inventing a feature; any guidance stays iOS-specific (Apple block only), preserves the approved interaction behavior, and contains no Material, Carbon or Fluent patterns.",
+      "files": [],
+      "expectations": [
+        "Asks for the iOS screens (screenshots or Figma frames) instead of inventing a feature to refine.",
+        "Any guidance given before seeing the screens is iOS-specific, such as Dynamic Type text styles, 44 pt hit regions, SF Symbols matched to text weight, and Liquid Glass only in the functional layer.",
+        "Recommends no Material patterns: no floating action button, Material elevation or state layers, or Roboto.",
+        "Proposes no change to the approved interaction behavior or flows.",
+        "Does not read, cite or browse Material, Carbon or Fluent guidance.",
+        "Does not dump the full WCAG table or produce rules for other platforms."
+      ]
+    },
+    {
+      "id": 4,
+      "prompt": "Our checkout form already has approved validation behavior. Design the visual presentation for default, focus, error, disabled, loading and success states.",
+      "expected_output": "Triggers ui-visual-design in Standard mode. Gives each of the six requested states a distinct, accessible visual treatment using token roles or [PROVISIONAL] values (no design system supplied), keeps the approved validation behavior exactly as given, and flags missing behavior as [DEPENDENCY: Interaction].",
+      "files": [],
+      "expectations": [
+        "Gives a distinct visual treatment to each of the six states: default, focus, error, disabled, loading and success.",
+        "Error and success each combine text and an icon with color; no state relies on color alone.",
+        "Specifies a visible focus indicator with at least 3:1 contrast against adjacent colors, distinct from the error and hover treatments.",
+        "Keeps the control's dimensions during loading and reserves space for error messages so the layout doesn't shift.",
+        "Uses existing product tokens or components when supplied; since none are supplied, it names token roles or marks values [PROVISIONAL] and labels them as assumptions, or asks once for the design system.",
+        "Does not specify or change when validation fires.",
+        "Does not define retry behavior, error-recovery logic, or where focus moves after an error.",
+        "Treats any missing state or behavior as [DEPENDENCY: Interaction] instead of defining it.",
+        "Does not create component properties, variants or token architecture.",
+        "Makes no WCAG compliance claim.",
+        "Produces no responsive, dark-mode or RTL spec and does not browse platform guidance."
+      ]
+    },
+    {
+      "id": 5,
+      "prompt": "Define when validation should fire, what happens after a failed submission, how retry works, and where focus goes after the error.",
+      "expected_output": "Should not trigger ui-visual-design; the primary owner is interaction-design. If the skill is invoked anyway, it names the four asks as behavior and state logic, routes them to interaction-design, and specifies none of them.",
+      "files": [],
+      "expectations": [
+        "Identifies validation timing, failed-submission handling, retry and focus movement as interaction behavior.",
+        "Routes the request to interaction-design.",
+        "Does not specify when validation fires.",
+        "Does not define what happens after a failed submission or how retry works.",
+        "Does not specify where focus moves after an error.",
+        "Produces no visual state spec; any visual offer is brief and conditional on behavior decided elsewhere.",
+        "Reads no reference file and fetches no external source."
+      ]
+    },
+    {
+      "id": 6,
+      "prompt": "We need compact, destructive, icon-only and loading versions of Button. Define the reusable component properties, variants and token architecture.",
+      "expected_output": "Should not trigger ui-visual-design; the primary owner is design-systems-consistency. If the skill is invoked anyway, it routes the request and, at most, lists visual requirements as inputs, defining no properties, variants or tokens.",
+      "files": [],
+      "expectations": [
+        "Identifies the request as reusable component API, variant and token architecture owned by design-systems-consistency, and routes it there.",
+        "Defines no component property names or types, such as size, iconOnly or loading props, and no variant matrix.",
+        "Defines no token names, tiers or token architecture.",
+        "Does not decide between reuse, compose, extend and create.",
+        "Frames any visual requirements (destructive never styled as primary, target size kept for icon-only and compact, loading keeps dimensions, contrast kept) as inputs for design-systems-consistency, not as API decisions.",
+        "Does not audit the design system or browse the web."
+      ]
+    },
+    {
+      "id": 7,
+      "prompt": "The developer implementation looks slightly different from Figma. Compare staging against the approved UI and tell me what should block release.",
+      "expected_output": "Should not trigger ui-visual-design; the primary owner is delivery-product-collaboration. If the skill is invoked anyway, it routes the build-versus-design comparison and release decision out, offering at most the approved visual intent as input.",
+      "files": [],
+      "expectations": [
+        "Identifies comparing staging with Figma and deciding release blockers as implementation QA owned by delivery-product-collaboration, and routes it there.",
+        "Produces no defect list and no BLOCKER, MAJOR, MINOR or POLISH ratings.",
+        "Does not decide what should block release.",
+        "Limits any contribution to stating the approved visual intent as input to the QA.",
+        "Does not declare the build accessible, inaccessible or WCAG compliant.",
+        "Does not ask for staging access or screenshots in order to run the comparison itself."
+      ]
+    },
+    {
+      "id": 8,
+      "prompt": "This pricing card feels too heavy and hard to scan. What's wrong with the visual hierarchy?",
+      "expected_output": "Triggers ui-visual-design in Quick mode. With no card attached it asks for it in a short message, optionally naming up to three likely causes as hypotheses; it runs no audit, adds no themes, breakpoints or platform guidance, and doesn't touch the pricing flow.",
+      "files": [],
+      "expectations": [
+        "Asks for the pricing card (screenshot or frame) in a short message instead of inventing a card to critique.",
+        "Any likely causes it offers before seeing the card number three or fewer, each with a minimal fix, and are labeled as hypotheses.",
+        "Names token or style roles rather than inventing raw values.",
+        "Runs no design-system inventory or audit and produces no token tables or full specification.",
+        "Adds no dark-mode, responsive, RTL or platform guidance.",
+        "Does not browse or cite Apple, Material, Carbon or Fluent.",
+        "Does not change the plans, their order or the pricing flow.",
+        "Reads at most references/hierarchy-layout-and-density.md."
+      ]
+    }
+  ]
+}

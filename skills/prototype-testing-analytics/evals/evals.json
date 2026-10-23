@@ -1,0 +1,137 @@
+{
+  "skill_name": "prototype-testing-analytics",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "We finished a clickable prototype for a new checkout flow. Can you create a usability test? I mainly want to know whether users can complete checkout and understand delivery options.",
+      "expected_output": "A Standard-mode usability study plan for the checkout prototype: the decision and question classified (evaluative, behavioral, with a comprehension component), a justified session format and fidelity check, behavioral participant criteria, non-leading scenario tasks with delivery-option comprehension probes, success criteria fixed before testing, prototype limitations kept separate from user failures, moderation rules and stated limits. No analytics, experiment or redesign.",
+      "files": [],
+      "expectations": [
+        "No task names the delivery option to select, a navigation label or the checkout step sequence.",
+        "Tests understanding of delivery options with expectation-before-choice and understanding-after-choice probes, not preference questions.",
+        "Defines what counts as a completed checkout in the prototype (the observable end state) before any results are discussed.",
+        "Distinguishes critical errors, non-critical errors and assisted completion, and codes assisted completion separately from unassisted completion.",
+        "Lists prototype limitations to check before sessions and states that failures caused by them are logged against the prototype, not the participant.",
+        "Participant criteria are behavioral (people who buy this kind of product online), with any assumed product context flagged.",
+        "Gives a reason tied to the research question for the session format and for the prototype fidelity being sufficient.",
+        "Does not invent participant results, quotes, completion rates or percentages.",
+        "Does not justify the session count statistically or present it as population coverage.",
+        "Does not present satisfaction ratings as the usability measure.",
+        "Contains no tracking plan, metric definitions, A/B test or UI redesign."
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "Checkout conversion dropped 18% after our redesign. Analytics prove the redesign caused it. Tell me what went wrong.",
+      "expected_output": "An analytics interpretation that refuses the causal conclusion, restates the 18% drop as a descriptive temporal change, asks for the metric definition and baseline variability, checks instrumentation first and then composition, timing confounders, location and magnitude, separates what analytics shows from why, and recommends the minimum explanatory evidence. No UI fixes.",
+      "files": [],
+      "expectations": [
+        "Does not infer causation from a before/after metric change: the drop is labeled a temporal change or association, not an effect of the redesign.",
+        "Does not treat the before/after comparison as an experiment.",
+        "Asks for or specifies the conversion metric definition (numerator, denominator, population, window) and whether 18% is relative or absolute before interpreting it.",
+        "Checks instrumentation validity (event, trigger, platform or identity changes shipped with the release; reconciliation against orders in the system of record) as a first-order explanation.",
+        "Names concrete confounders (traffic mix, campaigns, pricing or promotions, seasonality, outages, other releases) and the segment cuts that would test them.",
+        "States that analytics can locate where and for whom the drop occurred but not why, and recommends a minimum explanatory method for the why.",
+        "Does not present any UX cause as fact and proposes no UI changes.",
+        "Does not invent segment figures, baseline values or industry benchmark statistics."
+      ]
+    },
+    {
+      "id": 3,
+      "prompt": "We have version A and B of onboarding. Tell me how many users we need and how long to run the test. We don't have baseline conversion or expected effect size yet.",
+      "expected_output": "A minimal experiment specification that gives no sample size or duration, names every missing input and how to obtain it, and still defines a testable hypothesis, a fully defined candidate primary metric, guardrails, unit, eligibility, assignment, exposure, a stopping rule and instrumentation validation, with the sample-size and duration rows marked as pending inputs.",
+      "files": [],
+      "expectations": [
+        "Does not invent a sample size, not even a rough or typical figure.",
+        "Does not invent a duration such as two weeks or one month; describing duration constraints (whole weekly cycles, novelty, outcome lag) is allowed.",
+        "Names the missing inputs (baseline value and variability, minimum effect worth detecting, significance level and power, allocation ratio, eligible exposed units per period, outcome lag) and how to obtain each.",
+        "Writes a falsifiable hypothesis naming the change, metric, direction, population and mechanism, with placeholders where the user must decide.",
+        "Defines at least one candidate primary metric with numerator, denominator, population and time window.",
+        "Specifies the experimental unit, eligibility, assignment and exposure, and notes dilution if exposure is logged upstream of the change.",
+        "Includes at least one guardrail metric with a named harm.",
+        "Mentions a pre-registered stopping rule and instrumentation validation (assignment and exposure logging, metric parity across arms, sample-ratio check).",
+        "Does not claim statistical significance, power or confidence for the proposed test.",
+        "Contains no usability-test plan or moderator guide."
+      ]
+    },
+    {
+      "id": 4,
+      "prompt": "Our CEO wants AI recommendations because competitors have them. We don't know whether users need this or whether it belongs in the MVP. What should we do?",
+      "expected_output": "Should not trigger; the primary owner is product-discovery-framing. If the skill is invoked manually, the response identifies that the opportunity and MVP decision must be framed first, routes that work to product-discovery-framing, and at most notes conditionally what evidence work this skill could do once a research or measurement question exists. It produces no study, tracking plan or experiment.",
+      "files": [],
+      "expectations": [
+        "Routes opportunity framing to product-discovery-framing and names it as the owner.",
+        "Explains that whether the feature is justified or belongs in the MVP is a framing decision, not yet an evidence question.",
+        "Does not create an interview study, survey, usability test, tracking plan, metric definitions or experiment.",
+        "Does not decide whether AI recommendations belong in the MVP, in either direction.",
+        "Does not treat competitor presence or the executive request as evidence of user need.",
+        "Does not write the discovery frame itself (problem statement, opportunity map, risk matrix or MVP scope).",
+        "Does not invent user needs, research findings or usage data."
+      ]
+    },
+    {
+      "id": 5,
+      "prompt": "We've already decided that our next discovery question is: How do freelance designers currently find and evaluate project-management tools? Create the interview study to answer that question.",
+      "expected_output": "A Standard-mode interview study plan: generative or exploratory qualitative classification, semi-structured interviews justified as the minimum valid method, behavioral participant criteria, a non-leading guide built on recent concrete episodes with each block tied to the research question, an evidence capture and analysis plan, and explicit qualitative limits. No product decision, invented findings or prevalence claims.",
+      "files": [],
+      "expectations": [
+        "Supports generative research once an explicit research question exists: it plans the study instead of routing the request away.",
+        "Classifies the question as generative or exploratory qualitative research and recommends interviews, with a reason.",
+        "Participant criteria are behavioral (freelance designers who recently searched for or evaluated a project-management tool), with assumptions flagged.",
+        "Interview questions are open and focus on recent past behavior; none names or pitches our product or a feature, and none asks 'would you use' or other hypothetical-intent questions.",
+        "Each question block is linked to the research question or a learning goal.",
+        "Defines evidence capture (participant codes, verbatim quotes, recording consent) and an analysis approach that reports counts within the study only.",
+        "Does not convert counts of interviewed participants into percentages of users (for example, 4 of 5 participants into 80% of users).",
+        "States that interview findings do not establish prevalence, population frequency or causal effects, and that 'several participants mentioned X' is not 'users generally want X'.",
+        "Does not invent interview findings, quotes, themes or percentages.",
+        "Does not decide whether the product should pursue the opportunity.",
+        "Contains no tracking plan, metric definitions or experiment."
+      ]
+    },
+    {
+      "id": 6,
+      "prompt": "Our usability study found that users repeatedly lose uploaded-file progress after one file fails. Redesign the upload interaction and define retry behavior.",
+      "expected_output": "Should not trigger; the primary owner is interaction-design. If the skill is invoked manually, the response may restate the supplied evidence as observation, finding, interpretation, recommendation and confidence, routes the redesign of upload and retry behavior to interaction-design, and does not define the new behavior.",
+      "files": [],
+      "expectations": [
+        "Routes interaction redesign to interaction-design and names it as the owner.",
+        "Does not define retry behavior, upload states, a state machine, error copy or focus handling.",
+        "Keeps any evidence summary in the Observation, Finding, Interpretation, Recommendation, Confidence structure.",
+        "Does not convert 'repeatedly' into a participant count or a percentage of users.",
+        "States the recommendation as the problem the owning stage should revisit, not as a solution.",
+        "Does not propose an A/B test as the next step."
+      ]
+    },
+    {
+      "id": 7,
+      "prompt": "Define how we should measure successful creation of a Saved Search. Give me the metric, event trigger and required properties.",
+      "expected_output": "A measurement contract for Saved Search creation: Goal, Signal, Metric, Event, Property, Decision; a success event fired on confirmed creation and kept distinct from the attempt; a precise trigger with the system of record named or marked as a dependency; a metric with numerator, denominator, population and window; justified required properties with deduplication and privacy notes; and no claim that anything is already implemented.",
+      "files": [],
+      "expectations": [
+        "Defines the successful outcome (an event such as saved_search_created on confirmed creation) rather than only a click event.",
+        "Keeps the creation attempt and successful creation as distinct events if both are measured.",
+        "States the event trigger precisely, including where creation is confirmed, or marks the system of record as an open dependency instead of assuming a server-side event.",
+        "Defines the metric with numerator, denominator, population or eligibility, and a time window.",
+        "Lists required properties with a reason for each and excludes raw search text or personal data without justification.",
+        "Includes a deduplication rule for retries or double submits.",
+        "Links the metric to the decision it informs.",
+        "Does not claim the event already exists and does not inspect or describe implementation code.",
+        "Does not invent a baseline or target value."
+      ]
+    },
+    {
+      "id": 8,
+      "prompt": "The developer says `saved_search_created` is implemented on staging. Check whether the built implementation matches our approved tracking plan.",
+      "expected_output": "Should not trigger; the primary owner is delivery-product-collaboration. If the skill is invoked manually, the response routes implementation verification to delivery-product-collaboration, restates the measurement contract only if the approved plan is supplied (otherwise asks for it), and makes no claim that staging or code was checked.",
+      "files": [],
+      "expectations": [
+        "Routes built tracking implementation QA to delivery-product-collaboration and names it as the owner.",
+        "Does not claim that staging, code or event payloads were inspected or verified.",
+        "Does not state that the implementation matches, or does not match, the tracking plan.",
+        "Does not fabricate staging observations, payloads or property values.",
+        "Asks for the approved tracking plan if it was not supplied, rather than reconstructing it.",
+        "Does not redefine the event, the metric or the properties."
+      ]
+    }
+  ]
+}

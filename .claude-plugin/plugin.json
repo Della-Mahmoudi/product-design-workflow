@@ -1,0 +1,18 @@
+{
+  "name": "product-design-workflow",
+  "version": "0.2.5",
+  "description": "Supervised Product Design workflow: a coordinating Supervisor Skill, seven selectively loaded domain Skills, on-demand execution routing and expert guidance, a capability-index maintenance Skill and an independent Final QA agent.",
+  "keywords": [
+    "product design",
+    "ux",
+    "design workflow",
+    "design qa"
+  ],
+  "author": {
+    "name": "Della Mahmoudi",
+    "url": "https://github.com/dellamahmoudi93-max"
+  },
+  "homepage": "https://github.com/dellamahmoudi93-max/product-design-workflow",
+  "repository": "https://github.com/dellamahmoudi93-max/product-design-workflow",
+  "license": "MIT"
+}

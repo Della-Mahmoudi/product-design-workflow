@@ -1,0 +1,166 @@
+{
+  "skill_name": "interaction-design",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Design the behavior for uploading 20 files at once. Some may succeed while others fail. Users need progress, retry and cancel.",
+      "expected_output": "A Standard or Deep behavior spec with batch and per-file states, partial-failure reporting, per-file and bulk retry, cancel semantics that don't assume server-side abort or resumable uploads, duplicate handling, a single announced outcome and a list of technical dependencies to confirm. No visual styling or navigation changes.",
+      "files": [],
+      "expectations": [
+        "Defines per-file states (including uploading, succeeded and failed) and an aggregate batch state.",
+        "Represents the per-file and batch behavior in a state table or state diagram.",
+        "Defines partial failure: successes are kept, failed files stay listed with a reason, and an aggregate count such as '17 of 20 uploaded, 3 failed' is reported.",
+        "Defines retry for an individual failed file and for all failed files.",
+        "Defines cancel for a single file and for the whole batch, and states what happens to files already uploaded.",
+        "Does not assume resumable upload capability; resuming is marked as needing engineering confirmation or written as conditional.",
+        "Marks server-side cancellation or abort as needing engineering confirmation rather than promising it.",
+        "Defines what happens with duplicate files or a repeated activation of the upload action.",
+        "Specifies that the batch outcome is announced to assistive technology once, not per file or per percentage.",
+        "Lists open technical dependencies (for example all-or-nothing vs best-effort, duplicate detection, limits) for confirmation.",
+        "Does not choose colors, spacing, typography or icon styling.",
+        "Does not restructure the upload flow's steps or the product's navigation."
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "Define the interaction behavior for deleting a workspace that may have active projects, integrations and other members.",
+      "expected_output": "A Deep behavior spec that treats deletion as high impact: blockers checked before confirmation and separated from warnings, a confirmation naming the workspace and its consequences, re-authentication only if policy requires it, pending, success and failure states, cancel before commit, permission and other-member behavior, focus rules, and reversibility left to confirm.",
+      "files": [],
+      "expectations": [
+        "Distinguishes blocking conditions that prevent deletion from warning conditions the user must acknowledge.",
+        "Checks blockers before the confirmation step rather than after it.",
+        "Requires a confirmation that names the workspace and lists concrete consequences for projects, integrations and members.",
+        "Labels the destructive button with the specific action (for example 'Delete workspace'), not 'OK' or 'Yes'.",
+        "Makes re-authentication conditional on existing product or security policy rather than mandating it.",
+        "Defines a pending or deleting state plus success and failure outcomes, including where the user lands afterward.",
+        "Defines cancellation before the deletion is committed.",
+        "Does not claim the workspace can be restored or undone; restore windows, retention or grace periods are marked to confirm.",
+        "Does not state backend deletion rules (retention periods, cascade order, legal holds) as facts.",
+        "Specifies permission behavior at the moment of action, including what happens for a user without permission.",
+        "Specifies what other members, including someone inside the workspace, experience, marked as a product decision to confirm.",
+        "Specifies initial focus on the typed-confirmation field or the least destructive control, and focus returning to the trigger on cancel.",
+        "Does not specify colors, spacing or visual emphasis for the danger state."
+      ]
+    },
+    {
+      "id": 3,
+      "prompt": "Define how a searchable multi-select should behave for keyboard, mouse and screen-reader users, including loading and no-results states.",
+      "expected_output": "A Standard behavior spec for a web searchable multi-select: native first, otherwise a combobox with a multi-select listbox popup (citing both APG patterns), explicit focus model, keyboard keys, selection and deselection, filtering, loading and no-results states outside the listbox, and status announcements. No component API or visual values.",
+      "files": [],
+      "expectations": [
+        "States where focus lives (for example DOM focus stays in the input with aria-activedescendant) and distinguishes the active option from selection.",
+        "Specifies keyboard keys for moving between options, toggling selection and closing the popup, and keeps selections when the popup closes.",
+        "Does not use Space to toggle selection while focus is in the text input.",
+        "Defines selection and deselection both in the list and from selected items shown outside it, with distinguishing accessible names.",
+        "Defines filtering behavior as the user types and what mouse users can do.",
+        "Defines loading and no-results states with their messages outside the listbox.",
+        "Specifies that results counts or status changes are announced without moving focus.",
+        "Uses APG conditionally, composing Combobox with a multi-select Listbox, or prefers a native control such as a checkbox group for small option sets.",
+        "Does not claim WCAG conformance or completed testing.",
+        "Does not define component properties, variant architecture or design tokens.",
+        "Does not choose colors, spacing or typography."
+      ]
+    },
+    {
+      "id": 4,
+      "prompt": "Organize Account, Team, Billing, API and Security into a better settings navigation.",
+      "expected_output": "Should not trigger; primary owner ux-architecture. If the skill is invoked anyway: identifies a structural IA and navigation question, routes it to ux-architecture in a line or two, and stops.",
+      "files": [],
+      "expectations": [
+        "Identifies the request as information architecture or navigation structure.",
+        "Routes the request to ux-architecture by name.",
+        "Does not propose a grouping, order, labels or hierarchy for Account, Team, Billing, API and Security.",
+        "Does not produce a sitemap, navigation pattern or task flow.",
+        "Contains no state tables, state diagrams or behavior specifications."
+      ]
+    },
+    {
+      "id": 5,
+      "prompt": "Make the upload UI look more premium. Choose spacing, typography, colors, radius and visual hierarchy.",
+      "expected_output": "Should not trigger; primary owner ui-visual-design. If the skill is invoked anyway: identifies a visual-design request, routes it to ui-visual-design, gives no visual values, and stops.",
+      "files": [],
+      "expectations": [
+        "Identifies the request as visual design.",
+        "Routes the request to ui-visual-design by name.",
+        "Does not choose colors, typography, spacing, radius, shadows or visual-hierarchy values.",
+        "Any interaction note is limited to semantic requirements, such as states staying perceivable without relying on color alone.",
+        "Does not produce a behavior specification or state model for the upload UI."
+      ]
+    },
+    {
+      "id": 6,
+      "prompt": "Our Select needs searchable, multiselect, destructive and compact variants. Define the reusable component properties and variant architecture.",
+      "expected_output": "Should not trigger; primary owner design-systems-consistency. If the skill is invoked anyway: identifies reusable component architecture, routes it to design-systems-consistency, offers behavior requirements only as input if asked, and stops.",
+      "files": [],
+      "expectations": [
+        "Identifies the request as reusable component architecture owned by the design system.",
+        "Routes the request to design-systems-consistency by name.",
+        "Does not create reusable component API architecture: no properties, property names or variant matrix for Select.",
+        "Does not define design tokens, contribution rules, versioning or deprecation.",
+        "Does not write full behavior specifications for the variants, since behavior requirements were not requested."
+      ]
+    },
+    {
+      "id": 7,
+      "prompt": "We've built the delete-workspace prototype. Create a usability-test plan and moderator guide.",
+      "expected_output": "Should not trigger; primary owner prototype-testing-analytics. If the skill is invoked anyway: identifies usability-test planning, routes it to prototype-testing-analytics, and stops without producing study artifacts.",
+      "files": [],
+      "expectations": [
+        "Identifies the request as usability-test planning.",
+        "Routes the request to prototype-testing-analytics by name.",
+        "Does not execute or design a usability study: no test plan, task scenarios, screener, moderator script, metrics or sample size.",
+        "Does not report or invent usability findings.",
+        "Does not re-specify the delete-workspace interaction behavior."
+      ]
+    },
+    {
+      "id": 8,
+      "prompt": "The developer built the multi-select. Compare staging against the approved interaction and tell me what is wrong.",
+      "expected_output": "Should not trigger; primary owner delivery-product-collaboration. If the skill is invoked anyway: identifies implementation QA, routes it to delivery-product-collaboration, notes that the approved interaction spec is the behavioral reference, and stops.",
+      "files": [],
+      "expectations": [
+        "Identifies the request as implementation QA or design-to-build parity checking.",
+        "Routes the request to delivery-product-collaboration by name.",
+        "States that the approved interaction specification is the behavioral source of truth for that QA.",
+        "Does not produce a defect or parity list for the staging build.",
+        "Does not claim to have inspected staging and does not invent discrepancies.",
+        "Does not rewrite or redesign the approved multi-select behavior."
+      ]
+    },
+    {
+      "id": 9,
+      "prompt": "A user edits a document while their connection is unstable and another teammate updates the same document. Define the interaction behavior.",
+      "expected_output": "A Deep behavior spec with distinct online, offline, saving, failed, stale and conflict states, no silent data loss for either person, connection and sync feedback, conflict options limited to supported ones, and every sync, offline, merge and versioning capability marked as a dependency to confirm.",
+      "files": [],
+      "expectations": [
+        "Defines distinct states for at least saved, unsaved, offline, syncing or reconnecting, and conflict.",
+        "Represents those states in a state table or state diagram.",
+        "Never silently overwrites the teammate's changes or discards the user's local edits.",
+        "Specifies feedback when the connection drops and when it returns, including what did and did not sync.",
+        "Limits conflict options to what the system supports and marks merging, version history and real-time sync as needing engineering confirmation.",
+        "Does not assume offline queueing or local drafts exist; marks them as conditional or to confirm and gives the fallback.",
+        "Labels technical capabilities as confirmed, assumed, proposed or needing validation, or lists them as open dependencies.",
+        "Specifies that status changes are announced without moving focus and are not conveyed by color alone.",
+        "Does not specify a merge algorithm or versioning technology.",
+        "Does not redesign navigation or document structure and does not specify visual styling."
+      ]
+    },
+    {
+      "id": 10,
+      "prompt": "Define the behavior of a standard Copy link button.",
+      "expected_output": "A Quick-mode answer of a few behavior rules: a native button that copies the link on activation, success feedback announced without moving focus, and at most a line on clipboard failure. No state machine, no unrelated guidance, no visual styling.",
+      "files": [],
+      "expectations": [
+        "Uses a concise behavior specification of a few rules for the simple Copy action.",
+        "Is under about 250 words.",
+        "Does not include a state machine, Mermaid diagram or multi-state table.",
+        "States that activating the button copies the link to the clipboard.",
+        "Specifies success feedback (for example 'Link copied') that is announced to screen readers while focus stays on the button.",
+        "Uses native button semantics (Enter and Space activate) rather than a custom ARIA widget.",
+        "Does not include an extended error-handling section.",
+        "Does not load or cite Apple, Material, Carbon or GOV.UK guidance.",
+        "Does not specify toast colors, icons, spacing or layout."
+      ]
+    }
+  ]
+}

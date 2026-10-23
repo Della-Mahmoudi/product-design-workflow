@@ -1,0 +1,146 @@
+{
+  "skill_name": "ux-architecture",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "We have 80 settings across account, team, billing, security and integrations. Help me organize and label the navigation.",
+      "expected_output": "A proposed (not validated) settings IA: organizing principle, a hierarchy placing the five categories, labels with rationale, scope and role visibility for admin areas, assumptions and open questions, and IA validation only as an optional one-line recommendation. No visual sidebar, interaction states or component specs.",
+      "files": [],
+      "expectations": [
+        "States the organizing principle used for the settings (for example scope or ownership, task, or topic) before or alongside the proposed groups.",
+        "Places all five supplied categories (account, team, billing, security, integrations) in a proposed hierarchy shown as an outline or table.",
+        "Gives proposed labels with a reason for at least the top-level labels (user vocabulary, distinctness from siblings, or scope).",
+        "Separates personal or account-level settings from team or organization-level settings.",
+        "States which roles can see or change admin areas such as billing, security or team management.",
+        "Labels the result as proposed or not validated, and lists assumptions or open questions.",
+        "Any individual settings named beyond the five categories are marked as examples or assumptions, not presented as the user's actual inventory.",
+        "Does not report card-sort, tree-test, analytics or usage results.",
+        "If validation is recommended, it names an IA method (card sort or tree test) and the decision it would test, without a full study protocol.",
+        "Does not design the visual sidebar: no widths, spacing values, icons, colors or typography.",
+        "Does not define hover, focus, pressed, loading or other interaction states, and contains no component specifications."
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "Our product has personal accounts, organizations and multiple workspaces. Where should billing, members and integrations live?",
+      "expected_output": "A scope model (personal account, organization, workspace) giving billing, members and integrations each one home scope, with cross-scope cases, scope-named settings, destination-level role visibility, navigation consistency across scopes, and open questions about ambiguous ownership. No permission-modal behavior, invented backend authorization rules or visual layout.",
+      "files": [],
+      "expectations": [
+        "Separates personal account, organization and workspace scope explicitly, for example as a scope model or table.",
+        "Gives billing, members and integrations each one home scope, with a stated rationale.",
+        "Distinguishes organization-level membership from workspace-level membership, or states an assumption that they are the same.",
+        "For integrations, separates where an integration is configured from where it is enabled or used, or states an assumption about it.",
+        "Names settings destinations by scope (for example organization settings versus workspace settings) rather than several areas all called 'Settings'.",
+        "States role or permission visibility for billing, members and integrations at the destination level.",
+        "Addresses navigation consistency across scopes, for example how the current scope is shown or where people land when switching workspace.",
+        "Lists at least two open questions or assumptions about ambiguous ownership, such as whether billing is per organization or per workspace, or whether personal accounts can own workspaces.",
+        "Does not design permission modal, dialog, error-message or disabled-control behavior.",
+        "Does not state backend authorization rules, APIs or data schemas as facts; unknown rules appear as dependencies or open questions.",
+        "Does not specify the visual layout of the settings navigation."
+      ]
+    },
+    {
+      "id": 3,
+      "prompt": "Map the user flow for inviting a teammate to a workspace, including the major decisions and alternate paths.",
+      "expected_output": "A structural invite flow as a Mermaid flowchart or numbered steps: entry points, key path, permission branch, alternate paths, unknown conditions as dependencies, success, cancel and failure exits with destinations, the invitee's side as a hand-off, and a hand-off list for interaction-design. No loading, toast, inline-validation or focus behavior.",
+      "files": [],
+      "expectations": [
+        "Presents the flow as a Mermaid flowchart or numbered steps.",
+        "Lists at least two entry points into the invite flow (for example a members page, workspace settings, onboarding or a share action).",
+        "Includes a branch for whether the person is allowed to invite.",
+        "Includes at least two alternate paths, such as the invitee already being a member, the invitee having no account, or an invitation needing approval.",
+        "Shows unknown system conditions (for example seat or plan limits, domain restrictions) as dependencies or open questions rather than invented rules.",
+        "Defines exits with destinations: where people land after success and after cancel, and a task-level failure outcome.",
+        "Covers the invitee's side (receiving and accepting the invitation) as a separate actor flow or a referenced hand-off.",
+        "Lists detailed interaction behavior as a hand-off or dependency for interaction-design instead of specifying it.",
+        "Does not specify loading spinners or button loading states.",
+        "Does not specify toast content or timing.",
+        "Does not specify inline validation rules or timing for the email field.",
+        "Does not specify focus behavior or keyboard interaction.",
+        "Does not produce a sitemap or a journey map."
+      ]
+    },
+    {
+      "id": 4,
+      "prompt": "For the invite flow, define loading, duplicate-email error, retry, cancel, success toast and focus behavior.",
+      "expected_output": "Should not trigger this skill; owner is interaction-design. If invoked manually: states that this is detailed interaction behavior, hands off to interaction-design, and does not produce the loading, error, retry, cancel, toast or focus specification. At most notes structural items such as where cancel and success lead.",
+      "files": [],
+      "expectations": [
+        "States that the request is detailed interaction behavior, outside UX architecture.",
+        "Names interaction-design as the owner and hands the request off.",
+        "Does not specify loading behavior (spinners, disabled buttons, timing).",
+        "Does not specify duplicate-email error handling or error message copy.",
+        "Does not specify retry mechanics.",
+        "Does not specify cancel mechanics beyond naming where cancel leads.",
+        "Does not specify success toast content, position or duration.",
+        "Does not specify focus placement or focus restoration.",
+        "Any structural content is limited to flow-level items such as exits, destinations or a dependency list."
+      ]
+    },
+    {
+      "id": 5,
+      "prompt": "Users can't find old invoices. Should we solve this with navigation, search, filters, or a different information structure?",
+      "expected_output": "A diagnosis-first answer: structural versus interface causes, browse versus search for a known-item lookup, a canonical scoped home for invoices that search and filters complement, invoice metadata for facets, permission-aware search, onward paths for empty results, evidence separated from assumptions, and evidence to confirm the cause. No visual search UI or search-box behavior.",
+      "files": [],
+      "expectations": [
+        "Separates structural causes (where invoices live, labels, grouping) from interface causes (visibility, placement) when diagnosing the problem.",
+        "Treats finding an old invoice as a known-item lookup and weighs browse against search for it.",
+        "Does not recommend search alone as the fix; proposes a findable home for invoices that search complements.",
+        "Proposes a canonical location for invoices in the structure, including its scope (for example under billing at account or organization level).",
+        "Identifies invoice metadata usable as filters or facets, such as date or period, status, amount, invoice number or workspace.",
+        "States that invoice access, search results and counts follow billing permissions.",
+        "Labels claims about user behavior as assumptions or inferences, and does not invent search-log, analytics or support data.",
+        "Recommends evidence that would confirm the cause, such as existing search logs or support tickets, or a tree test, without reporting results.",
+        "Does not design the visual search or filter UI (placement, styling, layout, typography).",
+        "Does not specify search-box behavior such as autocomplete timing, loading states or keyboard handling."
+      ]
+    },
+    {
+      "id": 6,
+      "prompt": "We redesigned our account navigation. What should we test to know whether the hierarchy and labels work?",
+      "expected_output": "A tree-test plan at planning level: decisions at risk, a comparison point (baseline of the previous navigation or old versus new trees), scenario tasks avoiding label words, measures, and which results would change the structure; sample size stated as an assumption; interface testing kept separate. No fabricated results and no analytics or general usability program.",
+      "files": [],
+      "expectations": [
+        "Recommends a tree test to evaluate the hierarchy and labels.",
+        "Names the specific architectural decisions or labels at risk that the test should target (for example new groupings, renamed labels or moved items).",
+        "States what results would change the structure, for example low success or scattered first clicks leading to moving, cross-listing or relabeling an item.",
+        "Proposes a comparison point, such as tree testing the previous navigation as a baseline or comparing old and new trees between subjects.",
+        "Plans tasks as realistic scenarios tied to top account tasks and avoids the words used in the labels.",
+        "States the planned sample size as an assumption or with its source, not as a fixed rule.",
+        "Keeps structure testing separate from interface testing; any click or usability test is named as a separate study rather than folded into the tree test.",
+        "Does not report, simulate or predict participant results; any benchmark figure is attributed to its source and not presented as this product's result.",
+        "Does not expand into product analytics, instrumentation, A/B experiments or a general usability-test program.",
+        "Does not include a screener or moderator script."
+      ]
+    },
+    {
+      "id": 7,
+      "prompt": "We have a clickable prototype of the new settings experience. Create a full usability-test plan and moderator guide.",
+      "expected_output": "Should not trigger this skill; owner is prototype-testing-analytics. If invoked manually: states that a prototype usability study is outside UX architecture and hands off. At most notes which IA decisions the study should probe or that a tree test could isolate the structure. No plan, no guide, no findings.",
+      "files": [],
+      "expectations": [
+        "States that a prototype usability-test plan and moderator guide are outside UX architecture.",
+        "Names prototype-testing-analytics as the owner and hands the request off.",
+        "Does not produce a usability-test plan: no recruitment criteria, screener, session structure or study metrics.",
+        "Does not produce a moderator guide, script or session tasks.",
+        "Does not report or invent participant findings.",
+        "Any IA contribution is limited to naming the architectural decisions the study should probe, or suggesting a tree test to isolate the structure."
+      ]
+    },
+    {
+      "id": 8,
+      "prompt": "Make this navigation feel cleaner. Decide sidebar width, spacing, type scale, colors and mobile visual layout.",
+      "expected_output": "Should not trigger this skill; owner is ui-visual-design. If invoked manually: states that these are visual design decisions, hands off to ui-visual-design, gives no visual values, and offers structural help (grouping, hierarchy, labels) only as an option.",
+      "files": [],
+      "expectations": [
+        "States that sidebar width, spacing, type scale, colors and mobile visual layout are visual design decisions outside UX architecture.",
+        "Names ui-visual-design as the owner and hands the request off.",
+        "Does not specify a sidebar width or other dimensions.",
+        "Does not specify spacing values or a type scale.",
+        "Does not specify colors.",
+        "Does not specify a mobile visual layout or the visual form of navigation at small widths.",
+        "If it offers structural help (regrouping, relabeling or reducing navigation items), it offers it as an option rather than restructuring the navigation unasked."
+      ]
+    }
+  ]
+}

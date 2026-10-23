@@ -1,0 +1,147 @@
+{
+  "skill_name": "product-discovery-framing",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Our CEO wants AI recommendations because all our competitors have them. We don't have user research yet. What should we build?",
+      "expected_output": "A discovery frame, not a feature plan: the CEO request labeled as stakeholder input, competitor adoption treated as context, the underlying user problem stated as a hypothesis, value risk named as dominant, riskiest assumptions ranked, and the minimum discovery evidence tied to the decision. AI recommendations remain one candidate solution.",
+      "files": [],
+      "expectations": [
+        "Labels the CEO's request as Stakeholder input (or explicitly as a request, not evidence of user need).",
+        "Treats competitor adoption as context, not as evidence that users need AI recommendations, including in the summary or closing.",
+        "States the problem without a solution built in and keeps AI recommendations as one candidate among at least two.",
+        "Names at least two riskiest assumptions and identifies value risk as dominant, with a reason.",
+        "Recommends minimum discovery evidence that names the decision it informs and a result that would change it.",
+        "Does not design the AI interaction: no UI, placement, ranking algorithm, prompts or conversation design.",
+        "Does not invent user data, percentages, market sizes, competitor results or baselines."
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "Create personas for our B2B admin product. We don't have any user research yet.",
+      "expected_output": "Clearly provisional, assumption-labeled segments or personas defined by role and behaviour (buyer and user kept apart where they differ), each with the evidence that would confirm or replace it, plus a minimum validation step tied to a decision. Nothing fabricated.",
+      "files": [],
+      "expectations": [
+        "Labels every persona or segment as provisional or assumption-based.",
+        "Contains no invented participant quotes.",
+        "Contains no invented percentages, statistics or 'research shows' claims.",
+        "Contains no invented demographic facts such as age, gender or salary.",
+        "Defines segments by role, behaviour or problem rather than demographics.",
+        "Lists, for each provisional persona, the evidence that would confirm or replace it.",
+        "Proposes a minimum validation step tied to the decision the personas will serve."
+      ]
+    },
+    {
+      "id": 3,
+      "prompt": "We have ten feature ideas for the first release. Help me decide what belongs in the MVP.",
+      "expected_output": "Because the ten ideas are not supplied, the skill does not invent them. It asks briefly for the ideas (and the target segment and outcome if unknown) while giving the frame it will apply: intended outcome, target opportunity, riskiest assumptions, scope traced to the opportunity, non-scope with reasons. It distinguishes a learning MVP from a first-release MVP.",
+      "files": [],
+      "expectations": [
+        "Does not invent or guess the ten feature ideas.",
+        "Asks for the missing feature list as blocking input, in no more than a few questions.",
+        "Names the intended outcome and target opportunity as the basis for deciding scope.",
+        "Distinguishes a learning MVP from a first-release MVP.",
+        "Explains that each in-scope item will be traced to the opportunity and each out-of-scope item given a reason.",
+        "Does not produce UI, flows or screen designs."
+      ]
+    },
+    {
+      "id": 4,
+      "prompt": "Users need a chatbot in account settings. Help me frame the requirement.",
+      "expected_output": "Recognizes the chatbot as a proposed solution, recovers the underlying user or business problem as a hypothesis, writes a problem statement without the solution, keeps the chatbot as one candidate among alternatives, and names the evidence needed and the decision it informs.",
+      "files": [],
+      "expectations": [
+        "Explicitly identifies the chatbot as a proposed solution rather than a requirement or user need.",
+        "Restates the problem with an affected person and without the chatbot in the statement.",
+        "Keeps the chatbot as one candidate solution among at least two.",
+        "Treats 'users need' as unverified (Stakeholder input or Assumption), not as evidence.",
+        "Names the evidence needed (for example support tickets or chat logs about settings, search logs, observation) and the decision it informs.",
+        "Does not write chatbot requirements such as intents, conversation flows, UI placement or model specifications.",
+        "Does not invent ticket volumes, usage figures or user quotes."
+      ]
+    },
+    {
+      "id": 5,
+      "prompt": "Checkout conversion dropped 18% after our redesign. Analyze the analytics and tell me whether the redesign caused it.",
+      "expected_output": "Negative-trigger case (owner: prototype-testing-analytics); the description should not capture it. If invoked manually, the skill recognizes post-launch analytics diagnosis and a causal question, stops, and routes to prototype-testing-analytics. It may note that a sequence is not a cause and offer to frame the problem first, but performs no diagnosis.",
+      "files": [],
+      "expectations": [
+        "Routes the request to prototype-testing-analytics (or names validation and measurement work as the owner).",
+        "Does not claim that the redesign did or did not cause the drop.",
+        "Does not perform post-launch analytics diagnosis: no segment, funnel-step or instrumentation analysis.",
+        "Does not design an A/B test, holdout or experiment, and gives no sample size.",
+        "Does not invent analytics figures such as baseline conversion, traffic or segment numbers.",
+        "Does not produce an unrequested discovery frame, personas, opportunity tree or MVP."
+      ]
+    },
+    {
+      "id": 6,
+      "prompt": "We finished our checkout prototype. Create the usability test and moderator guide.",
+      "expected_output": "Negative-trigger case (owner: prototype-testing-analytics). If invoked manually, the skill recognizes prototype validation and usability-study planning, stops, and routes to prototype-testing-analytics, at most offering the discovery inputs (users, success criteria, assumptions) the study would use.",
+      "files": [],
+      "expectations": [
+        "Routes the prototype usability test out of scope, to prototype-testing-analytics.",
+        "Produces no usability tasks or scenarios.",
+        "Produces no moderator guide or script.",
+        "Produces no screener or participant criteria.",
+        "Does not invent participant results or completion rates."
+      ]
+    },
+    {
+      "id": 7,
+      "prompt": "Organize these 80 settings into navigation categories.",
+      "expected_output": "Negative-trigger case (owner: ux-architecture). If invoked manually, the skill recognizes information-architecture work, stops at the design-work boundary, and routes to ux-architecture without proposing any structure.",
+      "files": [],
+      "expectations": [
+        "Routes the request to ux-architecture (or names information-architecture work as the owner).",
+        "Proposes no categories, groupings or labels for the settings.",
+        "Produces no sitemap or navigation model.",
+        "Does not design a card sort or tree test."
+      ]
+    },
+    {
+      "id": 8,
+      "prompt": "Define loading, retry, error and cancel behavior for this file upload flow.",
+      "expected_output": "Negative-trigger case (owner: interaction-design). If invoked manually, the skill recognizes an interaction-behavior specification, stops at the design-work boundary, and routes to interaction-design without defining any behavior.",
+      "files": [],
+      "expectations": [
+        "Routes the request to interaction-design (or names interaction-behavior work as the owner).",
+        "Defines no loading, retry, error or cancel behavior.",
+        "Produces no state table, transition rules, timeouts or error copy.",
+        "Does not produce an unrequested discovery frame for the upload feature."
+      ]
+    },
+    {
+      "id": 9,
+      "prompt": "We're building an invoicing tool for freelance designers and developers. Launch is in 10 weeks with 3 engineers. Our ten ideas for the first release: 1) create and send invoices, 2) online card payments, 3) automatic payment reminders, 4) recurring invoices, 5) multi-currency, 6) expense tracking, 7) time tracking, 8) client portal, 9) tax reports, 10) a mobile app. We interviewed 6 freelancers: all 6 said chasing late payments is their biggest headache, and 2 asked for time tracking. Help me decide what belongs in the MVP.",
+      "expected_output": "A first-release MVP decision: an intended outcome and target opportunity drawn from the interviews (with honest confidence), in-scope items traced to that opportunity, out-of-scope items with reasons, weighted risks with feasibility left to engineering, and outcome-based success criteria without invented baselines.",
+      "files": [],
+      "expectations": [
+        "Names an intended outcome and a target opportunity grounded in the interview evidence.",
+        "Traces every in-scope item to the target opportunity or outcome.",
+        "Gives every out-of-scope item a reason.",
+        "Reports interview evidence as counts (for example '6 of 6'), never as a percentage or a claim about prevalence.",
+        "Treats the time-tracking requests as a signal, not a validated need.",
+        "Labels feasibility within 10 weeks and 3 engineers as Unknown or an assumption pending engineering input.",
+        "States success criteria as a behaviour or outcome change, with no invented baseline or target.",
+        "Produces no screens, flows, UI, tracking plan or event list."
+      ]
+    },
+    {
+      "id": 10,
+      "prompt": "Checkout conversion dropped 18% after our redesign last month. Before we spend money investigating, help us frame the product problem: what do we actually know, what are the possible explanations, and what decision are we facing?",
+      "expected_output": "A framing response, not a diagnosis: the observation separated from candidate causes, rival explanations listed as hypotheses with the cheapest check for each (named, not run), missing data marked Unknown, the pending decision framed with reversible options, and the investigation handed to prototype-testing-analytics.",
+      "files": [],
+      "expectations": [
+        "Does not claim that the redesign caused, or did not cause, the drop.",
+        "Separates the reported observation from candidate causes and labels the causes as hypotheses.",
+        "Names at least four rival explanations, including a measurement or tracking change.",
+        "Labels missing history, volume and segment data as Unknown instead of estimating them.",
+        "Frames the pending decision, including at least one reversible option.",
+        "Hands the investigation itself to prototype-testing-analytics.",
+        "Does not compute significance, specify events, design an A/B test or holdout, or estimate a sample size.",
+        "Proposes no UI fixes for the checkout."
+      ]
+    }
+  ]
+}

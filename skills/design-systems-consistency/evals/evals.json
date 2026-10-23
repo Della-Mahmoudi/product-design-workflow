@@ -1,0 +1,172 @@
+{
+  "skill_name": "design-systems-consistency",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "We need a new DangerButton because delete actions need a red button.",
+      "expected_output": "A Quick-mode decision that challenges the new component: REUSE Button if it already has a destructive intent, otherwise EXTEND Button with a semantic value such as intent=destructive. Unknown Tier 0 facts are marked unknown, naming is semantic rather than colour-based, and the delete screen is left alone.",
+      "files": [],
+      "expectations": [
+        "Does not create DangerButton solely because the action is red.",
+        "Recommends REUSE or EXTEND of the existing Button with a semantic destructive intent (e.g., intent=destructive or the product's existing term) instead of a new component.",
+        "Does not propose a colour-named API such as red=true or color=red.",
+        "States that whether Button already has an intent/kind property is unknown without library or code evidence, and makes the REUSE vs EXTEND choice conditional on it.",
+        "Does not redesign the delete screen or specify the delete confirmation flow.",
+        "Does not produce an RFC, migration plan, changelog or governance process for this decision.",
+        "Reads at most one reference file (references/component-architecture-and-states.md)."
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "We found 87 hex values in the product. Convert all of them into design tokens.",
+      "expected_output": "A token audit plan, not a conversion: inventory each value's usage and context, normalize, cluster primitives, assign roles, classify (existing-token bypass, missing role, drift, intentional exception, unknown), then propose primitive and semantic layers and a migration map. Equal values with different roles stay separate.",
+      "files": [],
+      "expectations": [
+        "Does not convert 87 values into 87 tokens or propose a one-to-one hex-to-token mapping.",
+        "Requires an inventory of where and how each value is used (component, property such as fill, text or border, use count) before naming tokens.",
+        "Separates primitive (raw palette) tokens from semantic role tokens and derives semantic names from roles, not from values.",
+        "Classifies values into categories that include existing-token bypass, missing role, accidental drift, intentional exception and unknown.",
+        "States that values that are equal but serve different roles remain separate semantic tokens.",
+        "Defers the migration mapping until after classification and gives no forecast of resulting token counts before the inventory exists.",
+        "Does not invent specific token names for the 87 values without usage evidence."
+      ]
+    },
+    {
+      "id": 3,
+      "prompt": "Add compact, loading, icon-only, destructive, full-width, selected and mobile as boolean properties on Button.",
+      "expected_output": "A smaller semantic property model: each requested boolean classified as size, state, content model or family member, intent, layout, toggle state or responsive behaviour; mobile rejected; selected recognized as toggle semantics; invalid combinations named; Figma/code parity and breaking-change impact addressed.",
+      "files": [],
+      "expectations": [
+        "Classifies each requested boolean into a dimension: compact as size, loading as state, icon-only as content model or IconButton, destructive as intent, full-width as layout, selected as toggle state, mobile as responsive behaviour.",
+        "Rejects mobile as a component property.",
+        "Identifies that selected changes semantics (toggle, aria-pressed or ToggleButton) rather than being a visual variant.",
+        "Separates states (loading, selected) from variants (intent, size).",
+        "Names at least two invalid or conflicting combinations (e.g., loading with disabled, icon-only without an accessible name) and how they are prevented or enforced.",
+        "Proposes a smaller model with enums for intent and size instead of seven independent booleans.",
+        "Checks Figma/code prop parity and flags folding existing booleans into enums as a breaking change that needs aliases or variant remapping."
+      ]
+    },
+    {
+      "id": 4,
+      "prompt": "Use our existing Card, Button and Badge components to make this pricing screen cleaner and improve the hierarchy.",
+      "expected_output": "If the skill is invoked: a one-line routing to ui-visual-design, because composing a screen from existing Card, Button and Badge components is screen-level work. This skill re-engages only for a reusable design-system gap.",
+      "files": [],
+      "expectations": [
+        "Routes the request to ui-visual-design as screen-level composition with existing components.",
+        "Does not propose new components, variants, properties or tokens.",
+        "Does not give layout, hierarchy, spacing or typography recommendations for the pricing screen.",
+        "States that this skill re-engages only for a reusable design-system gap ([DS GAP]) that the existing Card, Button or Badge cannot meet.",
+        "Reads no reference files."
+      ]
+    },
+    {
+      "id": 5,
+      "prompt": "When file upload partially fails, should retry happen per file or for the whole batch?",
+      "expected_output": "If the skill is invoked: a one-line routing to interaction-design, because retry scope after a partial upload failure is a feature-specific interaction decision, not a reusable component property.",
+      "files": [],
+      "expectations": [
+        "Routes the request to interaction-design as a feature-specific interaction decision.",
+        "Does not itself recommend per-file or whole-batch retry.",
+        "Does not add retry-related properties or states to a reusable FileUpload component.",
+        "Does not promote the decision into the design system; at most names reuse across features as the evidence that would make a reusable contract relevant.",
+        "Reads no reference files."
+      ]
+    },
+    {
+      "id": 6,
+      "prompt": "Our Button has `intent=destructive` and `size=compact` in Figma, but the production Button component does not support those props. Audit the mismatch.",
+      "expected_output": "A design-system parity audit of Button: evidence from both sides, mismatches classified with a named source of truth per item, existing code equivalents checked, the smallest reconciliation with breaking-change status, and reusable accessibility implications of the compact size and destructive intent.",
+      "files": [],
+      "expectations": [
+        "Treats the request as design-system parity between the Figma Button component and the production Button component, not as feature or staging QA.",
+        "Asks for or inspects both the Figma component properties and the production Button props or types (or Storybook) and marks missing evidence as unknown.",
+        "Checks whether production already expresses the same concepts under other names (e.g., kind=danger or size=sm) before recommending new props.",
+        "Classifies each mismatch (e.g., Figma ahead, unsupported Figma property, naming mismatch) and names a source of truth per item without assuming Figma is correct.",
+        "Recommends the smallest reconciliation per mismatch and states whether each change is breaking.",
+        "Notes reusable accessibility implications: the compact size against the WCAG 2.2 2.5.8 target-size minimum (24x24 CSS px or the spacing exception) and destructive-intent contrast per mode.",
+        "Does not assign release-blocking severities or write feature acceptance criteria."
+      ]
+    },
+    {
+      "id": 7,
+      "prompt": "The checkout page is built on staging. Compare it against the approved Figma screens and tell me what should block release.",
+      "expected_output": "If the skill is invoked: a one-line routing to delivery-product-collaboration, because comparing a staging checkout build with approved screens and deciding release blockers is feature build QA. A specific reusable component or token mismatch found there can come back here.",
+      "files": [],
+      "expectations": [
+        "Routes the request to delivery-product-collaboration as feature build vs approved design QA.",
+        "Does not compare the checkout screens or list implementation defects.",
+        "Does not decide what blocks release or assign severities.",
+        "States that a specific reusable component or token mismatch found during that QA can return to this skill as a system-parity question.",
+        "Does not load references/design-code-sync-and-quality.md for the checkout comparison."
+      ]
+    },
+    {
+      "id": 8,
+      "prompt": "We want to rename `color.brand.primary` to `color.action.primary.background`. Can we just rename it in Figma?",
+      "expected_output": "Not a Figma-only rename: inventory consumers across Figma, code and docs; distinguish a rename from a semantic change (brand.primary may have non-action uses, so this may be a split); keep a deprecated alias during a compatibility window; state the breaking-change conditions.",
+      "files": [],
+      "expectations": [
+        "Does not approve a Figma-only rename.",
+        "Requires inventorying consumers in Figma, code (including generated outputs or downstream packages) and documentation before renaming.",
+        "Distinguishes a pure rename from a semantic change and flags that color.brand.primary may have non-action consumers, so the change may be a split into separate roles.",
+        "Recommends keeping the old name as a deprecated alias pointing to the new token during a compatibility window.",
+        "States that removing the old name without an alias is breaking, while an aliased rename with an unchanged value is non-breaking.",
+        "Does not invent consumer counts."
+      ]
+    },
+    {
+      "id": 9,
+      "prompt": "This campaign card needs a unique gradient that will never be reused. Should we add it to the core token system?",
+      "expected_output": "Keep the one-off gradient out of the core token system: document it as an intentional exception with reason, scope, owner and review date, and name the reuse evidence that would justify tokenizing it later.",
+      "files": [],
+      "expectations": [
+        "Advises against adding the one-off campaign gradient to the core token system.",
+        "Recommends documenting it as an intentional exception with reason, scope, owner and a review or expiry date.",
+        "States the reuse evidence that would justify tokenizing it later.",
+        "Does not create a campaign mode, theme or component token.",
+        "Does not insist that every raw value must become a token."
+      ]
+    },
+    {
+      "id": 10,
+      "prompt": "Do we already have a component for this pattern? If not, create one.",
+      "expected_output": "No invented inventory: state that whether a component exists cannot be confirmed without library or code evidence, ask what the pattern is, list the system sources to inspect, explain the REUSE > COMPOSE > EXTEND > CREATE sequence, and keep any recommendation conditional.",
+      "files": [],
+      "expectations": [
+        "Does not claim that a matching component exists or does not exist.",
+        "Asks what the pattern is (purpose, anatomy or where it occurs) because none was described.",
+        "Lists the system evidence to inspect: library components with their properties and variants, tokens or variables, code components and props, Storybook and documentation.",
+        "Explains the REUSE > COMPOSE > EXTEND > CREATE order and that CREATE requires a repeated need and a distinct semantic purpose.",
+        "Does not create a new component, API or anatomy spec.",
+        "Keeps any recommendation explicitly conditional on the missing evidence."
+      ]
+    },
+    {
+      "id": 11,
+      "prompt": "What states and keyboard/focus behavior must our reusable FileUpload component support across products?",
+      "expected_output": "A reusable FileUpload behaviour contract: states derived from behaviour, a keyboard/focus contract that does not depend on drag and drop, accessible names and status announcements, with feature-specific policy (retry scope, limits, copy) left to interaction-design.",
+      "files": [],
+      "expectations": [
+        "Treats the request as a reusable component behaviour contract owned by this skill.",
+        "Derives the state set from behaviour, including focus-visible, disabled, drag-over, uploading or progress and error, with success only where the products use it.",
+        "Defines a keyboard/focus contract in which drag and drop is not the only input path (a keyboard-operable browse control or native file input) and focus is managed after files are added or removed.",
+        "Requires accessible names for per-file actions and status announcements for progress, completion and errors.",
+        "Leaves feature-specific policy such as per-file vs batch retry, file limits and error copy to interaction-design or product configuration.",
+        "Does not claim the component is accessible on the basis of automated checks."
+      ]
+    },
+    {
+      "id": 12,
+      "prompt": "Storybook's accessibility addon shows zero violations for our Combobox. Can we mark it as 'accessible' in the design-system docs?",
+      "expected_output": "No 'accessible' label from automation alone: explain axe coverage limits and Incomplete results, note that WCAG 2.2 rules are opt-in in the default ruleset, list manual checks proportional to a Combobox, and propose accurate documentation wording.",
+      "files": [],
+      "expectations": [
+        "Does not approve labelling the Combobox 'accessible' or 'conformant' from automated results alone.",
+        "Explains that automated checks cover only part of WCAG issues and that Incomplete results require manual review.",
+        "Notes that the addon's default ruleset covers WCAG 2.0/2.1 A and AA and that WCAG 2.2 rules must be enabled or checked manually.",
+        "Lists manual checks proportional to a Combobox: keyboard interaction model, focus management, screen-reader announcements on at least one desktop and one mobile assistive technology, zoom/reflow and forced colours.",
+        "Proposes accurate documentation wording, such as no automated violations under a named ruleset with manual validation pending."
+      ]
+    }
+  ]
+}

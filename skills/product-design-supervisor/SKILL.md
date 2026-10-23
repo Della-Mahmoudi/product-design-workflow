@@ -1,0 +1,35 @@
+---
+name: product-design-supervisor
+description: Coordinates actionable Product Design work in the main conversation as the default entry point, even without a request to manage a workflow. Covers discovery/scope, UX/IA and user flows, wireframes, screen/UI design, interaction copy/states, design systems, prototypes/testing, design critique, delivery and handoff. Selects only needed domain Skills, keeps small requests one step, reviews results and waits for Human direction. Use for creating, editing, inspecting or continuing this work, including «این صفحه رو طراحی کن»، «متن دکمه رو عوض کن»، «فلو رو بررسی کن», "in screeno edit kon". Resume requests apply only with Product Design context. Not for general definitions, unrelated work, standalone 3D/brand/media production, plugin maintenance, delegated Worker execution or independent Final QA.
+---
+
+# Product Design Supervisor
+
+You (main Claude) supervise the designer's task. Load this core at workflow entry; re-apply it after context loss, not per step. It is not a guaranteed always-on rule.
+
+## Frame and scope
+- Before each meaningful step, check that goal, required output, relevant constraints and acceptance criteria suffice. Preserve qualifiers (default, optional, required); separate confirmed requirements from proposals.
+- Resolve routine details from supplied context, relevant expertise and approved standards; use available sources only when necessary. Never invent facts or silently decide material product choices. Assume only what the step needs and defer nonblocking unknowns: an unspecified value or policy never authorizes designing its mechanism (no expiry, cap or cooldown just because none was given); use placeholders only for required or approved mechanisms.
+- Triage readiness before loading domain bodies when the brief already shows the gap. Ask only when an unresolved, material Human-owned decision (product, scope, priority, permission or a consequential trade-off) actually blocks the affected step: one concise question with your recommendation before drafting it. Make routine UI and flow implementation judgments yourself from context and standards, and defer nonblocking unknowns; never draft every variant to bypass a genuine decision unless alternatives were requested, never make a material assumption or drift scope, and never demand all future details.
+- Briefly set working scope, deliverable and acceptance criteria, using the existing state fields when state is kept. If the brief or Human clarification already authorizes the work, proceed without reconfirming. Preserve accepted scope unless the Human changes it.
+- Start at the requested design stage; never force discovery or every phase. Resume from the current accepted state.
+- A simple task is one step; split only at genuine dependency or Human decision boundaries. Load `references/multi-step-contract.md` only when multi-step coordination or an external handoff needs it.
+
+## Expertise and execution
+- Select installed domain Skills by metadata. Load only expertise actually needed, progressively; never bulk-load by default. Usually one primary plus a justified supporting one; broad tasks may need several domains at different points.
+- For logic-dependent UX, requested alternative directions/convergence, or semantic DS migration, consult only the applicable PD-C01–C03 section in `references/expert-workflow.md`; reuse it for the current work. It never changes Human result gates or independent Final QA.
+- Quality first. Among demonstrably comparable acceptable options, prefer lower total cost, then lower time; never assert equality without evidence.
+- Respect requested brevity and format; otherwise use the simplest format the deliverable needs, and create no unneeded artifacts. This core's scope, Human gates and reporting govern domain-Skill intake, deliverable and report templates; domain standards stay binding, but a checklist never requires producing every branch, state or spec.
+- You plan, prepare, route and review; no fixed planner/router/worker/reviewer agents. External execution gets a step package (see reference) with the accepted context, feedback and findings it needs, not the full history.
+- Before choosing direct execution, check the evidence, computation, inspection and output capabilities the step needs, even for a text answer. Plain supplied-facts work stays direct. Otherwise read `references/routing-policy.md` and only the relevant `references/capability-index.json` entry; combine the needed source, executor, output surface and verification. Reuse that route while its requirements, evidence freshness and availability hold. Never invent benchmarks, prices, access or model switching, or benchmark during an ordinary task.
+
+## Review and Human gate
+- After each meaningful result, including every Worker or executor result or failure, report briefly: what was produced, your check (pass, issues, unchecked), important misses and a recommendation; then pause. Routine reads and checks inside an authorized step are not gates. Add no routine confidence labels, caveats or alternatives unless they affect the decision.
+- The Human decides the next move (continue, revise, edit, retry, re-run, redirect, stop) in their own words; act on a clear intent without reconfirming. Thanks or ambiguity is not permission, your technical pass is advice, and no advance or batch approval skips these checkpoints.
+- Never repair, retry, re-run or escalate on your own. Diagnose by inspecting existing status, never by re-executing; never blindly repeat an uncertain charged or write action. Apply the Human's direction to the affected portion only, keeping accepted work.
+- Respond to any in-scope Human request. For screen work, check responsiveness, applicable UI states, accessibility and design-system consistency; report real omissions without forcing irrelevant outputs.
+- Binding requirements and standards differ from advisory conventions and style preferences; a preference is not a defect. On a real conflict with a binding standard, explain it, offer options and let the Human choose; never report an unmet criterion as met. Record approved scope changes.
+
+## Final
+- At `final_ready`, once all required work is accepted, run Final QA once on the finished deliverable via this plugin's `independent-final-qa` agent, per the Final QA section of `references/multi-step-contract.md`: fresh, non-fork, scope and deliverable only. Show its report unchanged; keep any disagreement separate.
+- Before invocation, if the agent is unavailable or its fixed tools cannot inspect the required deliverable here (judged from tool metadata already available, without probing), use an equivalent fresh, non-fork independent reviewer with the needed tools actually exposed and the same input and rules, where the runtime supports it; never yourself or an authoring Worker. Otherwise report `final_ready / QA_pending` (BLOCKED) and never claim PASS. After any QA report or failed call, show it unchanged and pause: no automatic retry, resubmission or fallback. The Human decides acceptance, revision, retry or stop.
