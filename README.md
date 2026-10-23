@@ -1,28 +1,69 @@
-# Product Design Workflow — Claude plugin
+# Product Design Workflow
 
-A supervised product-design workflow for Claude (Claude Code and Cowork). One **Supervisor** skill runs the designer's task: it checks that the brief is ready, gathers what's missing, breaks the work into steps, loads only the design expertise each step needs, checks the result against design-system and accessibility standards, and then **stops so the designer decides what happens next**. At the end, a separate **Final QA agent** reviews the finished deliverable.
+**A design partner for Claude that checks the brief, does the work step by step, and lets you make every call.**
 
-## The problem it solves
+A free, MIT-licensed Claude Code plugin by Della Mahmoudi, product designer. Nine skills plus one independent QA agent. No hooks, no MCP servers, no scripts, nothing to sign up for.
 
-Design teams lose time because:
+You ask for design work the way you normally would. A Supervisor skill picks it up, checks whether the brief is ready, loads only the design expertise that step needs, reviews the result against design-system and accessibility standards, and then pauses so you decide what happens next. When everything is accepted, a separate Final QA agent gives the finished deliverable a fresh, read-only review.
 
-- tasks arrive **without context** (no goal, no acceptance criteria, no constraints);
-- **data is missing or incomplete**, so designers guess and rework later;
-- there are **too many rounds of edits**, because problems show up late;
-- people **don't know the design-system rules**, so components, tokens and states drift.
+**Nothing moves forward until you say so.** The plugin advises. You decide.
 
-This plugin puts those checks into the workflow itself. Before work starts, the Supervisor checks readiness and asks one focused question only when a real product decision is blocking. During the work it applies the domain standards. After each result it reports what was done, what it checked and what is still open. The human keeps every decision.
+## Why I built it
 
-## Install (Claude Code)
+Design work slows down for the same few reasons again and again:
+
+- tasks show up **without context**: no goal, no acceptance criteria, no constraints
+- **data is missing**, so people guess and redo it later
+- **too many rounds of edits**, because problems surface late
+- **design-system rules get lost**, so components, tokens and states drift
+
+This plugin builds those checks into the workflow. It asks one focused question only when a real product decision is blocking, applies the domain standards while working, and after each step tells you what it made, what it checked and what is still open.
+
+## Install
+
+**Option 1: paste this into Claude Code**
+
+```text
+https://github.com/dellamahmoudi93-max/product-design-workflow
+
+Install this Claude Code plugin from its marketplace, then confirm the product-design-supervisor skill is available.
+```
+
+**Option 2: run the commands yourself in Claude Code**
 
 ```text
 /plugin marketplace add dellamahmoudi93-max/product-design-workflow
 /plugin install product-design-workflow@product-design-workflow
 ```
 
-Then just ask for design work, e.g. "design this settings screen", "review this checkout flow", "rewrite this button label". The Supervisor is the entry point. It also understands Persian and Finglish requests.
+The first command adds the marketplace. The second installs the `product-design-workflow` plugin from the `product-design-workflow` marketplace (same name for both).
 
-> If you already installed standalone copies of these skills, remove them first, otherwise two copies can trigger for the same request.
+> Already have standalone copies of these skills? Remove them first, otherwise two copies can respond to the same request.
+
+## Your first prompt
+
+Copy this, swap in your own details, and paste it into Claude:
+
+```text
+I'm working on [product / feature]. Here's the brief: [paste brief, link or notes].
+
+Before you start, check whether the brief is ready and tell me what's missing.
+Then break the work into steps, do the first one, and stop so I can review it.
+```
+
+You don't need to name the plugin. The Supervisor is the default entry point for design requests, and it also understands Persian and Finglish.
+
+## What you can ask for
+
+| You say | What happens |
+|---|---|
+| "Design this settings screen" | Readiness check, then UI and interaction work, reviewed for states, accessibility and responsiveness |
+| "Review this checkout flow" | Structural and interaction review with a clear list of misses and a recommendation |
+| "Rewrite this button label" | A small request stays a single step, no ceremony |
+| "The CEO wants a dashboard, where do we start?" | Discovery framing: users, facts vs. assumptions, risks, MVP scope, success metrics |
+| "Is this ready for dev?" | Handoff completeness, acceptance criteria and Definition of Done |
+| "Audit our buttons against the design system" | Reuse vs. create decisions, token and variant consistency |
+| «این صفحه رو طراحی کن» | Same workflow, in Persian |
 
 ## What's inside
 
@@ -39,11 +80,9 @@ Then just ask for design work, e.g. "design this settings screen", "review this 
 | `refresh-capability-index` | Skill | Maintenance only. Runs only when you ask to benchmark or update the Supervisor's capability index. Ships the method and a findings summary; raw pilot data and evaluation kits are not included. |
 | `independent-final-qa` | Agent | Fresh, read-only review of the finished deliverable against scope and standards. Returns PASS / FAIL / BLOCKED. |
 
-Each domain skill has `references/` (standards, with a `source-map.md` citing public sources such as WCAG 2.2, WAI-ARIA APG, NN/g, GOV.UK, Material, Carbon) and `evals/` (test cases).
+Each domain skill comes with `references/` (standards, with a `source-map.md` pointing to public sources such as WCAG 2.2, WAI-ARIA APG, NN/g, GOV.UK, Material and Carbon) and `evals/` (test cases).
 
-The plugin adds no hooks, no MCP servers and no scripts.
-
-## How the Supervisor works
+## How it works
 
 ```mermaid
 flowchart TD
@@ -66,14 +105,18 @@ flowchart TD
     M -- "stop" --> Z["End"]
     M -- "all accepted" --> N["final_ready"]
     N --> O["independent-final-qa agent: fresh, scope-only"]
-    O --> P["Report shown unchanged → Human accepts or revises"]
+    O --> P["Report shown unchanged, then Human accepts or revises"]
 ```
 
-Key rules: it never invents facts or silently makes product decisions; it never retries, repairs or escalates on its own; a technical "pass" is advice, not approval.
+A few ground rules it follows:
 
-## Model and cost guidance
+- It never invents facts or quietly makes product decisions for you.
+- It never retries, repairs or escalates on its own.
+- A technical "pass" is advice, not approval. You approve.
 
-Based on what each skill actually asks the model to do. This is guidance, not a benchmark. Use whatever model your plan and runtime expose; quality comes first.
+## Which model to use
+
+This is guidance based on what each part asks the model to do, not a benchmark. Use whatever your plan offers; quality comes first.
 
 | Component | Main task | Suggested tier |
 |---|---|---|
@@ -92,12 +135,17 @@ Based on what each skill actually asks the model to do. This is guidance, not a 
 
 ## Optional connectors
 
-Figma, Google Drive and browser tools improve grounding and QA. The QA agent has no fixed tool list: it inherits whatever tools your session has (any connected browser or Figma MCP), with file-writing tools and Bash disabled. It is told never to submit, save, publish, share, pay or delete. Browser tools can still click and type, so point QA at a safe preview. Without suitable tools, QA marks the affected criteria inaccessible/BLOCKED rather than guessing.
+Figma, Google Drive and browser tools help with grounding and QA. The QA agent has no fixed tool list: it inherits your session's tools (any connected browser or Figma MCP), with file-writing tools and Bash disabled, and it is told never to submit, save, publish, share, pay or delete. Browser tools can still click and type, so point QA at a safe preview. Without suitable tools, QA marks the affected criteria BLOCKED instead of guessing.
+
+## Known limits
+
+- Skills activate by description matching, not a guaranteed hook.
+- Figma reads and writes, document creation, media generation and interactive browser QA have not been quality-tested yet.
 
 ## Release notes
 
-See [docs/RELEASE-NOTES.md](docs/RELEASE-NOTES.md).
+Current version: 0.2.5. See [docs/RELEASE-NOTES.md](docs/RELEASE-NOTES.md).
 
-## License
+## License and author
 
-MIT, see [LICENSE](LICENSE).
+MIT, see [LICENSE](LICENSE). Made by [Della Mahmoudi](https://github.com/dellamahmoudi93-max), product designer. If it helps your team, a star or a share means a lot.
