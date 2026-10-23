@@ -1,4 +1,4 @@
-# Source map — provenance, authority and routing
+# Source map, provenance, authority and routing
 
 Read this when you need to know *which* source governs a decision, how to resolve a conflict between sources, or
 whether a source may be consulted at runtime. Every other reference file in this skill is an original synthesis
@@ -30,8 +30,8 @@ Never blend Carbon, Fluent, Material and product conventions into a hybrid.
 - **Access:** supplied by the user or inspected via session tools. Mark anything not supplied as *unknown*.
 - **Runtime:** always relevant.
 
-### DTCG — Design Tokens Format Module 2025.10 (Tier 1)
-- **Identity:** https://www.designtokens.org/TR/2025.10/format/ — Design Tokens Community Group, Final Community
+### DTCG, Design Tokens Format Module 2025.10 (Tier 1)
+- **Identity:** https://www.designtokens.org/TR/2025.10/format/, Design Tokens Community Group, Final Community
   Group Report dated 28 October 2025; the document states it is "considered stable". Companion: Color Module
   2025.10 (same date) defines the colour value object.
 - **Verified at construction time (2026-10-20):** token properties `$value` (required), `$type`, `$description`,
@@ -52,10 +52,10 @@ Never blend Carbon, Fluent, Material and product conventions into a hybrid.
   still emit the pre-2025 string forms (`"#2457F5"`, `"16px"`): check the consuming tool's support before
   insisting on object values.
 - **Licensing/access:** public W3C Community Group report; free to read; cite rather than copy.
-- **Runtime:** conditional — consult only when actual token format matters.
+- **Runtime:** conditional, consult only when actual token format matters.
 
 ### WCAG 2.2 (Tier 1)
-- **Identity:** https://www.w3.org/TR/WCAG22/ — W3C Recommendation, 12 December 2024 edition.
+- **Identity:** https://www.w3.org/TR/WCAG22/, W3C Recommendation, 12 December 2024 edition.
 - **Verified at construction time:** 1.4.3 Contrast (Minimum) AA 4.5:1 text / 3:1 large text; 1.4.11 Non-text
   Contrast AA 3:1 for UI components and graphical objects; 1.4.10 Reflow AA (320 CSS px); 1.4.12 Text Spacing AA;
   1.4.13 Content on Hover or Focus AA; 2.1.1 Keyboard A; 2.1.2 No Keyboard Trap A; 2.4.3 Focus Order A; 2.4.7
@@ -65,17 +65,17 @@ Never blend Carbon, Fluent, Material and product conventions into a hybrid.
   44×44; 3.2.6 Consistent Help A; 3.3.7 Redundant Entry A; 3.3.8 Accessible Authentication (Minimum) AA; 3.3.9
   (Enhanced) AAA; 2.3.3 Animation from Interactions AAA; 1.3.1 Info and Relationships A; 4.1.1 Parsing is
   obsolete and removed in 2.2. (3.2.3 Consistent Navigation AA, 3.2.4 Consistent Identification AA, 4.1.2 Name
-  Role Value A and 4.1.3 Status Messages AA are carried over unchanged from 2.1 — not re-fetched at construction
+  Role Value A and 4.1.3 Status Messages AA are carried over unchanged from 2.1, not re-fetched at construction
   time; high confidence from the standard's stable history.)
 - **Use for:** the accessibility requirements a reusable component must satisfy (contrast, focus, keyboard,
   target size, states exposed programmatically, motion, consistency of identification).
 - **When not to use:** as a design-system architecture guide; it says nothing about tokens or variants.
 - **Conflict rule:** overrides Tier 0 conventions where applicable; always flag, never silently rewrite.
 - **Licensing/access:** public W3C document; cite success-criterion numbers rather than copying text.
-- **Runtime:** conditional — consult for the specific criterion when it is decision-relevant.
+- **Runtime:** conditional, consult for the specific criterion when it is decision-relevant.
 
-### WAI-ARIA Authoring Practices Guide — APG (Tier 1, applicability-limited)
-- **Identity:** https://www.w3.org/WAI/ARIA/apg/ — W3C WAI guide with Patterns (e.g., Button, Switch, Tabs,
+### WAI-ARIA Authoring Practices Guide, APG (Tier 1, applicability-limited)
+- **Identity:** https://www.w3.org/WAI/ARIA/apg/, W3C WAI guide with Patterns (e.g., Button, Switch, Tabs,
   Dialog, Combobox, Listbox, Menu/Menubar, Menu Button, Radio Group, Slider, Tooltip, Tree View, Toolbar,
   Disclosure, Accordion, Grid, Treegrid, Feed, Alert; check the live index for the current set) and Practices
   (e.g., Read Me First, Landmarks, Names and Descriptions, Keyboard Interface).
@@ -89,34 +89,34 @@ Never blend Carbon, Fluent, Material and product conventions into a hybrid.
 - **Conflict rule:** implementation guidance, not a conformance standard; WCAG requirements and real AT testing
   outrank an APG example.
 - **Licensing/access:** public; cite the pattern name rather than copying code.
-- **Runtime:** conditional — the specific pattern page only when a widget's interaction contract is being defined.
+- **Runtime:** conditional, the specific pattern page only when a widget's interaction contract is being defined.
 
 ### Carbon Design System (Tier 2 exemplar)
-- **Identity:** https://carbondesignsystem.com/ — IBM's open-source system. At construction time (re-checked
+- **Identity:** https://carbondesignsystem.com/, IBM's open-source system. At construction time (re-checked
   2026-10-20) the site organizes Foundations (Color, Themes, Typography, Spacing, Motion, Icons, Accessibility),
   Components, Patterns, Contributing (including a product development lifecycle and component checklist) and
   Migrating; component pages carry Guidelines / Specifications / Code / Accessibility tabs and a status label
   (e.g., "Stable"). Behaviour
   planned for the next major release is previewed behind opt-in feature flags (code flags plus a boolean
-  property in the design kit) that become defaults at that major — a useful exemplar for staged breaking
+  property in the design kit) that become defaults at that major, a useful exemplar for staged breaking
   changes. Version numbers and release timing change: check the current release before citing either.
 - **Verified exemplar facts (Button kinds and sizes re-checked 2026-10-20):** colour tokens are role-named per UI
   element (background, layer, field, border, text, link, icon, support, focus, interactive…) with state suffixes
   (`-hover`, `-active`, `-selected`, `-disabled`); a layering model (`layer-01/02/03` with matching
   fields/borders); four themes (White, Gray 10, Gray 90, Gray 100); a small set of component tokens that "should
   never be used for anything other than their own component"; Button kinds primary / secondary / tertiary /
-  ghost / danger (danger has primary, tertiary and ghost sub-styles) with seven sizes — a useful comparison for
+  ghost / danger (danger has primary, tertiary and ghost sub-styles) with seven sizes, a useful comparison for
   "destructive is an intent of Button, not a new component".
 - **Use for:** component architecture and anatomy, reuse, accessibility documentation, state naming, enterprise
   patterns, documentation structure, design/code alignment, lifecycle and contribution ideas.
 - **When not to use:** as the user's conventions; do not import Carbon names, scales or themes into another
   product because Carbon has them.
 - **Licensing/access:** Apache-2.0 code, public docs; paraphrase, do not bulk-copy.
-- **Runtime:** conditional — only when a mature comparative pattern genuinely helps a component decision.
+- **Runtime:** conditional, only when a mature comparative pattern genuinely helps a component decision.
 
 ### Fluent 2 design tokens (Tier 2 exemplar)
-- **Identity:** https://fluent2.microsoft.design/design-tokens — Microsoft Fluent 2.
-- **Verified exemplar facts:** two-layer model — *global tokens* (context-agnostic raw values: colour, type, radius,
+- **Identity:** https://fluent2.microsoft.design/design-tokens, Microsoft Fluent 2.
+- **Verified exemplar facts:** two-layer model, *global tokens* (context-agnostic raw values: colour, type, radius,
   stroke, motion) and *alias tokens* (semantic meaning; one alias can bundle several values for complex styles
   such as shadows and type); tokens support OS-level light, dark and high-contrast modes plus brand; stated goal
   of a common language across platforms and disciplines.
@@ -125,10 +125,10 @@ Never blend Carbon, Fluent, Material and product conventions into a hybrid.
 - **When not to use:** copying Fluent naming (e.g., its camel-cased alias names) into a system that uses another
   convention.
 - **Licensing/access:** public docs; code under MIT; paraphrase only.
-- **Runtime:** conditional — layered-token comparison only.
+- **Runtime:** conditional, layered-token comparison only.
 
 ### Material Design 3 (Tier 2 exemplar, conditional)
-- **Identity:** https://m3.material.io/ — Google. The site renders only with JavaScript, so at construction time
+- **Identity:** https://m3.material.io/, Google. The site renders only with JavaScript, so at construction time
   its token page could not be read directly; the token model was verified on the official Material Web theming
   docs (material-web.dev): *reference tokens* hold concrete values (`md-ref`), *system tokens* define roles and
   decisions (`md-sys`, e.g., `--md-sys-color-primary`), *component tokens* are attributes assigned to component
@@ -140,7 +140,7 @@ Never blend Carbon, Fluent, Material and product conventions into a hybrid.
 - **Licensing/access:** public docs (CC BY 4.0 text / Apache-2.0 code); paraphrase only.
 - **Runtime:** conditional and rare.
 
-### Storybook — accessibility testing (Tier 2 tooling)
+### Storybook, accessibility testing (Tier 2 tooling)
 - **Identity:** https://storybook.js.org/docs/writing-tests/accessibility-testing
 - **Verified facts (re-checked 2026-10-20 against the docs source in the official storybookjs repository):** the
   a11y addon is built on axe-core; Storybook itself states it catches "up to 57% of WCAG issues"; results are
@@ -152,9 +152,9 @@ Never blend Carbon, Fluent, Material and product conventions into a hybrid.
   automated accessibility checks, visual-regression concepts, documentation parity.
 - **When not to use:** as evidence of complete accessibility; automated checks are one layer.
 - **Licensing/access:** public docs, MIT.
-- **Runtime:** conditional — when component engineering, testing or stories are in scope and the team uses it.
+- **Runtime:** conditional, when component engineering, testing or stories are in scope and the team uses it.
 
-### Figma — Variables in Dev Mode (Tier 3 tool bridge)
+### Figma, Variables in Dev Mode (Tier 3 tool bridge)
 - **Identity:** https://help.figma.com/hc/en-us/articles/27882809912471-Variables-in-Dev-Mode
 - **Verified facts:** variables appear in the Inspect panel and in code snippets; a variable-details view shows
   name, source file, collection, mode, value, scope and a code snippet; modes can be switched to see each value;
@@ -166,14 +166,14 @@ Never blend Carbon, Fluent, Material and product conventions into a hybrid.
 - **When not to use:** teams not on Figma or not using variables; never require variables where styles are the
   team's convention.
 - **Licensing/access:** public help article; feature availability depends on plan/seat (not stated in the
-  article — treat as unknown per team).
-- **Runtime:** conditional — design-system parity or variable-inspection tasks only.
+  article, treat as unknown per team).
+- **Runtime:** conditional, design-system parity or variable-inspection tasks only.
 
-### Figma — Code Connect (Tier 3 tool bridge)
+### Figma, Code Connect (Tier 3 tool bridge)
 - **Identity:** https://help.figma.com/hc/en-us/articles/23920389749655-Code-Connect
 - **Verified facts (re-checked 2026-10-20 against the official article):** connects code components to Figma
   components so Dev Mode (and Figma's MCP server) shows real design-system code instead of autogenerated
-  snippets; two setup paths that can be combined — Code Connect UI in Figma (GitHub repository link or manual
+  snippets; two setup paths that can be combined, Code Connect UI in Figma (GitHub repository link or manual
   component paths; Inspect shows file/component name and AI-generated previews, not snippets; one design
   component can map to several frameworks; per-mapping custom instructions) and the CLI (template files map Figma
   properties to the production component API and publish connections, so Dev Mode shows snippets; CLI-created
@@ -182,16 +182,16 @@ Never blend Carbon, Fluent, Material and product conventions into a hybrid.
   Server. Access is plan- and seat-gated; exact eligibility and limits can change and should not be stored as
   durable skill knowledge.
 - **Durability rule:** when exact Code Connect availability matters, verify the current official Figma article;
-  in runtime advice say "plan/seat-gated — verify the team's current eligibility".
+  in runtime advice say "plan/seat-gated, verify the team's current eligibility".
 - **Use for:** mapping Figma components/properties to code components/props, surfacing accurate examples,
   detecting naming and property mismatches.
 - **When not to use:** do not assume a team uses it; never require it; a maintained mapping table in docs is a
   valid substitute.
 - **Licensing/access:** public help article; plan-gated feature.
-- **Runtime:** conditional — design-system parity tasks only (feature handoff belongs to
+- **Runtime:** conditional, design-system parity tasks only (feature handoff belongs to
   `delivery-product-collaboration`).
 
-### *Designing Interfaces*, 3rd edition — Tidwell, Brewer, Valencia (O'Reilly, 2020) (Tier 2, construction-time)
+### *Designing Interfaces*, 3rd edition, Tidwell, Brewer, Valencia (O'Reilly, 2020) (Tier 2, construction-time)
 - **Identity:** ISBN 978-1-492-05196-1. Relevant material: Chapter 11 "User Interface Systems and Atomic Design"
   (UI systems as styles-and-standards systems that keep look-and-feel consistent while remaining
   implementation-agnostic; atomic design summarized as break-it-down, style guide, consistency to avoid "UX debt",
@@ -207,29 +207,3 @@ Never blend Carbon, Fluent, Material and product conventions into a hybrid.
 - **Licensing/access:** copyrighted; private construction-time copy. Do not reproduce passages. The runtime skill
   does not depend on the PDF and must not request it.
 - **Runtime:** none (construction-time only; ideas are already synthesized into the reference files).
-
-## Verification log (construction time, 2026-10-20)
-
-| Source | Fetched | Notes |
-|---|---|---|
-| DTCG Format 2025.10 | yes | Full key facts verified; Color Module verified via W3C CG report mirror |
-| WCAG 2.2 | yes (partial page) | Fetch truncated after SC 2.5.8; new-in-2.2 criteria verified on the W3C "What's New in WCAG 2.2" page; carried-over SCs from 2.1 not re-fetched |
-| WAI-ARIA APG | yes | Home, Patterns index and Read Me First verified |
-| Carbon | yes | Home, colour tokens and Button pages verified |
-| Fluent 2 tokens | yes | Page verified; no example alias names were present in the fetched text |
-| Material 3 | no (JS-only page) | Token model verified on material-web.dev official docs |
-| Storybook a11y testing | yes | Verified |
-| Figma Variables in Dev Mode | yes | Verified; plan/seat gating not stated in article |
-| Figma Code Connect | yes | Verified |
-| Designing Interfaces 3e | yes (PDF) | Chapters 1, 4, 11 read; construction-time only |
-
-## Re-verification log (v2 patch, 2026-10-20)
-
-| Source | Re-checked | Result |
-|---|---|---|
-| Figma Code Connect | yes (official help article) | Exact plan/seat names and plan-specific limits were removed from durable skill knowledge because availability can change. Runtime guidance now keeps only the operational rule: Code Connect is plan/seat-gated, and exact eligibility must be checked in the current official Figma article when needed. |
-| Figma Variables in Dev Mode | yes (official help article) | Unchanged; still no plan/seat statement in the article. Added CSS name normalization. |
-| Storybook a11y testing | yes (docs source, official storybookjs repository) | Unchanged; added that WCAG 2.2 and AAA rules are opt-in and only `'error'` fails CI. Version-free wording kept. |
-| Carbon | yes (component page, Button style/usage, feature-flag overview) | Button kinds and seven sizes confirmed; next major still announced, unreleased. Version statement replaced by the durable feature-flag exemplar. |
-| WAI-ARIA APG | not re-fetched | Dated pattern count removed; examples kept. |
-| DTCG 2025.10, WCAG 2.2 | not re-fetched | Stable references; kept as Tier 1 within their domains. |

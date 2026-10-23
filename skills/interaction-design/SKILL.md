@@ -1,9 +1,9 @@
 ---
 name: interaction-design
-description: Specifies and critiques interaction behavior — what happens when a user or the system acts. Use for triggers and system responses, state logic, transitions, state machines, feedback, control choice and widget behavior, validation, errors and recovery, retry, undo, cancel, destructive actions, loading, latency, async operations, permission and auth behavior, stale data, conflicting edits, offline, keyboard and focus behavior, accessible widgets, touch vs pointer, AI-feature behavior, interaction copy (button/CTA labels, confirmations, errors, status text), and behavior inside an approved flow, such as what happens on click, submit, delete or upload, even if nobody says interaction design. Not for IA, navigation, taxonomy, sitemaps or structural task flows; wireframes, visual styling, layout, typography, color, spacing or hi-fi composition; design-token architecture or component-library governance; usability-test execution or analytics; implementation QA or handoff.
+description: Specifies and critiques interaction behavior, what happens when a user or the system acts. Use for triggers and system responses, state logic, transitions, state machines, feedback, control choice and widget behavior, validation, errors and recovery, retry, undo, cancel, destructive actions, loading, latency, async operations, permission and auth behavior, stale data, conflicting edits, offline, keyboard and focus behavior, accessible widgets, touch vs pointer, AI-feature behavior, interaction copy (button/CTA labels, confirmations, errors, status text), and behavior inside an approved flow, such as what happens on click, submit, delete or upload, even if nobody says interaction design. Not for IA, navigation, taxonomy, sitemaps or structural task flows; wireframes, visual styling, layout, typography, color, spacing or hi-fi composition; design-token architecture or component-library governance; usability-test execution or analytics; implementation QA or handoff.
 ---
 
-# Interaction Design (Skill 03)
+# Interaction Design
 
 Specify and evaluate how a product behaves when someone acts on it. The question behind every answer: **when the user or the system acts, what exactly happens, what do people perceive, what states are possible, and how do they recover when it goes wrong?**
 
@@ -23,7 +23,7 @@ Architecture answers *where, what and in what order*; this skill answers *what h
 | `prototype-testing-analytics` (06) | *Does it work for people?* Prototype validation, usability studies, participant analysis, analytics, experiments | Names what needs validating and with whom ("validate with keyboard users"); doesn't plan the study |
 | `delivery-product-collaboration` (07) | *Was it built as intended?* Handoff, Ready for Dev, acceptance criteria, implementation parity, staging QA | Defines the intended behavior ("Cancel returns focus to the trigger"); 07 checks whether the build does it |
 
-Also outside: product discovery and journey research (Skill 01, `product-discovery-framing`); production code.
+Also outside: product discovery and journey research (`product-discovery-framing`); production code.
 
 ## Workflow
 

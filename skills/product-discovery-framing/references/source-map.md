@@ -22,12 +22,12 @@ The skill works without the original books or websites. Links are for optional v
 
 ## 1. Authority tiers
 
-**Tier 0 — verified product-specific truth.** Current research, interview records, observed behaviour, analytics, existing product behaviour, validated requirements, and business, legal and technical constraints.
+**Tier 0, verified product-specific truth.** Current research, interview records, observed behaviour, analytics, existing product behaviour, validated requirements, and business, legal and technical constraints.
 - Tier 0 decides what is true for *this* product.
 - Judge its credibility (method, sample, recency, instrumentation); Tier 0 is not automatically right.
 - But generic sources never override credible Tier 0 evidence.
 
-**Tier 1 — standards and authoritative methods, each authoritative only in its own domain:**
+**Tier 1, standards and authoritative methods, each authoritative only in its own domain:**
 
 | Source | Domain |
 |---|---|
@@ -39,9 +39,9 @@ The skill works without the original books or websites. Links are for optional v
 
 None of these outranks another outside its own domain.
 
-**Tier 2 — canonical books for deeper reasoning:** Nunnally & Farkas; Lemser; Levy.
+**Tier 2, canonical books for deeper reasoning:** Nunnally & Farkas; Lemser; Levy.
 
-**Tier 3 — supporting conceptual framework:** Garrett. Used mainly to keep discovery decisions consistent with later stages.
+**Tier 3, supporting conceptual framework:** Garrett. Used mainly to keep discovery decisions consistent with later stages.
 
 ## 2. Conflict rules
 
@@ -60,7 +60,7 @@ Each entry gives the source's tag, what it is authoritative for, when to use it 
 
 ### Tier 1
 
-**[ISO]** ISO 9241-210:2019, *Ergonomics of human-system interaction — Part 210: Human-centred design for interactive systems* (edition 2, July 2019; the ISO page says it was reviewed and confirmed in 2025). https://www.iso.org/standard/77520.html
+**[ISO]** ISO 9241-210:2019, *Ergonomics of human-system interaction, Part 210: Human-centred design for interactive systems* (edition 2, July 2019; the ISO page says it was reviewed and confirmed in 2025). https://www.iso.org/standard/77520.html
 - **Verified:**
   - The public abstract: requirements and recommendations for human-centred design principles and activities across the life cycle of interactive systems. It is an overview, not a guide to detailed methods.
   - From publicly available preview pages of BS EN ISO 9241-210:2019, identical text (https://webstore.ansi.org/preview-pages/BSI/preview_30388991.pdf), only the headings of two clauses.
@@ -190,7 +190,7 @@ GOV-P and GOV-N are linked from GOV-D and were read as supporting pages from the
   - Web-era examples.
   - The example persona is demographic-heavy and its details are invented.
 
-**[SYN]** This skill's own synthesis. Where no single source covers a topic — confidence grading, metric-change framing, AI-feature checks, research ethics — the method combines the sources above with the skill's evidence rules. Label conclusions based on it as synthesis.
+**[SYN]** This skill's own synthesis. Where no single source covers a topic, confidence grading, metric-change framing, AI-feature checks, research ethics, the method combines the sources above with the skill's evidence rules. Label conclusions based on it as synthesis.
 
 ## 4. Provenance of key methods
 
@@ -208,7 +208,7 @@ GOV-P and GOV-N are linked from GOV-D and were read as supporting pages from the
 | Sample sizes and inclusion | GOV-P, GOV-D | UXR Ch7 |
 | Confidence grading | SYN | NNG; UXR Ch3–4, Ch13; HEART |
 | Framing a metric change | SYN | HEART (log caveats, A/B example); EUX Ch3; NNG (A/B testing) |
-| Four risks | SVPG | — |
+| Four risks | SVPG |, |
 | AI-feature checks | SYN applying SVPG | HEART |
 | Value proposition | UXS Ch3 | SPM pp.121–122 |
 | Competitive context | UXS Ch4–5 | SPM pp.40, 73–77 |

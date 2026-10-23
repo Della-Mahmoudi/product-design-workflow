@@ -1,4 +1,4 @@
-# Token architecture — executable guidance
+# Token architecture, executable guidance
 
 Load for: creating or reshaping a token architecture, auditing raw values, renaming tokens, mapping
 light/dark/high-contrast modes, deduplication, token migration, or producing a DTCG-oriented token file.
@@ -13,7 +13,7 @@ Contents: 1 Layers · 2 Naming · 3 Aliasing · 4 Themes and modes · 5 Type sel
 | Layer | Purpose | Names describe | Mode-dependent? | Examples (illustrative only) |
 |---|---|---|---|---|
 | Primitive / global / reference | The palette of raw values the system is allowed to use | the value (`blue.600`, `space.400`, `radius.200`, `font.size.300`) | normally no | `blue.600 = #2457F5` |
-| Semantic / alias / system | The *role* a value plays in the UI; the theme switch lives here | the role (`color.text.primary`, `color.surface.default`, `color.action.primary.background`, `color.border.subtle`, `space.inset.md`) | yes — one value per mode | `color.action.primary.background → {color.blue.600}` |
+| Semantic / alias / system | The *role* a value plays in the UI; the theme switch lives here | the role (`color.text.primary`, `color.surface.default`, `color.action.primary.background`, `color.border.subtle`, `space.inset.md`) | yes, one value per mode | `color.action.primary.background → {color.blue.600}` |
 | Component (only when justified) | A component-level theming or API seam | component + part + property (+ state) (`button.primary.background.hover`) | inherits from semantic | `button.primary.background → {color.action.primary.background}` |
 
 Exemplar vocabularies map onto the same three ideas: Fluent 2 *global → alias*; Material 3 *reference → system →
@@ -55,7 +55,7 @@ Rules:
 - Direction is always downward: component → semantic → primitive. Never alias a primitive to a semantic token,
   never alias sideways between semantic roles unless one is explicitly defined as "same as X by policy".
 - Keep alias depth short (typically ≤ 3 hops). Every hop must add meaning (role, theme, component seam). An alias
-  that only renames another token with the same meaning is noise — remove it or make it a documented
+  that only renames another token with the same meaning is noise, remove it or make it a documented
   deprecation alias (section 9).
 - Each semantic token resolves to a value in *every* mode; a missing mode value is a defect.
 - When two roles intentionally share a primitive, keep two semantic tokens (section 7). When one role has two
@@ -69,7 +69,7 @@ Rules:
 - Modes (light, dark, high-contrast, brand A/B, density compact/comfortable) change **values of semantic
   tokens**, not token names. Components never branch on the mode; they consume the role.
 - Primitives are usually mode-independent. If dark mode needs different primitives (lifted surfaces, desaturated
-  brand colour), add primitives — do not fork the semantic layer.
+  brand colour), add primitives, do not fork the semantic layer.
 - High contrast is not "dark mode with more contrast": borders that were optional become mandatory, elevation
   via shadow disappears, focus rings and selection need their own roles. On the web also account for OS forced
   colours (`forced-colors` / system colour keywords) where the platform applies them regardless of tokens.
@@ -124,7 +124,7 @@ Never convert N observed values into N tokens. Run this instead:
 Report in this order: counts (observed → primitives → semantic roles → exceptions → unknowns), the mapping, the
 rules that prevent recurrence (lint: no raw colour outside the primitives file; Figma: styles/variables only).
 Report counts only after classification; do not forecast how many primitives or roles "will" result before the
-inventory exists — a guessed number anchors the audit and is indistinguishable from evidence to the reader.
+inventory exists, a guessed number anchors the audit and is indistinguishable from evidence to the reader.
 
 ## 7. Deduplication and semantic distinction
 
@@ -163,7 +163,7 @@ Policy to apply unless the product documents otherwise:
 
 ## 10. DTCG-oriented serialization (only when a token file is requested)
 
-Prefer the stable DTCG 2025.10 structure to any proprietary schema. Illustrative shape — names and values are
+Prefer the stable DTCG 2025.10 structure to any proprietary schema. Illustrative shape, names and values are
 placeholders, never evidence for a real system:
 
 ```json
@@ -203,7 +203,7 @@ Rules: `$value` required; `$type` on the token or inherited from the nearest gro
 aliases in curly braces resolve to the referenced token's whole value and may chain but not cycle; colour values
 are objects (hex is an optional fallback); dimensions are `{value, unit}`; use `$deprecated` (boolean or message)
 for retired names; `$extensions` for tool-specific data under a vendor key; file as `*.tokens.json` /
-`*.tokens`. Modes: the 2025.10 format has no mode construct — represent modes as separate files or sets per mode
+`*.tokens`. Modes: the 2025.10 format has no mode construct, represent modes as separate files or sets per mode
 with identical semantic names, or via the consuming tool's theme mechanism, and say which you chose. Check the
 consuming tool's support: several pipelines still expect legacy string values (`"#2457F5"`, `"16px"`).
 

@@ -72,7 +72,7 @@ Use this section only when the user asks, or when the decision depends on it (di
 - **Value:** will customers buy it, or users choose to use it?
 - **Usability:** can users figure out how to use it?
 - **Feasibility:** can it be built with the time, skills and technology available?
-- **Business viability:** does it also work for the business — sales and go-to-market, legal and contractual limits, acquisition and serving costs, monetization, brand?
+- **Business viability:** does it also work for the business, sales and go-to-market, legal and contractual limits, acquisition and serving costs, monetization, brand?
 
 **Assessing risk at discovery level**
 1. **Rate each risk.** For the problem and each serious candidate direction, give High / Medium / Low, with the reason and the evidence, or the lack of it.
@@ -123,7 +123,7 @@ Surface constraints early; hidden ones decide outcomes late. Check each area bel
 
 ## 7. Scope and non-scope
 
-- **Define what you are building — and what you are not.** Knowing what is out lets you judge new ideas against the scope instead of absorbing them. [EUX Ch4]
+- **Define what you are building, and what you are not.** Knowing what is out lets you judge new ideas against the scope instead of absorbing them. [EUX Ch4]
 - **Trace every in-scope item to the target opportunity and outcome.** Anything that does not fit the strategy is out of scope. If a strong idea falls outside it, the strategy may need revisiting; say so explicitly. [EUX Ch4]
 - **Write scope items as needs and success criteria, not interface mechanisms.** Each must be testable: it should be possible to show that it has not been met. [EUX Ch4 "Writing It Down"; SYN]
 - **Keep a "not now" list.** For each item, give the reason it is out and the evidence that would bring it back. [EUX Ch4]
@@ -174,7 +174,7 @@ Use this to define what success should mean before a solution is chosen: the int
 **Stop at that level.** Exact metric definitions, event taxonomies, instrumentation and tracking plans, funnel and retention reporting, experiment metrics and post-launch evaluation belong to `prototype-testing-analytics`. Hand the chain over (§11) instead of specifying it here.
 
 1. **Goals:** what success means for users and for the product. Gather differing views and reach agreement. Goals for a feature can differ from goals for the whole product.
-2. **Signals:** which user behaviour or attitude would show success or failure, and where the data comes from (logs, surveys). Choose signals that move only when the experience gets better or worse. Failure signals — abandonment, undo, errors, repeated attempts — are often easier to detect.
+2. **Signals:** which user behaviour or attitude would show success or failure, and where the data comes from (logs, surveys). Choose signals that move only when the experience gets better or worse. Failure signals, abandonment, undo, errors, repeated attempts, are often easier to detect.
 3. **Metrics:** turn the signals into trackable metrics. Normalize them (rates, per-user averages, cohorts) so that growth in user numbers does not look like improvement.
 
 **HEART categories.** Use only those that fit, and decide on each explicitly:
@@ -188,9 +188,9 @@ Use this to define what success should mean before a solution is chosen: the int
 - **Avoid vanity metrics.** Page views, raw sign-ups, time on site and active-user counts do not show whether the experience improved. [HEART; UXS Ch9]
 - **Set each metric's desired direction from the strategy.** Time spent should rise for an exploration product and fall for a quick task. [EUX Ch3]
 - **In a funnel, pick the one key metric for each stage.** [UXS Ch9]
-- **Pair each success metric with a guardrail** that would reveal harm elsewhere — for example, conversion up while refunds also rise. [SYN]
+- **Pair each success metric with a guardrail** that would reveal harm elsewhere, for example, conversion up while refunds also rise. [SYN]
 - **Use a baseline.** If none exists, say so, and make establishing one part of the plan. Never invent baselines or targets; propose a direction and a review date instead. [SYN]
-- **Show how to set a number you don't have.** When a target or gate needs one, explain how the team can derive it — from break-even price, margin, runway or current rates — rather than supplying a figure. [SYN]
+- **Show how to set a number you don't have.** When a target or gate needs one, explain how the team can derive it, from break-even price, margin, runway or current rates, rather than supplying a figure. [SYN]
 - **Decide in advance the threshold and the action it triggers.** If nobody would act on a metric, do not track it. [SPM p.102]
 - **Metrics complement research; they do not replace it.** They are mainly for judging launched products, and should be triangulated with qualitative evidence. [HEART] Judging a launched product is `prototype-testing-analytics` work; in discovery, metrics only define what success should mean.
 
@@ -199,7 +199,7 @@ Use this to define what success should mean before a solution is chosen: the int
 
 ## 11. Handoff to later design work
 
-A discovery frame should give later stages (IA, flows, interaction, visual design, usability testing) what they need — and should leave them the decisions that are theirs. [EUX Ch2, Ch4–5]
+A discovery frame should give later stages (IA, flows, interaction, visual design, usability testing) what they need, and should leave them the decisions that are theirs. [EUX Ch2, Ch4–5]
 
 **Hand over**
 - The decision and the problem statement.

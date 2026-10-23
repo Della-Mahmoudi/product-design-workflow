@@ -113,7 +113,7 @@ For a quick frame, name the risk that dominates and say why in one or two lines.
 - **Value:** will the target users choose it over what they do now?
 - **Usability:** can they work out how to use it?
 - **Feasibility:** can it be built and run with the time, skills, technology and data available?
-- **Viability:** does it work for the business — cost, revenue, channels, legal, brand?
+- **Viability:** does it work for the business, cost, revenue, channels, legal, brand?
 
 Add accessibility, privacy or ethical risk when relevant. They are not among the four, but they are often hidden. [SYN]
 
@@ -140,8 +140,8 @@ Write a hypothesis when a belief is both important to the decision and uncertain
 - **Aim discovery at a product outcome the team can influence,** and trace it up to the business outcome. [PT]
 - **Write outcomes as conditions for success, not the path to it.** "Make money" is too vague. "Build a recommendation carousel" names a solution. [EUX Ch3 "Product Objectives"]
 - **Do not use as the discovery outcome:**
-  - a single feature's adoption figure — too narrow
-  - "launch X" — that is an output
+  - a single feature's adoption figure, too narrow
+  - "launch X", that is an output
   [PT]
 - **When several outcomes compete, ask for a ranking.** Without one, priorities default to politics. [EUX Ch4 "Prioritizing Requirements"]
 - **To measure an outcome,** see `strategy-scope-and-metrics.md` §10.
@@ -157,7 +157,7 @@ An opportunity is an unmet customer need, pain point or desire, framed from the 
 
 **Steps**
 1. **One outcome at the root.** Build one tree per outcome, never one for a whole company. [PT]
-2. **Draw opportunities from evidence** — interview stories, observed behaviour, support logs read in context. Mark any opportunity without evidence as an assumption. Analytics, sales notes or tickets show where to look, but not the need; add story context. [PT]
+2. **Draw opportunities from evidence**, interview stories, observed behaviour, support logs read in context. Mark any opportunity without evidence as an assumption. Analytics, sales notes or tickets show where to look, but not the need; add story context. [PT]
 3. **Group opportunities by moment in the user's experience.** Nest specific ones under broader ones, and keep siblings from overlapping. [PT]
 4. **Keep solutions off the map until a target opportunity is chosen.** Then generate several candidate solutions for that one opportunity rather than for the whole tree. [PT]
 5. **Under each serious solution, list the assumptions it depends on,** and test the riskiest first. [PT]

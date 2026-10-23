@@ -1,4 +1,4 @@
-# Evaluation cases — design-systems-consistency (Skill 05)
+# Evaluation cases, design-systems-consistency
 
 Human-readable QA contract for this skill. `evals/evals.json` holds the same cases (same numbering) in the
 skill-creator eval schema.
@@ -8,17 +8,17 @@ skill-creator eval schema.
   which tools were called. A run passes only if it meets every pass criterion and hits no failure criterion.
   Unnecessary-work checks are reported separately as efficiency findings.
 - Negative-trigger cases (4, 5, 7) are graded as if the skill were invoked manually: the expected behaviour is a
-  one-line routing to the owner and no work in that skill's territory. Trigger-rate benchmarking is a later phase.
+  one-line routing to the owner and no work in that skill's territory.
 - No fixtures are attached. Where a case depends on the product's own system (Tier 0), a good run asks for or
   inspects it, marks unknowns, and never invents inventory, values or modes.
 - Cases 1–10 are the required set. Cases 11–12 add the positive twin of case 5 (reusable behaviour contract) and
   the automated-accessibility limit.
-- Schema source: `skills/skill-creator/references/schemas.md` in `anthropics/skills`, checked 2026-10-20 —
+- Schema source: `skills/skill-creator/references/schemas.md` in `anthropics/skills`, checked 2026-10-20 -
   top-level `skill_name` and `evals`; per eval `id`, `prompt`, `expected_output`, `files`, `expectations`.
 
 ---
 
-## Case 1 — DangerButton
+## Case 1, DangerButton
 
 **User prompt**
 > We need a new DangerButton because delete actions need a red button.
@@ -31,7 +31,7 @@ skill-creator eval schema.
 - Looks for Tier 0 evidence of an intent/kind/variant property on Button and destructive token roles; without it,
   marks the fact unknown and answers conditionally.
 - Applies REUSE > COMPOSE > EXTEND > CREATE: REUSE if the intent value exists, otherwise EXTEND Button with
-  `intent=destructive` (or the product's existing term) — token roles per state, inherited states, contrast per
+  `intent=destructive` (or the product's existing term), token roles per state, inherited states, contrast per
   mode, Figma value and code enum added in the same non-breaking change.
 - Quick mode: decision, evidence, recommendation, consequence.
 
@@ -55,7 +55,7 @@ skill-creator eval schema.
 
 ---
 
-## Case 2 — 87 hex values
+## Case 2, 87 hex values
 
 **User prompt**
 > We found 87 hex values in the product. Convert all of them into design tokens.
@@ -91,7 +91,7 @@ skill-creator eval schema.
 
 ---
 
-## Case 3 — Boolean explosion
+## Case 3, Boolean explosion
 
 **User prompt**
 > Add compact, loading, icon-only, destructive, full-width, selected and mobile as boolean properties on Button.
@@ -127,7 +127,7 @@ skill-creator eval schema.
 
 ---
 
-## Case 4 — Screen-level visual composition
+## Case 4, Screen-level visual composition
 
 **User prompt**
 > Use our existing Card, Button and Badge components to make this pricing screen cleaner and improve the hierarchy.
@@ -155,7 +155,7 @@ skill-creator eval schema.
 
 ---
 
-## Case 5 — Feature-specific interaction
+## Case 5, Feature-specific interaction
 
 **User prompt**
 > When file upload partially fails, should retry happen per file or for the whole batch?
@@ -182,7 +182,7 @@ skill-creator eval schema.
 
 ---
 
-## Case 6 — Design-system Figma/code parity
+## Case 6, Design-system Figma/code parity
 
 **User prompt**
 > Our Button has `intent=destructive` and `size=compact` in Figma, but the production Button component does not
@@ -221,7 +221,7 @@ skill-creator eval schema.
 
 ---
 
-## Case 7 — Feature implementation QA
+## Case 7, Feature implementation QA
 
 **User prompt**
 > The checkout page is built on staging. Compare it against the approved Figma screens and tell me what should
@@ -249,7 +249,7 @@ skill-creator eval schema.
 
 ---
 
-## Case 8 — Token rename and migration
+## Case 8, Token rename and migration
 
 **User prompt**
 > We want to rename `color.brand.primary` to `color.action.primary.background`. Can we just rename it in Figma?
@@ -261,7 +261,7 @@ skill-creator eval schema.
 - No Figma-only rename: count consumers in Figma, code (CSS variables, generated outputs, downstream packages)
   and docs first.
 - Distinguishes rename from semantic change: `brand` and `action` are different roles. If `color.brand.primary`
-  has non-action uses (brand marks, links, highlights), this is a split — add the action role aliasing the same
+  has non-action uses (brand marks, links, highlights), this is a split, add the action role aliasing the same
   primitive, migrate action uses, keep or re-scope the brand role.
 - Deprecated alias and compatibility window; name and value changes in separate steps; removal only at zero
   consumers or with an accepted break.
@@ -285,7 +285,7 @@ skill-creator eval schema.
 
 ---
 
-## Case 9 — One-off local exception
+## Case 9, One-off local exception
 
 **User prompt**
 > This campaign card needs a unique gradient that will never be reused. Should we add it to the core token system?
@@ -315,7 +315,7 @@ skill-creator eval schema.
 
 ---
 
-## Case 10 — Missing inventory
+## Case 10, Missing inventory
 
 **User prompt**
 > Do we already have a component for this pattern? If not, create one.
@@ -328,7 +328,7 @@ No Figma, library or code context is provided.
 **Expected behavior**
 - States that existence cannot be confirmed without Tier 0 evidence; asks what the pattern is.
 - Lists what to inspect: library components with properties and variants, local components, tokens/variables,
-  code components and props, Storybook, docs — or inspects them if the session has access.
+  code components and props, Storybook, docs, or inspects them if the session has access.
 - Explains the REUSE > COMPOSE > EXTEND > CREATE sequence and the CREATE evidence bar; any recommendation is
   conditional.
 
@@ -349,7 +349,7 @@ No Figma, library or code context is provided.
 
 ---
 
-## Case 11 — Reusable behaviour contract (positive twin of case 5)
+## Case 11, Reusable behaviour contract (positive twin of case 5)
 
 **User prompt**
 > What states and keyboard/focus behavior must our reusable FileUpload component support across products?
@@ -384,7 +384,7 @@ No Figma, library or code context is provided.
 
 ---
 
-## Case 12 — Automated accessibility is not validation
+## Case 12, Automated accessibility is not validation
 
 **User prompt**
 > Storybook's accessibility addon shows zero violations for our Combobox. Can we mark it as 'accessible' in the

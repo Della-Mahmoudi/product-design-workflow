@@ -1,4 +1,4 @@
-# Component architecture and states — executable guidance
+# Component architecture and states, executable guidance
 
 Load for: component anatomy, properties, variants, sizes, states, accessibility contracts, responsive and
 content behaviour, component families, and reuse / compose / extend / create decisions that go beyond a
@@ -14,7 +14,7 @@ Contents: 1 Purpose test · 2 Anatomy · 3 Composition · 4 Property model · 5 
 
 Write one sentence: "*Component* lets a person *do/see X* in *context Y*." If two candidate components have the
 same sentence, they are one component. If a proposed component's sentence only differs by appearance ("…but
-red", "…but on the marketing site"), it is a variant, a token change, or an exception — not a component.
+red", "…but on the marketing site"), it is a variant, a token change, or an exception, not a component.
 
 ## 2. Anatomy
 
@@ -52,9 +52,9 @@ Properties represent meaningful, orthogonal dimensions. Use this taxonomy before
 | Interaction/lifecycle state | `disabled`, `loading`, `selected`/`pressed` (toggle), `checked`, `expanded`, `invalid`, `readOnly` | state (boolean or enum) | state, not variant |
 | Content presence | label, icon slots, `iconOnly`/label visibility | content props / slots | content |
 | Layout participation | `fullWidth`/`block`, alignment | layout prop or parent layout | layout |
-| Platform convention | — | not a boolean: platform theme/mode or a platform implementation of the same API | platform |
-| Responsive/viewport behaviour | — | not a property: component responsive rules, or the parent layout sets `size` | responsive rules / tokens |
-| Feature-only condition (true for one screen or flow) | — | not a system property: local composition, documented exception, or feature behaviour (`interaction-design`) | feature |
+| Platform convention |, | not a boolean: platform theme/mode or a platform implementation of the same API | platform |
+| Responsive/viewport behaviour |, | not a property: component responsive rules, or the parent layout sets `size` | responsive rules / tokens |
+| Feature-only condition (true for one screen or flow) |, | not a system property: local composition, documented exception, or feature behaviour (`interaction-design`) | feature |
 
 Rules:
 - Classify every requested condition into exactly one row before adding anything; one that fits no row is
@@ -137,7 +137,7 @@ Rules:
 
 - Specify per text region: minimum/maximum recommended length, wrapping or truncation (and where the ellipsis
   goes), whether truncated text gets a tooltip or an accessible full name.
-- Plan for text expansion in translation (commonly 30–35 % longer than English, more for short strings — a
+- Plan for text expansion in translation (commonly 30–35 % longer than English, more for short strings, a
   heuristic, not a standard); icon-only controls avoid expansion but require accessible names.
 - Icon + label rules: position, spacing token, whether icon is decorative (hidden from AT) or meaningful.
 - Formatting (dates, numbers, currencies, plurals) is the content layer's job, not the component's.
@@ -173,7 +173,7 @@ scope, error copy, batch behaviour) is `interaction-design` work.
 - Use logical properties and start/end naming (`paddingInlineStart`, `leading`/`trailing` icons) instead of
   left/right; Figma: build with auto layout that mirrors cleanly and test with RTL preview.
 - Maintain the list of icons that must mirror (directional: back, forward, next, undo) vs. must not (clock,
-  checkmark, media play by convention — check the product's icon guidelines).
+  checkmark, media play by convention, check the product's icon guidelines).
 - Keep text regions flexible in width; avoid fixed-width labels; allow two-line wrap where the product permits.
 - Numbers, bidi punctuation and mixed-direction strings need the content layer to isolate direction; the
   component should not break when it happens.
@@ -225,7 +225,7 @@ intent's background/text/border and their hover/pressed/disabled/focus), states 
 CREATE a colour-named component.
 
 Pattern: *a batch of booleans is requested that mixes size, state, content, intent, layout and viewport* (compact,
-loading, icon-only, destructive, full-width, selected, mobile — or dense, error, with-avatar, clickable,
+loading, icon-only, destructive, full-width, selected, mobile, or dense, error, with-avatar, clickable,
 highlighted, tablet on a list item).
 → Sort each into its dimension first: size words = `size` enum value or density mode; loading/error/selected =
 states (loading with busy exposure/announcement and stable width; selected implies toggle semantics →

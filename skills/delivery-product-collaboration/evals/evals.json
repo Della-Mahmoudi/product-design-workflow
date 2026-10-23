@@ -48,7 +48,7 @@
     {
       "id": 4,
       "prompt": "The Figma section is already marked Ready for Dev. Can we send it to engineering?",
-      "expected_output": "[Case D] Treats the Figma status as workflow metadata, runs or requests the minimum implementation-critical readiness checks, and gives a Ready / Not Ready / Ready with conditions verdict based on those checks — not Ready without evidence.",
+      "expected_output": "[Case D] Treats the Figma status as workflow metadata, runs or requests the minimum implementation-critical readiness checks, and gives a Ready / Not Ready / Ready with conditions verdict based on those checks, not Ready without evidence.",
       "files": [],
       "expectations": [
         "Does not treat the Figma Ready-for-Dev status as evidence that the design is complete.",
@@ -62,7 +62,7 @@
     {
       "id": 5,
       "prompt": "Our Button component has different properties in Figma and code. Which one should be the source of truth and how should we reconcile them?",
-      "expected_output": "[Case E — should not trigger] If invoked, a short routing note: this is system-object parity (Figma Button vs code Button) owned by design-systems-consistency; no source of truth is chosen and no API is designed.",
+      "expected_output": "[Case E, should not trigger] If invoked, a short routing note: this is system-object parity (Figma Button vs code Button) owned by design-systems-consistency; no source of truth is chosen and no API is designed.",
       "files": [],
       "expectations": [
         "Identifies the request as system-object to system-object parity (Figma Button vs code Button).",
@@ -75,10 +75,10 @@
     {
       "id": 6,
       "prompt": "The new checkout is on staging. Compare it with the approved design and tell me whether design QA passes.",
-      "expected_output": "[Case F] Feature implementation QA kept in Skill 07: baseline and build fixed or requested, checkout-relevant behavioral, state, accessibility, content and visual dimensions selected, only supported defects reported with severity, uninspected dimensions marked, and a design QA verdict that is not presented as the release decision.",
+      "expected_output": "[Case F] Feature implementation QA kept in `delivery-product-collaboration`: baseline and build fixed or requested, checkout-relevant behavioral, state, accessibility, content and visual dimensions selected, only supported defects reported with severity, uninspected dimensions marked, and a design QA verdict that is not presented as the release decision.",
       "files": [],
       "expectations": [
-        "Keeps feature implementation QA in Skill 07 rather than routing it elsewhere.",
+        "Keeps feature implementation QA in `delivery-product-collaboration` rather than routing it elsewhere.",
         "Establishes or requests the approved baseline (design version, acceptance criteria, post-handoff changes).",
         "Establishes or requests the build context (staging build, viewports, browsers, roles, test data).",
         "Checks or plans checks beyond visuals, including behavior against acceptance criteria, error and loading states, and keyboard/focus/form-error accessibility.",
@@ -104,19 +104,19 @@
     {
       "id": 8,
       "prompt": "Define the analytics event, properties and metric for successful Saved Search creation.",
-      "expected_output": "[Case H — should not trigger] If invoked, routes measurement-contract definition to prototype-testing-analytics and defines nothing; may note that Skill 07 later carries the approved contract into handoff and verifies its implementation.",
+      "expected_output": "[Case H, should not trigger] If invoked, routes measurement-contract definition to prototype-testing-analytics and defines nothing; may note that `delivery-product-collaboration` later carries the approved contract into handoff and verifies its implementation.",
       "files": [],
       "expectations": [
         "Routes tracking-plan definition to prototype-testing-analytics.",
         "Does not define an event name, properties or a metric.",
         "Does not write analytics acceptance criteria for an undefined contract.",
-        "Keeps any description of Skill 07's later role (handoff and implementation verification) brief."
+        "Keeps any description of `delivery-product-collaboration`'s later role (handoff and implementation verification) brief."
       ]
     },
     {
       "id": 9,
       "prompt": "Our approved tracking plan says `saved_search_created` fires only after the server confirms creation. Engineering says it's done. Verify the implementation.",
-      "expected_output": "[Case I] Verifies the build against the approved measurement contract — trigger only after server confirmation, not on click, failure or retry; required properties when supplied — with named evidence, not-inspected labels where there is no access, and impact-based classification; the event and metric are not redefined.",
+      "expected_output": "[Case I] Verifies the build against the approved measurement contract, trigger only after server confirmation, not on click, failure or retry; required properties when supplied, with named evidence, not-inspected labels where there is no access, and impact-based classification; the event and metric are not redefined.",
       "files": [],
       "expectations": [
         "Verifies tracking implementation without redefining the metric, event or trigger.",
@@ -156,12 +156,12 @@
     {
       "id": 12,
       "prompt": "The implemented page feels too dense. Can you redesign the spacing, typography and hierarchy?",
-      "expected_output": "[Case L — should not trigger] If invoked, routes visual redesign to ui-visual-design and proposes no new values; distinguishes a build that departs from the approved visual design (an implementation mismatch Skill 07 can document) from a design that is itself too dense.",
+      "expected_output": "[Case L, should not trigger] If invoked, routes visual redesign to ui-visual-design and proposes no new values; distinguishes a build that departs from the approved visual design (an implementation mismatch `delivery-product-collaboration` can document) from a design that is itself too dense.",
       "files": [],
       "expectations": [
         "Routes visual redesign of spacing, typography and hierarchy to ui-visual-design.",
         "Does not propose new spacing values, a type scale or a new hierarchy.",
-        "Distinguishes an implementation mismatch with the approved design (which Skill 07 can document) from a problem in the approved design itself.",
+        "Distinguishes an implementation mismatch with the approved design (which `delivery-product-collaboration` can document) from a problem in the approved design itself.",
         "Does not produce a full QA report or handoff artifacts."
       ]
     }

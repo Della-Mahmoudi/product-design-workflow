@@ -1,8 +1,8 @@
 # ux-architecture: QA cases
 
-Human-readable QA contract for Skill 02. `evals.json` holds the same eight cases in the skill-creator eval schema, with the same IDs and prompts.
+Human-readable QA contract for `ux-architecture`. `evals.json` holds the same eight cases in the skill-creator eval schema, with the same IDs and prompts.
 
-- **Should trigger** is the routing expectation. It is measured later, in trigger-rate benchmarking, not by `evals.json`.
+- **Should trigger** is the routing expectation. It is not measured by `evals.json`.
 - For **NO** cases, the criteria describe what this skill must do if it is loaded anyway (invoked manually): name the boundary, hand off, and not produce the other skill's deliverable.
 - The boundary under test: this skill answers *where, what and in what order*. How something behaves belongs to `interaction-design`, how it looks to `ui-visual-design`, and running studies or measuring to `prototype-testing-analytics`.
 

@@ -12,7 +12,7 @@ need one (see the handoff reference).
 3. Plain statements vs Given / When / Then
 4. Criteria by dimension (behavior, state, error, permission, destructive, responsive, accessibility, content, analytics)
 5. Technical assumptions inside criteria
-6. Product behavior vs implementation detail — what not to specify
+6. Product behavior vs implementation detail, what not to specify
 7. Anti-patterns and rewrites
 8. Traceability
 9. Ticket-level spec block
@@ -24,14 +24,14 @@ need one (see the handoff reference).
 
 An acceptance criterion lets a developer know when they are done and lets a tester know what to
 check, without either of them asking the designer. A criterion that cannot be observed cannot be
-tested, and a criterion that cannot be tested will be interpreted — usually differently by each
+tested, and a criterion that cannot be tested will be interpreted, usually differently by each
 reader. Criteria describe **outcomes the user or system can observe**, under **stated
 conditions**, in **named states**, with **relevant constraints**, including **failure behavior**
 where it exists. They do not describe how the code is organised.
 
 Criteria translate **approved** product and design behavior into observable, testable statements.
-They are not where undecided behavior gets decided. If nobody approved what happens — where focus
-goes after Cancel, whether duplicates are allowed, what undo restores — the criterion cannot be
+They are not where undecided behavior gets decided. If nobody approved what happens, where focus
+goes after Cancel, whether duplicates are allowed, what undo restores, the criterion cannot be
 written yet: mark the gap `Missing design decision`, block or condition readiness, and route it to
 its owner (the owner routing table in SKILL.md). A confident Given/When/Then for unapproved
 behavior hides the gap instead of closing it.
@@ -48,12 +48,12 @@ Weak → strong, same intent:
 |---|---|---|
 | The modal should work correctly. | No observable outcome | When the user confirms deletion, the modal closes, the item is removed from the list without a page reload, and focus returns to the list item that preceded the deleted one (or to the list heading if none). |
 | Responsive design should work. | No breakpoint, no transformation | At the product's compact breakpoint, secondary metadata moves below the title while the primary action remains available without horizontal scrolling. |
-| Errors are handled gracefully. | "Gracefully" is unobservable | When saving fails with a network error, the form keeps the user's input, shows the inline error "Couldn't save — check your connection and try again", and the Save action remains available. |
-| Users without permission can't delete. | Unclear whether hidden, disabled, or rejected | When a user without delete permission opens workspace settings, the destructive delete action is not rendered; a direct request to the delete endpoint is rejected (server behavior — requires engineering confirmation). |
+| Errors are handled gracefully. | "Gracefully" is unobservable | When saving fails with a network error, the form keeps the user's input, shows the inline error "Couldn't save, check your connection and try again", and the Save action remains available. |
+| Users without permission can't delete. | Unclear whether hidden, disabled, or rejected | When a user without delete permission opens workspace settings, the destructive delete action is not rendered; a direct request to the delete endpoint is rejected (server behavior, requires engineering confirmation). |
 | The list loads fast. | Vague adjective (the book's "fast" problem) | The list renders a skeleton within the first paint and shows results or an empty state within the product's loading budget (confirm budget with engineering; design assumes ≤ 2 s before a "still loading" message). |
 
 The rewrites assume the behavior they describe was approved; where it was not, the rewrite is not
-yours to write — route the decision first.
+yours to write, route the decision first.
 
 Avoid the words the Technical Product Management practice flags as meaningless in requirements:
 simple, user-friendly, fast, flexible, optimal, maximum/minimum without a number, "as soon as
@@ -65,7 +65,7 @@ behavior ("behaves like the existing Rename flow").
 Use plain criteria by default; they read faster and most teams test from them directly. Use
 Given / When / Then when the criterion has a precondition that readers would otherwise miss, when
 several conditions share one outcome, or when the team's tooling consumes Gherkin. Do not force
-Gherkin onto every ticket — a one-line observable statement is often clearer than three lines of
+Gherkin onto every ticket, a one-line observable statement is often clearer than three lines of
 scaffolding.
 
 ```
@@ -82,43 +82,43 @@ Keep each scenario to one outcome. If you need "and also…", that is a second c
 Write criteria only for the dimensions the feature actually has. Examples are patterns, not text
 to paste.
 
-**Behavior** — trigger, outcome, side effects visible to the user. "After a successful save, the
+**Behavior**, trigger, outcome, side effects visible to the user. "After a successful save, the
 new saved search appears at the top of the list and the toast 'Search saved' is shown for 5 s or
 until dismissed."
 
-**State** — what each required state shows and what remains actionable. "While saving, the Save
+**State**, what each required state shows and what remains actionable. "While saving, the Save
 button shows the loading indicator, is not re-triggerable, and the form fields remain visible but
 non-editable; Cancel remains available and discards the pending save." (Whether cancel can
-actually abort the request is technical — label it.)
+actually abort the request is technical, label it.)
 
-**Error** — identification, wording ownership, recovery, preservation of input. "Validation
+**Error**, identification, wording ownership, recovery, preservation of input. "Validation
 errors appear inline under the field on blur and on submit, are announced to assistive
 technology, and submission is blocked until resolved."
 
-**Permission** — per role: visible, disabled, hidden, denied message, and whether the server
+**Permission**, per role: visible, disabled, hidden, denied message, and whether the server
 enforces it. Never write "the server also checks" unless confirmed.
 
-**Destructive** — confirmation, consequence statement, reversibility, dependants. "Deleting a
+**Destructive**, confirmation, consequence statement, reversibility, dependants. "Deleting a
 shared saved search shows a confirmation naming the number of other users who will lose access
-(count supplied by API — requires engineering confirmation) and offers no undo; the design assumes
+(count supplied by API, requires engineering confirmation) and offers no undo; the design assumes
 irreversibility until confirmed otherwise."
 
-**Responsive** — per named breakpoint: what stacks, collapses, hides, and what must stay
+**Responsive**, per named breakpoint: what stacks, collapses, hides, and what must stay
 reachable without horizontal scrolling. Include text-wrapping behavior for the longest realistic
 content.
 
-**Accessibility** — write as observable behavior, not as "is accessible": the control has the
+**Accessibility**, write as observable behavior, not as "is accessible": the control has the
 accessible name "Save search"; all actions are reachable by keyboard in reading order; opening
 the modal moves focus to its heading and Escape closes it, restoring focus to the triggering
 control; success and error messages are announced via a live region; text and non-text contrast
 meet the team's target; targets meet the team's minimum size; animation respects the
 reduced-motion preference.
 
-**Content** — which strings are final, which are provisional, dynamic ranges (min/max/empty), and
+**Content**, which strings are final, which are provisional, dynamic ranges (min/max/empty), and
 truncation rules. "Saved search names are limited to 60 characters; longer names are truncated
 with an ellipsis in the list and shown in full in the tooltip/accessible name."
 
-**Analytics (only when a tracking plan exists)** — event name, trigger moment (attempt vs
+**Analytics (only when a tracking plan exists)**, event name, trigger moment (attempt vs
 success), required properties, privacy constraints. "On successful save (not on click),
 `saved_search_created` fires with `{filter_count, source: 'results_page'}`; no free-text search
 terms are sent." Do not invent events, properties, or triggers; they come from the approved
@@ -131,8 +131,8 @@ engineering has not confirmed, keep the user-facing expectation and label the de
 
 ```
 AC-7  When the user undoes a deletion within 10 s, the item is restored to its previous position.
-      [Assumed: deletion is soft and reversible for 10 s — requires engineering confirmation.
-       If not reversible, AC-7 is replaced by a confirmation dialog — product decision, owner: PM]
+      [Assumed: deletion is soft and reversible for 10 s, requires engineering confirmation.
+       If not reversible, AC-7 is replaced by a confirmation dialog, product decision, owner: PM]
 ```
 
 Classification words to use consistently: Confirmed, Proposed, Assumed, Requires engineering
@@ -153,7 +153,7 @@ clickable div).
 | "Input is preserved after a failed save" | Whether preservation uses local state or a draft API |
 | "Results update without a full page reload" | Fetch strategy, caching |
 | Announcement text and timing | ARIA implementation details beyond the required role/name |
-| Error message wording and recovery options | HTTP status mapping (unless user-facing text depends on it — then ask) |
+| Error message wording and recovery options | HTTP status mapping (unless user-facing text depends on it, then ask) |
 
 Over-specification creates false defects (engineering did it a different, equivalent way) and
 hides real ones (nobody checked the outcome because they were checking the method).
@@ -171,7 +171,7 @@ hides real ones (nobody checked the outcome because they were checking the metho
   engineering, label it Assumed and name the fallback.
 - **The adjective criterion.** "Fast", "intuitive", "clean". Replace with observable behavior.
 - **The pixel criterion.** "Gap is 12px." If the system token decides it, reference the token;
-  if the token is wrong, that is a Skill 05 question.
+  if the token is wrong, that is a `design-systems-consistency` question.
 - **The Gherkin wall.** Ten Given/When/Then blocks for a toggle. Collapse to the two that carry
   decisions.
 - **The silent analytics drop.** The tracking plan defines an event; the ticket does not mention
@@ -182,7 +182,7 @@ hides real ones (nobody checked the outcome because they were checking the metho
 Each criterion should point back to the approved artifact (frame/section/version or status note)
 and, where it exists, to the requirement or decision it comes from. When implementation later
 disputes a criterion, that chain is how the dispute is resolved without re-litigating the design:
-look at the criterion, then the approved artifact, then the requirement or decision record — the
+look at the criterion, then the approved artifact, then the requirement or decision record, the
 same step-back logic the product-management practice recommends for unclear stories.
 
 ## 9. Ticket-level spec block
@@ -190,7 +190,7 @@ same step-back logic the product-management practice recommends for unclear stor
 A compact shape that fits most tickets; drop sections that do not apply.
 
 ```
-Feature / ticket: <id> — <name>
+Feature / ticket: <id>, <name>
 Approved artifact: <file / section / version or status>
 Scope: in: … / out: …
 Components: <system component → variant/props>, custom: <none | name + reason>

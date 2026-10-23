@@ -30,7 +30,7 @@ Delivery is not a designer-to-developer transfer; it is a shared commitment to s
 experience in a way the codebase can sustain. Engineering constraints can legitimately change a
 design. "Harder to build" is not by itself a reason to change an approved experience, and "it's
 in Figma" is not by itself a reason to keep one. Frame every discussion around the user outcome,
-the real constraint, and the cost of each option — never around which side wins. Involve only the
+the real constraint, and the cost of each option, never around which side wins. Involve only the
 roles the decision needs; do not build meeting processes.
 
 Roles that may be needed (use the team's actual titles): designer, engineer(s), PM/product owner,
@@ -42,12 +42,12 @@ role does not exist, name who is covering it rather than leaving the responsibil
 | Decision | Owner | This skill's part |
 |---|---|---|
 | What the product does (behavior, rules, scope) | PM / product owner, with design | Make the decision visible, state impact, record the outcome |
-| How the experience behaves and looks | Design — `interaction-design` for behavior, `ui-visual-design` for visuals | Evaluate deviations; route redesign back |
+| How the experience behaves and looks | Design, `interaction-design` for behavior, `ui-visual-design` for visuals | Evaluate deviations; route redesign back |
 | How it is built (architecture, method) | Engineering | Ask only for what affects the user-observable outcome |
-| Whether the design system changes | Design-system owner (`design-systems-consistency`, Skill 05) | Raise the request with evidence; do not design the extension |
+| Whether the design system changes | Design-system owner (`design-systems-consistency`) | Raise the request with evidence; do not design the extension |
 | Whether an accessibility exception is acceptable | Accessibility owner + PM | Classify the barrier; never approve exceptions alone |
 | Content wording | Content owner (or design if none) | Flag mismatches and provisional strings |
-| Analytics definitions | Data/analytics (`prototype-testing-analytics`, Skill 06) | Verify the approved contract is in the handoff and that the build implements it; never redefine it |
+| Analytics definitions | Data/analytics (`prototype-testing-analytics`) | Verify the approved contract is in the handoff and that the build implements it; never redefine it |
 | Ship / no-ship | The release owner the team's process names (often PM or technical product owner) | Supply the design QA verdict and open risks; never present the verdict as the release decision |
 
 When this skill is asked to "just decide", decide only what is in its column; for the rest,
@@ -60,9 +60,9 @@ before anyone proposes a replacement:
 
 | Dimension | Question |
 |---|---|
-| Original requirement | What user/product outcome was the behavior serving? (Check the AC and, if needed, the approved rationale — Tier 3, only when it matters.) |
+| Original requirement | What user/product outcome was the behavior serving? (Check the AC and, if needed, the approved rationale, Tier 3, only when it matters.) |
 | Existing capability | Does an existing component, pattern, or API already achieve the outcome a different way? |
-| Technical constraint | What exactly is the constraint — platform, API, performance, time, skills? Is it Confirmed or Assumed? |
+| Technical constraint | What exactly is the constraint, platform, API, performance, time, skills? Is it Confirmed or Assumed? |
 | Implementation cost | Rough cost of the approved behavior vs each alternative, with engineering's own confidence in the estimate (high / medium / low) |
 | Accessibility impact | Does any alternative lose approved accessibility behavior? |
 | UX impact | What does the user lose or gain under each alternative? |
@@ -72,9 +72,9 @@ before anyone proposes a replacement:
 | Simpler compliant alternative | Is there an option that meets the outcome with less cost and no accessibility or system loss? |
 | Decision needed | Can engineering choose freely (implementation detail), or does PM/design need to approve? |
 
-Distinguish three situations: **infeasible** (cannot be built as approved — decision required),
-**costly** (can be built; cost vs value is a product trade-off — PM decides with design input),
-**unfamiliar** (can be built; the team has not done it before — often solvable with a spike or a
+Distinguish three situations: **infeasible** (cannot be built as approved, decision required),
+**costly** (can be built; cost vs value is a product trade-off, PM decides with design input),
+**unfamiliar** (can be built; the team has not done it before, often solvable with a spike or a
 system component). Do not let the third masquerade as the first.
 
 ## 4. Evaluating a proposed deviation
@@ -106,10 +106,10 @@ Exception: EX-12
 Feature: saved-search / delete flow
 Approved behavior: undo toast (10 s) after delete
 Deviation: confirmation dialog instead of undo
-Reason: deletion is hard (not soft) in search-service v2 — Confirmed by backend lead on 2026-10-14
+Reason: deletion is hard (not soft) in search-service v2, Confirmed by backend lead on 2026-10-14
 Impact: user: one extra step, no accidental-loss risk; a11y: dialog follows system Modal contract; system: none; analytics: `saved_search_deleted` trigger unchanged
 Approved by: PM (name) with design (name)
-Scope: this feature only — not a precedent for other delete flows
+Scope: this feature only, not a precedent for other delete flows
 Sunset / revisit: when soft delete ships (ticket PX-480)
 Artifacts updated: Figma section v1.5, AC-7 replaced, ticket PX-401 description
 ```
@@ -122,7 +122,7 @@ the chosen component. When that happens:
 
 - Record the constraint (and its classification), the affected behavior, the decision required,
   and the options engineering supplied.
-- Do **not** invent a replacement interaction here. Route the decision to the owning stage — the
+- Do **not** invent a replacement interaction here. Route the decision to the owning stage, the
   same step-back logic as unclear requirements: look at the acceptance criterion, then the
   approved artifact, then the originating requirement or decision; whoever owns the layer that
   needs to change makes the change (interaction behavior → `interaction-design`; product rules
@@ -135,7 +135,7 @@ the chosen component. When that happens:
 ## 7. Scope changes during development
 
 Scope can shrink (a work package split across iterations) or grow (a "small" addition). The
-practice that holds up: a delivered slice should solve its problem completely — shipping 80% of a
+practice that holds up: a delivered slice should solve its problem completely, shipping 80% of a
 flow with a missing main capability is not a partial success, it is a broken feature. When scope
 is cut, cut whole capabilities with their states, not the error paths of a capability that stays.
 When scope grows, treat the addition as a new handoff item with its own readiness check rather
@@ -161,8 +161,8 @@ Technical impact: no new endpoint; one extra round trip on conflict
 Design-system impact: none (system inline error pattern)
 Accessibility impact: error announced via live region on submit (unchanged contract)
 Analytics impact: none
-Design artifacts updated: yes — section v1.5, status note added
-Acceptance criteria updated: yes — AC-6 rewritten
+Design artifacts updated: yes, section v1.5, status note added
+Acceptance criteria updated: yes, AC-6 rewritten
 Decision owner: PM (name) with design (name)
 ```
 
@@ -194,7 +194,7 @@ supersede. Both stay short.
 Escalate when a decision is outside this skill's ownership and the owner has not decided, when a
 deviation would remove approved accessibility behavior, when a BLOCKER cannot be fixed before
 release, or when engineering and design disagree on facts (then the resolution is to establish
-the fact — a spike, a test, a look at the API — not to argue preferences). Escalate with a
+the fact, a spike, a test, a look at the API, not to argue preferences). Escalate with a
 decision packet: the question, the options, impact per option, your recommendation, and the
 deadline. Keep it to the people who own the decision.
 

@@ -1,6 +1,6 @@
 # Typography, Color and Visual Language
 
-This reference covers applying type, color, surfaces, shape, iconography, imagery and state styling at screen level, using the product's existing styles and tokens. Defining scales, palettes or token architecture belongs to the Design Systems skill (Skill 05).
+This reference covers applying type, color, surfaces, shape, iconography, imagery and state styling at screen level, using the product's existing styles and tokens. Defining scales, palettes or token architecture belongs to the Design Systems skill.
 
 ## Contents
 1. Typography
@@ -58,7 +58,7 @@ This reference covers applying type, color, surfaces, shape, iconography, imager
 - Propose the smallest workable set of roles, often 4–6.
 - Start from a body size that suits the platform: around 16 px on the web; native defaults are in the platform blocks of the responsive reference §10.
 - Step up with a modest, consistent ratio, and set line heights on the spacing grid.
-- Mark every value `[PROVISIONAL]`. If the product has a design system that only lacks a type scale, also record that as a `[DS GAP]` for Skill 05. With no system at all, the values stay local to this interface.
+- Mark every value `[PROVISIONAL]`. If the product has a design system that only lacks a type scale, also record that as a `[DS GAP]` for `design-systems-consistency`. With no system at all, the values stay local to this interface.
 
 ## 2. Color application
 

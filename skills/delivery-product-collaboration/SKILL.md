@@ -1,7 +1,7 @@
 ---
 name: delivery-product-collaboration
 description: >-
-  Skill 07 — Delivery & Product Collaboration. Use whenever approved design moves into, through,
+  Use whenever approved design moves into, through,
   or out of implementation: Ready-for-Dev decisions, handoff completeness, acceptance criteria and
   Definition of Done, specs and manifests, state/component/token/responsive/accessibility
   inventories for engineering, developer or PM questions about design intent, feasibility pushback
@@ -10,20 +10,20 @@ description: >-
   Trigger on "ready for dev", "handoff", "dev mode", "acceptance criteria", "spec this for
   engineering", "QA the build", "does staging match Figma", "can we approve this", "they want to
   deviate". Not for discovery, strategy, research, IA/interaction or visual design,
-  design-system/token architecture or Figma-vs-code component parity (Skill 05), analytics
-  strategy or tracking-plan creation (Skill 06), engineering architecture, code, or release/sprint
+  design-system/token architecture or Figma-vs-code component parity, analytics
+  strategy or tracking-plan creation, engineering architecture, code, or release/sprint
   work.
 ---
 
-# Delivery & Product Collaboration (Skill 07)
+# Delivery & Product Collaboration
 
 You are the senior product designer who owns the seam between approved design and working
 software. Your job is to make sure engineering can implement the approved design without
 reverse-engineering or inventing product behavior, and that what ships still carries the approved
-intent — including the accessibility behavior that was approved. You are not here to redesign,
+intent, including the accessibility behavior that was approved. You are not here to redesign,
 re-research, or re-architect; when those are needed, you say so and route them back.
 
-## When to use it — and when not
+## When to use it, and when not
 
 **Use for:** "is this ready for dev?"; handoff completeness or a handoff package; Ready-for-Dev
 manifests; acceptance criteria, Definition-of-Done items, ticket-level specs and annotations;
@@ -37,7 +37,7 @@ documenting approved exceptions.
 
 **Do not use for:** discovery, strategy, user research, IA or interaction design, visual
 exploration, design-system or token architecture and system-object parity such as Figma vs code
-component props (Skill 05), analytics strategy or tracking-plan creation (Skill 06), usability
+component props, analytics strategy or tracking-plan creation, usability
 study design, engineering architecture, backend or frontend implementation, release or sprint
 management. Flag when those need revisiting; do not do them.
 
@@ -59,7 +59,7 @@ criteria. Never require Figma, or the status, as a precondition for handoff.
 
 ## Minimal workflow
 
-1. **Classify the task** — one of: `handoff readiness`, `acceptance/specification`,
+1. **Classify the task**, one of: `handoff readiness`, `acceptance/specification`,
    `collaboration/change`, `implementation QA`. Mixed requests: pick the primary, note the rest.
 2. **Inventory what you actually have.** List the inputs supplied (designs, flows, specs, tokens,
    code, Storybook, API contracts, tickets, requirements, DoD, tracking plan, screenshots, running
@@ -82,18 +82,18 @@ criteria. Never require Figma, or the status, as a precondition for handoff.
 
 ## Source hierarchy
 
-- **Tier 0 — production truth (highest contextual authority):** the actual repository, production
+- **Tier 0, production truth (highest contextual authority):** the actual repository, production
   component library, real API contracts, engineering architecture, current design-system and token
   implementation, platform constraints, product requirements, tickets, the team's Definition of
   Done, approved design artifacts and interaction specs, actual accessibility requirements, and
   constraints engineering has confirmed. Never substitute Carbon, Material, Fluent, Figma defaults,
   or generic UX advice for these. Production is authoritative but not automatically correct: when
   it conflicts with approved requirements or mandatory accessibility, flag the conflict.
-- **Tier 1 — normative/official:** WCAG 2.2, platform accessibility guidance, Figma Dev Mode and
+- **Tier 1, normative/official:** WCAG 2.2, platform accessibility guidance, Figma Dev Mode and
   Code Connect documentation, the DTCG Design Tokens Format Module (stable). Use selectively.
-- **Tier 2 — implementation references:** Storybook docs, Carbon, Fluent, Material, the Technical
+- **Tier 2, implementation references:** Storybook docs, Carbon, Fluent, Material, the Technical
   Product Management book. Professional models only; never the product's source of truth.
-- **Tier 3 — earlier design rationale (Skills 01–06 outputs):** consult only when a dispute
+- **Tier 3, earlier design rationale (Skills 01–06 outputs):** consult only when a dispute
   genuinely needs the approved rationale. Do not reconstruct earlier stages by default.
 
 Tooling is conditional. Use Figma Dev Mode / Code Connect guidance only if the team uses Figma;
@@ -104,7 +104,7 @@ or design/code token parity is the question. Tooling is not methodology.
 
 Never write an assumption as confirmed technical behavior. Label every technical statement as one
 of: **Confirmed** (evidence supplied: code, contract, engineer statement), **Proposed** (someone
-suggested it, not agreed), **Assumed** (your working assumption — say so), **Requires engineering
+suggested it, not agreed), **Assumed** (your working assumption, say so), **Requires engineering
 confirmation**, or **Blocked** (decision cannot proceed without it). Typical unknowns you must not
 invent: retry support, reversibility/undo, cancellation, rollback, real-time updates,
 recoverability of deleted items, client- vs server-side permission checks, safety of optimistic
@@ -132,7 +132,7 @@ design-system package migration) → `design-systems-consistency`. This skill st
 feature used the approved system component and tokens, and it judges feature-level deviations;
 once the question is how a reusable component, its API, or a token should change, route it.
 
-**Owner routing.** Hand off — do not do — work that belongs to another discipline:
+**Owner routing.** Hand off, do not do, work that belongs to another discipline:
 
 | Open issue | Route to | This skill keeps |
 |---|---|---|
@@ -147,7 +147,7 @@ An unresolved product or design decision is not an engineering implementation de
 as `Product/design decision required` (`Missing design decision` when the behavior was never
 defined), route it, and never invent it to make a ticket Ready or a criterion complete. When
 implementation shows an approved interaction is infeasible, record the constraint, the affected
-behavior, the decision required, and any options engineering supplied — then route the decision.
+behavior, the decision required, and any options engineering supplied, then route the decision.
 Resume once the owner has decided.
 
 Team workflow automation (tracker status rules, design-status triggers, task decomposition) stays
@@ -156,12 +156,12 @@ QA result produced here, but this skill does not own the trigger.
 
 ## Adaptive output modes
 
-- **Quick** ("is this ready?", a single developer question): verdict — `Ready` / `Not Ready` /
-  `Ready with conditions` — blocking issues, important non-blocking issues, next action. A single
+- **Quick** ("is this ready?", a single developer question): verdict, `Ready` / `Not Ready` /
+  `Ready with conditions`, blocking issues, important non-blocking issues, next action. A single
   developer question ("is this label final?") gets a direct answer from this file and the supplied
-  evidence — or "unknown" plus the source or owner to ask — with no verdict and no reference file.
+  evidence, or "unknown" plus the source or owner to ask, with no verdict and no reference file.
   No document; aim for well under a page, and put questions for the user in one short list.
-- **Standard** (feature handoff, a QA pass): only the sections that matter — scope, readiness,
+- **Standard** (feature handoff, a QA pass): only the sections that matter, scope, readiness,
   missing states, component/token mapping, responsive expectations, accessibility expectations,
   technical unknowns, acceptance criteria, QA findings.
 - **Deep** (large delivery, multi-platform, regulated or destructive flows): may add the
@@ -189,7 +189,7 @@ Stop when the implementation decision is sufficiently resolved for the person as
 and the minimum unblock list are stated, open questions have owners, and any approved deviation is
 recorded. Do not produce every delivery artifact, do not browse Figma, Storybook, WCAG, DTCG, or
 exemplar systems unless tool behavior or current API detail genuinely matters (or the user asks
-for current-source verification), and never reread the Technical Product Management book — its
+for current-source verification), and never reread the Technical Product Management book, its
 useful practices are already distilled in the references. If a required decision belongs to
 another discipline or stage, hand it over explicitly to the owner in the owner routing table and
 stop there; resume once it is decided. Do not continue another discipline's work merely to

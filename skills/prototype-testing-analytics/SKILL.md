@@ -3,7 +3,7 @@ name: prototype-testing-analytics
 description: Plans and judges evidence for product-design decisions. Three modes - prototype validation (what to prototype, at what fidelity, testing a flow before build); usability tests and research studies (method choice, study plans, non-leading tasks, success criteria, generative or exploratory interviews once a research question is set, running scoped card sorts or tree tests, findings with severity and confidence); product measurement (UX and HEART metrics, goal-signal-metric, events, properties and tracking plans, funnels, retention, guardrails, A/B experiment design, causal claims). Use whenever someone asks "can users do X", "should we test this", "how do we measure", "which events do we need", "did the change cause", "how many users or how long for an A/B test", or hands over study findings or analytics to interpret, even without the word research. Not for choosing which problem or opportunity to pursue, redesigning IA, interactions or visuals, design systems, or QA of built tracking or UI.
 ---
 
-# Prototype, Testing & Analytics (Skill 06)
+# Prototype, Testing & Analytics
 
 This skill decides what needs validating, what evidence would settle it, the smallest method that produces that evidence, and what the resulting evidence can and cannot support. It covers three kinds of work and keeps them distinct, because each produces evidence with different limits.
 

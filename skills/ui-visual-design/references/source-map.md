@@ -1,6 +1,6 @@
 # Source Map
 
-This file says which source governs which decision, how far to trust each one, and what to do when they disagree. Everything here was verified on 2026-10-20 unless noted. Read it when a source conflict, a citation question or a currency question comes up. Routine design work doesn't need it.
+This file says which source governs which decision, how far to trust each one, and what to do when they disagree. Read it when a source conflict, a citation question or a currency question comes up. Routine design work doesn't need it.
 
 ## Contents
 1. Authority order

@@ -179,18 +179,18 @@ How to design each theme, and the per-theme checklist, live in the typography-co
 
 ## 9. WCAG 2.2 visual criteria
 
-WCAG 2.2 is a W3C Recommendation, most recently published on 12 December 2024. Use only the rows that apply. A static design can show intent, but conformance needs the built product, so say "designed to address SC …" and never "compliant". Verifying the build belongs to delivery QA (Skill 07). Details: zoom and reflow in §4, targets in §5, contrast in the typography-color reference §3.
+WCAG 2.2 is a W3C Recommendation, most recently published on 12 December 2024. Use only the rows that apply. A static design can show intent, but conformance needs the built product, so say "designed to address SC …" and never "compliant". Verifying the build belongs to delivery QA. Details: zoom and reflow in §4, targets in §5, contrast in the typography-color reference §3.
 
 | SC | Level | What to check visually | A static design can't confirm |
 |---|---|---|---|
 | 1.3.1 Info and Relationships | A | structure shown visually (headings, groups, tables) is real structure, not just styling | programmatic markup |
 | 1.3.2 Meaningful Sequence | A | visual order matches the meaningful reading order | source/DOM order |
-| 1.3.3 Sensory Characteristics | A | instructions don't rely only on shape, color, size, location or sound | — |
+| 1.3.3 Sensory Characteristics | A | instructions don't rely only on shape, color, size, location or sound |, |
 | 1.3.4 Orientation | AA | layout works in portrait and landscape unless one orientation is essential | runtime lock |
-| 1.4.1 Use of Color | A | color is never the only means of conveying information | — |
+| 1.4.1 Use of Color | A | color is never the only means of conveying information |, |
 | 1.4.3 Contrast (Minimum) | AA | text at 4.5:1; large text at 3:1 | rendered colors |
 | 1.4.4 Resize Text | AA | text at 200% without loss | real behavior |
-| 1.4.5 Images of Text | AA | real text, not text baked into images | — |
+| 1.4.5 Images of Text | AA | real text, not text baked into images |, |
 | 1.4.10 Reflow | AA | works at 320 CSS px wide or 256 CSS px tall without 2D scrolling (2D content excepted) | real behavior |
 | 1.4.11 Non-text Contrast | AA | 3:1 for the component boundaries that identify controls, state indicators and meaningful graphics | rendered colors |
 | 1.4.12 Text Spacing | AA | no clipping or overlap when spacing is increased | real behavior |
@@ -200,10 +200,10 @@ WCAG 2.2 is a W3C Recommendation, most recently published on 12 December 2024. U
 | 2.4.13 Focus Appearance | AAA | indicator area at least a 2 CSS px perimeter; at least 3:1 change between focused and unfocused states | rendering |
 | 2.5.8 Target Size (Minimum) | AA | at least 24×24 CSS px, or the spacing exception | real hit areas |
 | 2.5.5 Target Size (Enhanced) | AAA | at least 44×44 CSS px | real hit areas |
-| 3.2.4 Consistent Identification | AA | the same function has the same label and icon on every screen | — |
+| 3.2.4 Consistent Identification | AA | the same function has the same label and icon on every screen |, |
 | 3.3.1 Error Identification | A | errors are identified and described in text, not by color or an icon alone | detection logic |
-| 3.3.2 Labels or Instructions | A | visible labels or instructions wherever input is required | — |
-| 1.4.6 Contrast (Enhanced), 1.4.8 Visual Presentation | AAA | 7:1 contrast; text blocks of at most 80 characters, not justified, with at least 1.5 line spacing. Use as quality targets when the target is AAA | — |
+| 3.3.2 Labels or Instructions | A | visible labels or instructions wherever input is required |, |
+| 1.4.6 Contrast (Enhanced), 1.4.8 Visual Presentation | AAA | 7:1 contrast; text blocks of at most 80 characters, not justified, with at least 1.5 line spacing. Use as quality targets when the target is AAA |, |
 
 **Native apps.** W3C explains how WCAG applies outside the web in two informative documents:
 - WCAG2ICT, a Group Note published 11 December 2025;

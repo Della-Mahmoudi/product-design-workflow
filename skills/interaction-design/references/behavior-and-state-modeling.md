@@ -135,9 +135,9 @@ Name states by what is true for the user ("Sending invite"), not by implementati
 
 | State | User sees and can do | Event → next state | Feedback |
 |---|---|---|---|
-| Idle | "Resend invite" button | Activate → Sending | — |
+| Idle | "Resend invite" button | Activate → Sending |, |
 | Sending | Button shows busy; repeat activation is ignored | Success → Sent; error → Failed; no response in N s → Unknown | Busy status announced if longer than about a second |
-| Sent | "Invite sent 14:02"; button returns after a cooldown `[confirm: product]` | — | Status message |
+| Sent | "Invite sent 14:02"; button returns after a cooldown `[confirm: product]` |, | Status message |
 | Failed | Inline error with the reason and "Try again" | Retry → Sending | Error announced; focus stays on the control |
 | Unknown | "We couldn't confirm the invite was sent" with "Check status" | Check → Sent or Failed | Status message |
 

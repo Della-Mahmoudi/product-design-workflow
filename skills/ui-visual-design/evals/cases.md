@@ -228,7 +228,7 @@ Grade both the answer and the transcript: which reference files were read, and w
 **Expected behavior**
 - The router picks `design-systems-consistency`.
 - If this skill is invoked anyway, it identifies the request as reusable component API, variant and token architecture and routes it.
-- If useful, it lists the visual requirements those versions must meet, framed as inputs for Skill 05: a destructive action is never styled as the primary one; icon-only and compact sizes keep the platform or WCAG target size; loading keeps the button's dimensions; every version keeps text and non-text contrast. An icon-only button also needs an accessible name, which is an engineering dependency.
+- If useful, it lists the visual requirements those versions must meet, framed as inputs for `design-systems-consistency`: a destructive action is never styled as the primary one; icon-only and compact sizes keep the platform or WCAG target size; loading keeps the button's dimensions; every version keeps text and non-text contrast. An icon-only button also needs an accessible name, which is an engineering dependency.
 
 **Pass criteria**
 1. Routes to `design-systems-consistency`.
@@ -255,7 +255,7 @@ Grade both the answer and the transcript: which reference files were read, and w
 
 **Expected behavior**
 - The router picks `delivery-product-collaboration`.
-- If this skill is invoked anyway, it identifies the build-versus-design comparison and the release-blocking judgment as Skill 07 work and routes them.
+- If this skill is invoked anyway, it identifies the build-versus-design comparison and the release-blocking judgment as `delivery-product-collaboration` work and routes them.
 - It may offer the approved visual intent (hierarchy, token use, states, responsive rules) as an input to that QA. It doesn't run the comparison.
 
 **Pass criteria**

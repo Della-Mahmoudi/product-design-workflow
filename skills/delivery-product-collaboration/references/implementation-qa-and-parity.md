@@ -5,20 +5,20 @@ a running build) against the approved design, judging whether the feature used t
 components and tokens, verifying an implemented tracking plan, and giving a design QA verdict.
 Use Storybook, Figma, or code references only when they are supplied or clearly relevant.
 
-Scope: feature build ↔ approved feature design. Parity between system objects — a Figma component
-vs its code component, props, token definitions, Storybook vs library — belongs to
+Scope: feature build ↔ approved feature design. Parity between system objects, a Figma component
+vs its code component, props, token definitions, Storybook vs library, belongs to
 `design-systems-consistency`.
 
 ## Contents
 
 1. What design QA is (and is not)
-2. Step 1 — fix the baseline and the build under review
-3. Step 2 — evidence rules: report only what you inspected
+2. Step 1, fix the baseline and the build under review
+3. Step 2, evidence rules: report only what you inspected
 4. QA dimensions and how to check each
 5. Component parity (custom vs system)
 6. Token parity
-7. Storybook comparison — when the team uses it
-8. Figma / code comparison — when the team uses Figma
+7. Storybook comparison, when the team uses it
+8. Figma / code comparison, when the team uses Figma
 9. The issue record: expected vs actual
 10. Categories for implementation differences
 11. Severity: BLOCKER / MAJOR / MINOR / POLISH
@@ -36,23 +36,23 @@ semantics, components, tokens, layout, responsive behavior, content, accessibili
 defined) analytics. A screenshot comparison catches a fraction of this. Two builds can be
 pixel-identical in the default state while one has no keyboard access, loses the user's input on
 error, bypasses every semantic token, and fires analytics on the wrong trigger. Treat "looks
-almost identical to Figma" as a statement about one state at one viewport in one theme — useful,
+almost identical to Figma" as a statement about one state at one viewport in one theme, useful,
 and insufficient.
 
 Design QA also is not a claim of full accessibility conformance. Report what you verified, with
 what, and leave the conformance statement to a proper audit. Nor is it redesign: when QA shows the
 approved design itself is the problem (too dense, weak hierarchy, undefined behavior), record it
-as `Design defect discovered during implementation` and route it — visual redesign to
+as `Design defect discovered during implementation` and route it, visual redesign to
 `ui-visual-design`, behavior to `interaction-design`.
 
-## 2. Step 1 — fix the baseline and the build under review
+## 2. Step 1, fix the baseline and the build under review
 
 Before comparing anything, write down both sides:
 
 - **Baseline:** which approved artifact and version (file/section/version, spec or ticket
   version, the acceptance criteria set), and whether the design changed after handoff. A design
   tool's change flag or version history can help you spot edits; the change log is the record.
-  If the artifact moved after handoff and the change was not logged, say so — QA against a
+  If the artifact moved after handoff and the change was not logged, say so, QA against a
   moving target produces false defects in both directions.
 - **Build:** environment (local, PR preview, staging), commit or build id, browser/OS/device,
   viewport(s), theme(s), locale, role used, feature flags, and data set.
@@ -60,7 +60,7 @@ Before comparing anything, write down both sides:
 If the person asking cannot supply these, QA is still possible on what they did supply, but the
 report must state the limits.
 
-## 3. Step 2 — evidence rules
+## 3. Step 2, evidence rules
 
 Report findings only on what you actually inspected: a screenshot shows appearance in one state;
 a recording shows one path; code shows intent but not rendered behavior; a Storybook story shows
@@ -104,7 +104,7 @@ A mismatch is an implementation defect, or `Product/design decision required` if
 proposes different semantics. Defining or changing the metric, event, or properties belongs to
 `prototype-testing-analytics`.
 
-## 5. Component parity — custom vs system
+## 5. Component parity, custom vs system
 
 When the build uses a custom component where the component map specified a system component,
 do not reject it automatically and do not accept it because it was easier. Assess:
@@ -117,7 +117,7 @@ do not reject it automatically and do not accept it because it was easier. Asses
    model, focus management, announcements)?
 6. Does it increase maintenance cost (two implementations to update, theme/token drift)?
 7. Does it create visual or behavioral inconsistency with the rest of the product?
-8. Should the system be extended instead (route to the design-system owner / Skill 05)?
+8. Should the system be extended instead (route to the design-system owner / `design-systems-consistency`)?
 9. Is the deviation temporary, and is there a migration plan with an owner?
 
 Outcome is one of: reuse the system component; extend the system component (request logged);
@@ -127,24 +127,24 @@ owner, and sunset condition). Record the decision, whichever it is.
 This skill makes the delivery decision: is the deviation justified for this feature, does the
 existing component meet the requirement, what are the UX, accessibility, maintenance, and cost
 impacts, should an exception be approved. If the outcome is "extend the system component", how to
-extend it — props, variants, states, API — is designed in `design-systems-consistency`, not here.
+extend it, props, variants, states, API, is designed in `design-systems-consistency`, not here.
 
 ## 6. Token parity
 
 Check that the approved semantic tokens survived in three places: the design file uses the
 semantic token (not a primitive or detached value); the code uses the corresponding
 implementation token; no raw value replaced either silently; the theme/mode behavior still
-holds. A raw value is a finding even when it currently equals the token's value — it will not
+holds. A raw value is a finding even when it currently equals the token's value, it will not
 follow the next token change. If a needed token does not exist, the finding is "token missing",
 routed to the system owner (`design-systems-consistency`); do not invent a token name or redesign
 the scale. Whether the token definitions themselves match between design and code (values,
 aliases, naming) is system parity, not feature QA.
 
-## 7. Storybook comparison — when the team uses it
+## 7. Storybook comparison, when the team uses it
 
 Use stories as the implemented **state inventory**: compare the set of stories for the component
 against the approved state inventory and name states with no story. Use interaction tests
-(`play` functions) as evidence of behavior for the paths they cover — and only those. Treat the
+(`play` functions) as evidence of behavior for the paths they cover, and only those. Treat the
 accessibility addon (axe-core) as a first filter: its own documentation says it catches "up to
 57% of WCAG issues", and its **Incomplete** results explicitly need manual confirmation; a green
 run says nothing about accessible-name quality, focus management across views, or announcement
@@ -154,14 +154,14 @@ show components in isolation: they do not prove feature usability, full product 
 production feature parity. None of this replaces checking the assembled feature in the product
 with keyboard and assistive technology.
 
-## 8. Figma / code comparison — when the team uses Figma
+## 8. Figma / code comparison, when the team uses Figma
 
 Use the Inspect panel and Variables view to read the **approved** values (component, variant,
 applied variables) rather than eyeballing the canvas. If the design was edited after handoff (an
 unlogged change, a newer version, or a change flag in the tool), resolve what changed before
 filing parity defects. Use *Compare changes* when the developer built from an earlier version. If
 Code Connect mappings exist, they tell you which code component should have been used; they do
-not prove the behavior or states match. Generated code in Dev Mode is not the reference — the
+not prove the behavior or states match. Generated code in Dev Mode is not the reference, the
 team's components are.
 
 ## 9. The issue record
@@ -206,23 +206,23 @@ decides who acts, the severity decides how urgently.
 
 Severity reflects **user and product impact**, never designer preference.
 
-- **BLOCKER** — cannot reasonably ship: a critical task cannot be completed; a serious
+- **BLOCKER**, cannot reasonably ship: a critical task cannot be completed; a serious
   accessibility barrier (keyboard trap, unreachable primary action, unnamed critical control);
   destructive behavior is unsafe (no confirmation on irreversible delete, wrong item deleted);
   severe permissions/security-facing UX mismatch (denied action reachable); a critical required
   state is missing; the implementation fundamentally contradicts approved product behavior.
-- **MAJOR** — a meaningful usability, behavior, accessibility, responsive, or system-consistency
+- **MAJOR**, a meaningful usability, behavior, accessibility, responsive, or system-consistency
   failure: input lost on error; focus not restored after a modal; horizontal scroll at a
   supported breakpoint; a system component replaced by a custom one without justification;
   analytics firing on the wrong trigger; a required non-critical state missing.
-- **MINOR** — noticeable, limited impact: raw value where a token exists (same visual today);
+- **MINOR**, noticeable, limited impact: raw value where a token exists (same visual today);
   wrong variant of the right component; truncation without tooltip on rare long content;
   secondary icon mismatch.
-- **POLISH** — small visual refinement with no behavioral impact: 1–2px optical alignment;
+- **POLISH**, small visual refinement with no behavioral impact: 1–2px optical alignment;
   hover-state easing; an icon weight variant.
 
 Calibration rules: weigh user impact, task impact, accessibility barrier, product and safety
-risk, and reach (how many users, roles, or flows it touches) — never designer preference or the
+risk, and reach (how many users, roles, or flows it touches), never designer preference or the
 number of pixel differences. An accessibility issue that blocks a task is BLOCKER regardless of
 how small it looks, but accessibility issues are graded by the barrier they create, not
 automatically BLOCKER (a weak focus indicator on one secondary control is not a keyboard trap). A
@@ -235,7 +235,7 @@ first week?".
 
 For each MAJOR or BLOCKER fix, note what else the fix could break (shared component, shared token,
 other breakpoints, other themes, other roles) so the retest scope is explicit. For shared
-components, a fix in one place is a change everywhere — flag it to the system owner.
+components, a fix in one place is a change everywhere, flag it to the system owner.
 
 ## 13. Design QA verdict (not the release decision)
 
@@ -243,29 +243,29 @@ The verdict is a recommendation from the design-delivery perspective. Who decide
 release ships depends on the team's process; when that authority was not supplied, present the
 verdict as the design/accessibility input to that decision, not as the decision.
 
-- **Approve** (from a design-QA perspective) — no BLOCKER or MAJOR; MINOR/POLISH items logged with
+- **Approve** (from a design-QA perspective), no BLOCKER or MAJOR; MINOR/POLISH items logged with
   owners; every relevant dimension is either verified or explicitly "not inspected" with an agreed
   follow-up.
-- **Approve with follow-ups** — no BLOCKER; MAJOR items have owners and a committed fix before
+- **Approve with follow-ups**, no BLOCKER; MAJOR items have owners and a committed fix before
   release or an explicitly accepted exception recorded by PM/design.
-- **Do not approve** — a release blocker from the design/accessibility perspective: any BLOCKER,
+- **Do not approve**, a release blocker from the design/accessibility perspective: any BLOCKER,
   or a MAJOR accessibility defect without an accepted exception, or critical dimensions could not
   be inspected and the team has not agreed to ship without them.
 
 Never approve because the default state "looks close". Never claim a dimension was verified when
 it was not. Team sign-off is collaborative, but one accountable person (usually PM or the
-technical product owner) makes the final call — say who, or that the team's process must name
+technical product owner) makes the final call, say who, or that the team's process must name
 them.
 
 ## 14. Report shapes
 
-**Quick** — Design QA verdict (Approve / Approve with follow-ups / Do not approve) · BLOCKER and
+**Quick**, Design QA verdict (Approve / Approve with follow-ups / Do not approve) · BLOCKER and
 MAJOR issues in the issue-record shape · what was not inspected · next action.
 
-**Standard** — add: baseline and build identification; the dimension table with
+**Standard**, add: baseline and build identification; the dimension table with
 verified / issue / not inspected per row; MINOR and POLISH list; regression notes; owners.
 
-**Deep** — add: full issue log; component and token parity tables; per-breakpoint and per-theme
+**Deep**, add: full issue log; component and token parity tables; per-breakpoint and per-theme
 results; accessibility pass details (tool, AT, OS); analytics event log; change-log entries for
 any design updates agreed during QA.
 

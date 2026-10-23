@@ -69,7 +69,7 @@ Discovery questions usually call for generative, behaviour-leaning methods. [NNG
 | Where an existing journey breaks | Funnel or log analysis to locate it; observing real use to explain it | Opinions about the design |
 | Whether change X caused outcome Y | Controlled comparison: A/B test, holdout, staged rollout | A before/after comparison on its own |
 | Whether people will act on a value proposition | A behavioural test where people commit something (time, sign-up, pre-order), disclosed honestly | "Would you use / pay for it?" answers |
-| How people group and name things | Card sorting and similar methods; hand the results to IA work | — |
+| How people group and name things | Card sorting and similar methods; hand the results to IA work |, |
 
 **Other selection factors** [UXR Ch5]
 - What evidence the stakeholders need in order to be convinced.
@@ -86,7 +86,7 @@ Discovery questions usually call for generative, behaviour-leaning methods. [NNG
 
 ## 4. Qualitative vs. quantitative, behavioural vs. attitudinal
 
-- **Qualitative findings tell you what exists, how and why — not how common it is.** Report them as counts of participants ("5 of 8"), never as population percentages. [NNG; UXR Ch3–4; SYN]
+- **Qualitative findings tell you what exists, how and why, not how common it is.** Report them as counts of participants ("5 of 8"), never as population percentages. [NNG; UXR Ch3–4; SYN]
 - **Quantitative findings tell you how much and how often, but only for what was measured.** They do not explain why, and they lose the context of use. [UXR Ch3]
 - **Neither is inferior.** They answer different questions and work best together. [UXR Ch4]
 - **What people say and what they do often differ.** [NNG; UXR Ch15]
@@ -146,7 +146,7 @@ Recommend the smallest activity that could change the decision. Cover these poin
 - **a decision rule agreed in advance:** which result means proceed, change course, or stop [UXS Ch8]
 - what is deliberately not being researched now
 
-**Default order** — skip any step the existing evidence already covers: [SYN; GOV-D; UXR Ch5]
+**Default order**, skip any step the existing evidence already covers: [SYN; GOV-D; UXR Ch5]
 1. Existing evidence.
 2. Cheap direct observation or conversations.
 3. Targeted quantitative sizing.
@@ -163,11 +163,11 @@ Running the investigation is not discovery work. Diagnosing the shipped experien
 3. **Name where to look.** The breakdowns that would locate the change: platform, device, browser, app version, traffic source, new vs. returning users, region and funnel step. A drop confined to one segment points to different causes than a uniform one. [SYN]
 4. **Line up the timeline.** Include releases by every team, campaigns and shifts in traffic mix, pricing or policy changes, seasonality, competitor events and performance regressions. Any metric read in isolation can mislead. [EUX Ch3 "Success Metrics"; SYN]
 5. **List the rival explanations as hypotheses.** At minimum: the design change itself, a defect, a measurement change, a shift in traffic mix, and external factors. For each, name the cheapest check that would support it or rule it out, and order the checks cheapest first. [SYN]
-6. **Note when the mechanism needs explaining.** Observing real users on the affected journey — consented session recordings or moderated sessions — is how the mechanism is found; name it as an investigation need. [NNG; UXR Ch4]
+6. **Note when the mechanism needs explaining.** Observing real users on the affected journey, consented session recordings or moderated sessions, is how the mechanism is found; name it as an investigation need. [NNG; UXR Ch4]
 7. **Note when cause must be established:** when the decision is costly or contested. That calls for a controlled comparison (the old and new versions shown to random samples, or a rollback for a random holdout group) with a success metric and a guardrail metric defined in advance. Its design and analysis are handed over. [NNG; HEART; SYN]
 8. **Frame the decision.**
    - Say what evidence would justify acting in full right away: a confirmed defect, for example, or confirmed losses large enough that waiting costs more than being wrong.
-   - Separate what can be done now and reversed later — a partial rollback run as an experiment, for instance — from what should wait for evidence.
+   - Separate what can be done now and reversed later, a partial rollback run as an experiment, for instance, from what should wait for evidence.
    - Do not redesign the interface as part of discovery; hand the framed problem to design and the investigation to `prototype-testing-analytics`.
 
    [SYN]

@@ -1,6 +1,6 @@
 ---
 name: ux-architecture
-description: Skill 02 — UX Architecture. Decides what exists, where it belongs, what it's called and in what order tasks unfold. Use for information architecture, content organization, taxonomy, labels, grouping, hierarchy, sitemaps, navigation structure, findability, search, browse and facet structure, role-, permission- and workspace-aware architecture, structural task and user flows, journey maps, and card-sort or tree-test planning, or when asked why users can't find things or what steps a task takes, even without the words "information architecture". Its flows map destinations, steps, decisions, branches and entry and exit paths, never behavior inside a step. Not for component behavior, interaction states, hover/focus/pressed, validation, loading, error, retry, cancel, undo, async behavior, or button and error copy (interaction-design); wireframes, UI layout or visual design; design systems; discovery; running usability or prototype tests; analytics; or implementation handoff.
+description: Decides what exists, where it belongs, what it's called and in what order tasks unfold. Use for information architecture, content organization, taxonomy, labels, grouping, hierarchy, sitemaps, navigation structure, findability, search, browse and facet structure, role-, permission- and workspace-aware architecture, structural task and user flows, journey maps, and card-sort or tree-test planning, or when asked why users can't find things or what steps a task takes, even without the words "information architecture". Its flows map destinations, steps, decisions, branches and entry and exit paths, never behavior inside a step. Not for component behavior, interaction states, hover/focus/pressed, validation, loading, error, retry, cancel, undo, async behavior, or button and error copy (interaction-design); wireframes, UI layout or visual design; design systems; discovery; running usability or prototype tests; analytics; or implementation handoff.
 ---
 
 # UX Architecture
@@ -19,10 +19,10 @@ Use it for:
 
 Don't use it for (name the dependency instead of doing the work):
 - initial opportunity discovery or business-model decisions
-- screen layout, wireframes, visual UI, color or typography, including the visual form of navigation (`ui-visual-design`, Skill 04)
-- behavior inside a step: component behavior, states and transitions, validation, error recovery, loading, retry, cancel, undo, async and keyboard behavior, state machines (`interaction-design`, Skill 03)
-- running usability or prototype tests, participant analysis, analytics, instrumentation or experiments (`prototype-testing-analytics`, Skill 06). You can plan card sorts and tree tests; you never report results you don't have
-- design-system components (Skill 05), developer handoff or design QA (Skill 07)
+- screen layout, wireframes, visual UI, color or typography, including the visual form of navigation (`ui-visual-design`)
+- behavior inside a step: component behavior, states and transitions, validation, error recovery, loading, retry, cancel, undo, async and keyboard behavior, state machines (`interaction-design`)
+- running usability or prototype tests, participant analysis, analytics, instrumentation or experiments (`prototype-testing-analytics`). You can plan card sorts and tree tests; you never report results you don't have
+- design-system components, developer handoff or design QA
 
 ## Keep the deliverables apart
 

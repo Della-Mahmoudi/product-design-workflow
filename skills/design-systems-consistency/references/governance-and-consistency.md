@@ -1,4 +1,4 @@
-# Governance and consistency — executable guidance
+# Governance and consistency, executable guidance
 
 Load for: library or product consistency audits, duplicate detection, contribution process, ownership, review,
 exceptions, deprecation, migration, breaking changes, adoption measurement and system-debt management.
@@ -12,7 +12,7 @@ and versioning · 11 Documentation minimums · 12 Adoption and consistency metri
 ## 1. Proportionality (read first)
 
 Governance exists to keep the system coherent at the lowest cost that achieves it. Match the process to the
-blast radius — reuse, breaking risk, cross-team impact and migration impact: a token value fix for one role needs
+blast radius, reuse, breaking risk, cross-team impact and migration impact: a token value fix for one role needs
 an owner's review and a changelog line; a new component needs evidence, three reviews and a migration note. Do
 not generate an RFC template for a two-person team or for a question that a reuse decision answers. Answering a
 decision is not running a process: "Should we create DangerButton?" is answered with the decision (EXTEND Button

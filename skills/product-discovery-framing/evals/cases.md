@@ -1,6 +1,6 @@
 # Evaluation cases for `product-discovery-framing`
 
-Human-readable QA contract for Skill 01. Each case states whether the skill should trigger, what it should do, and how to grade the output. Cases 1–4, 9 and 10 should trigger the skill. Cases 5–8 should not; their criteria grade boundary behavior when the skill is invoked manually. Trigger rates are measured separately, in the trigger-testing phase.
+Human-readable QA contract for `product-discovery-framing`. Each case states whether the skill should trigger, what it should do, and how to grade the output. Cases 1–4, 9 and 10 should trigger the skill. Cases 5–8 should not; their criteria grade boundary behavior when the skill is invoked manually. Trigger rates are measured separately, in the trigger-testing phase.
 
 Cases 9 and 10 extend the required set. Case 9 supplies the ten feature ideas that Case 3 omits, so that producing scope and non-scope can be graded. Case 10 is the framing half of the metric boundary that Case 5 tests from the diagnosis side.
 
@@ -8,7 +8,7 @@ Cases 9 and 10 extend the required set. Case 9 supplies the ten feature ideas th
 
 ---
 
-## Case 1 — Competitor-driven AI request
+## Case 1, Competitor-driven AI request
 
 ### User prompt
 
@@ -56,7 +56,7 @@ YES.
 
 ---
 
-## Case 2 — Personas without research
+## Case 2, Personas without research
 
 ### User prompt
 
@@ -97,7 +97,7 @@ YES.
 
 ---
 
-## Case 3 — MVP scope
+## Case 3, MVP scope
 
 ### User prompt
 
@@ -139,7 +139,7 @@ The ten ideas are not in the prompt. Case 9 grades the same request with the ide
 
 ---
 
-## Case 4 — Feature request disguised as a problem
+## Case 4, Feature request disguised as a problem
 
 ### User prompt
 
@@ -182,7 +182,7 @@ YES.
 
 ---
 
-## Case 5 — Post-launch analytics diagnosis
+## Case 5, Post-launch analytics diagnosis
 
 ### User prompt
 
@@ -192,7 +192,7 @@ YES.
 
 NO. Primary owner: `prototype-testing-analytics`.
 
-The description should not capture this diagnostic request. Skill 01 becomes relevant only if the request is explicitly to frame the product problem before investigating it (Case 10).
+The description should not capture this diagnostic request. `product-discovery-framing` becomes relevant only if the request is explicitly to frame the product problem before investigating it (Case 10).
 
 ### Expected behavior (if invoked manually)
 
@@ -221,7 +221,7 @@ The description should not capture this diagnostic request. Skill 01 becomes rel
 
 ---
 
-## Case 6 — Usability test
+## Case 6, Usability test
 
 ### User prompt
 
@@ -255,7 +255,7 @@ NO. Owner: `prototype-testing-analytics`.
 
 ---
 
-## Case 7 — Information architecture
+## Case 7, Information architecture
 
 ### User prompt
 
@@ -287,7 +287,7 @@ NO. Owner: `ux-architecture`.
 
 ---
 
-## Case 8 — Interaction behavior
+## Case 8, Interaction behavior
 
 ### User prompt
 
@@ -318,7 +318,7 @@ NO. Owner: `interaction-design`.
 
 ---
 
-## Case 9 — MVP scope with the ideas supplied (extends Case 3)
+## Case 9, MVP scope with the ideas supplied (extends Case 3)
 
 ### User prompt
 
@@ -362,7 +362,7 @@ YES.
 
 ---
 
-## Case 10 — Framing a metric change before investigation (pairs with Case 5)
+## Case 10, Framing a metric change before investigation (pairs with Case 5)
 
 ### User prompt
 

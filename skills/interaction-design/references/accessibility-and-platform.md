@@ -155,7 +155,7 @@ Load only the block that matches the product. Web products use §1–7 (WCAG, na
 ## 10 Design-system reuse
 
 - **Inventory first**: the product's components and their documented behavior (states, keyboard, events, copy rules). Reuse whole components with their documented behavior. (DI Ch 11 "Atomic Design: A Way of Designing Systems")
-- **This skill specifies behavior; `design-systems-consistency` decides the system.** Whether an existing component already supports a behavior; whether to extend it, add a variant or build a new component; and its properties, API, tokens, contribution and versioning are Skill 05's decisions.
+- **This skill specifies behavior; `design-systems-consistency` decides the system.** Whether an existing component already supports a behavior; whether to extend it, add a variant or build a new component; and its properties, API, tokens, contribution and versioning are `design-systems-consistency`'s decisions.
 - **When the system lacks a behavior**, specify the behavior the interaction needs (keyboard, focus, selection, loading, empty, error) as a proposed addition and flag it as a design-system dependency `[confirm: design system]` rather than inventing a one-off or designing the component.
 - **Follow the product's conventions** unless a clearly superior alternative exists; then propose it as a product-wide change for the design system's owners rather than changing one screen. (AF CH17 "Obey standards unless there is a truly superior alternative"; DOET Ch 4 "Conventions, Constraints, and Affordances"; DMMT Ch 3 "Conventions are your friends")
 - **An existing component that breaks a mandatory requirement** is flagged, with the compliant behavior specified.

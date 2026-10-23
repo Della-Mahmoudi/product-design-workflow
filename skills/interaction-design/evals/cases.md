@@ -1,8 +1,8 @@
 # Interaction Design: evaluation cases
 
-Human-readable QA contract for `interaction-design` (Skill 03 of the Product Design system). Case N here is eval `id` N in `evals.json`.
+Human-readable QA contract for `interaction-design` (`interaction-design` of the Product Design system). Case N here is eval `id` N in `evals.json`.
 
-- **Should this skill trigger?** is the routing expectation for later trigger-rate testing. This file does not measure it.
+- **Should this skill trigger?** is the routing expectation. This file does not measure it.
 - For NO cases, the criteria describe what the skill must do **if it is invoked anyway** (manually or by misrouting): recognize the boundary, route to the primary owner, and stop.
 - **Unnecessary-work checks** catch correct-looking work nobody asked for.
 
@@ -187,7 +187,7 @@ Recognizes a visual-design request, routes it to `ui-visual-design`, and stops. 
 **Primary owner:** `design-systems-consistency`
 
 **Expected behavior if invoked anyway**
-Recognizes reusable component architecture, routes it to `design-systems-consistency`, and stops. Offers behavior requirements for those capabilities only as input to Skill 05, and writes them only if the user explicitly asks.
+Recognizes reusable component architecture, routes it to `design-systems-consistency`, and stops. Offers behavior requirements for those capabilities only as input to `design-systems-consistency`, and writes them only if the user explicitly asks.
 
 **Pass criteria**
 - Names `design-systems-consistency` as the owner.

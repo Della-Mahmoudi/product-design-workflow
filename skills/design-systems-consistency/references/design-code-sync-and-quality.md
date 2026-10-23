@@ -1,4 +1,4 @@
-# Design-to-code synchronization and quality — executable guidance
+# Design-to-code synchronization and quality, executable guidance
 
 Load for: design-system Figma/code parity audits (library component ↔ production component, Figma variable ↔
 code token), Figma variables and Dev Mode inspection, alias-chain checks, component/property mapping, Code
@@ -6,7 +6,7 @@ Connect, Storybook stories and tests, accessibility automation, visual regressio
 breaking API changes and quality gates. Load the Figma or Storybook sources themselves only when the team's
 workflow uses those tools.
 
-Scope: SYSTEM OBJECT ↔ SYSTEM OBJECT only — component names, anatomy, reusable props, variants, states, sizes,
+Scope: SYSTEM OBJECT ↔ SYSTEM OBJECT only, component names, anatomy, reusable props, variants, states, sizes,
 tokens, modes, defaults, deprecations, reusable accessibility behaviour, Storybook stories and DS documentation.
 A staging page, a built feature, or a screenshot of one product feature compared with approved screens is
 FEATURE BUILD ↔ APPROVED FEATURE DESIGN work for `delivery-product-collaboration` (design QA, Ready for Dev,
@@ -64,7 +64,7 @@ truth per item.
 - Dev Mode shows variables in the Inspect panel and code snippets; the variable details view exposes name,
   source file, collection, current mode (switchable), value, scope and a snippet; with nothing selected an
   "Open variables table" read-only view is available. Suggested variables appear for raw values only when a
-  variable with the exact same value and a fitting scope exists — a raw value with no suggestion is either a
+  variable with the exact same value and a fitting scope exists, a raw value with no suggestion is either a
   missing token or a scope problem.
 - Mark primitives as not for direct use (naming prefix or description) so Dev Mode consumers reach for semantic
   variables; hide primitive collections from publishing where the team's convention allows.
@@ -113,9 +113,9 @@ not create implementation configuration unless asked.
 - Interaction tests (play functions) encode the interaction contract: keyboard activation, focus return,
   announcements. They are the executable form of the accessibility contract's keyboard and focus rows.
 - Accessibility addon: built on axe-core; results split into Violations / Passes / Incomplete (Incomplete must be
-  checked manually); `parameters.a11y.test` is `'off' | 'todo' | 'error'` — use `'error'` for stable components
+  checked manually); `parameters.a11y.test` is `'off' | 'todo' | 'error'`, use `'error'` for stable components
   so violations fail CI, `'todo'` while fixing legacy; default rules cover WCAG 2.0/2.1 A+AA plus best practices,
-  while WCAG 2.2 and AAA rules are opt-in (axe `runOnly`) — a WCAG 2.2 contract needs them enabled or checked
+  while WCAG 2.2 and AAA rules are opt-in (axe `runOnly`), a WCAG 2.2 contract needs them enabled or checked
   manually; rules and context can be configured per project, file or story.
 
 ## 9. Testing expectations per reusable component

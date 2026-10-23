@@ -1,6 +1,6 @@
 # Hierarchy, Layout and Density
 
-This reference covers how to make importance, grouping and sequence visible at screen level. It is about applying the product's own spacing, grid and component primitives, not defining them; defining them is design-system work (Skill 05).
+This reference covers how to make importance, grouping and sequence visible at screen level. It is about applying the product's own spacing, grid and component primitives, not defining them; defining them is design-system work.
 
 ## Contents
 1. Diagnose hierarchy before styling

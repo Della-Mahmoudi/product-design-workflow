@@ -1,4 +1,4 @@
-# Evaluation cases — delivery-product-collaboration
+# Evaluation cases, delivery-product-collaboration
 
 Cases A–C test real delivery failures: approving on visual completeness, QA reduced to
 screenshot matching, and deviation decisions made by preference instead of evidence. Cases D–L
@@ -31,7 +31,7 @@ skill-creator eval format (ids 1–12 = A–L).
 
 ---
 
-## Evaluation A — Not actually Ready for Dev
+## Evaluation A, Not actually Ready for Dev
 
 ### User prompt
 
@@ -52,7 +52,7 @@ skill-creator eval format (ids 1–12 = A–L).
 - Returns the minimum list needed to unblock engineering, with owners where they can be named,
   and offers a conditional path (e.g. "Ready with conditions" once X, Y, Z are supplied).
 - States its verdict as `Not Ready` (or at most `Ready with conditions` only if it explains that
-  conditions must be met before the affected parts are built — given the prompt, `Not Ready` is
+  conditions must be met before the affected parts are built, given the prompt, `Not Ready` is
   the expected verdict).
 
 ### Pass criteria
@@ -67,7 +67,7 @@ skill-creator eval format (ids 1–12 = A–L).
 
 ### Failure criteria
 
-- Marks the feature Ready (or effectively ready — "go ahead, fill in later").
+- Marks the feature Ready (or effectively ready, "go ahead, fill in later").
 - Assumes developers can invent states, responsive behavior, or accessibility behavior.
 - Generates arbitrary interaction behavior and presents it as the feature's design.
 - Produces unnecessary full project documentation (a complete manifest, state inventory, and
@@ -83,7 +83,7 @@ skill-creator eval format (ids 1–12 = A–L).
 
 ---
 
-## Evaluation B — Implementation looks close
+## Evaluation B, Implementation looks close
 
 ### User prompt
 
@@ -94,7 +94,7 @@ skill-creator eval format (ids 1–12 = A–L).
 - Does not limit QA to screenshot similarity; explains that "looks almost identical" covers one
   state, one viewport, one theme.
 - Establishes the baseline (which approved artifact/version, whether the design changed since
-  Ready for Dev) and the build under review (environment, viewport, theme, role) — or states that
+  Ready for Dev) and the build under review (environment, viewport, theme, role), or states that
   these were not supplied.
 - Compares, or sets out to compare, the relevant dimensions: behavior against acceptance
   criteria, state transitions, semantics, components (system vs lookalike), tokens (raw values vs
@@ -106,7 +106,7 @@ skill-creator eval format (ids 1–12 = A–L).
 - Classifies severity with BLOCKER / MAJOR / MINOR / POLISH and distinguishes visual polish from
   meaningful defects.
 - Clearly marks every dimension it could not inspect as "not inspected" and does not claim a
-  verdict it cannot support; the honest answer with no build access is "cannot approve yet —
+  verdict it cannot support; the honest answer with no build access is "cannot approve yet -
   here is what I need to inspect and how".
 
 ### Pass criteria
@@ -135,7 +135,7 @@ skill-creator eval format (ids 1–12 = A–L).
 
 ---
 
-## Evaluation C — Custom dropdown divergence
+## Evaluation C, Custom dropdown divergence
 
 ### User prompt
 
@@ -146,7 +146,7 @@ skill-creator eval format (ids 1–12 = A–L).
 - Does not answer yes or no on principle. Inspects (or asks for) the actual requirement the
   dropdown must meet and the existing Select component's actual capability (variants, props,
   composition, accessibility behavior).
-- Identifies the gap, if any, between the requirement and Select — and says plainly when no gap
+- Identifies the gap, if any, between the requirement and Select, and says plainly when no gap
   has been demonstrated ("easier" is not a gap).
 - Considers accessibility (the system Select's keyboard model, naming, focus management, and
   announcements that a custom build would have to re-implement), component/API parity,
@@ -176,7 +176,7 @@ skill-creator eval format (ids 1–12 = A–L).
 
 ### Unnecessary-work checks
 
-- Did not redesign the dropdown or produce a new component spec (that belongs to Skill 05).
+- Did not redesign the dropdown or produce a new component spec (that belongs to `design-systems-consistency`).
 - Did not fetch Carbon/Material/Fluent select documentation as if it were the team's standard.
 - Did not generate a Ready-for-Dev manifest or a QA report for a question that is a
   collaboration/deviation decision.
@@ -185,7 +185,7 @@ skill-creator eval format (ids 1–12 = A–L).
 
 ---
 
-## Evaluation D — Figma status is not readiness
+## Evaluation D, Figma status is not readiness
 
 ### User prompt
 
@@ -201,8 +201,8 @@ YES.
 
 ### Expected behavior
 
-- Treats the Figma *Ready for dev* status as workflow metadata — a record that someone intended
-  handoff — not as evidence that the design is complete.
+- Treats the Figma *Ready for dev* status as workflow metadata, a record that someone intended
+  handoff, not as evidence that the design is complete.
 - Performs, or requests the inputs for, the minimum readiness checks rather than a full audit:
   required states (loading, empty, error, success), alternate and error-recovery flows,
   destructive and permission behavior where the feature has them, responsive behavior for
@@ -237,7 +237,7 @@ YES.
 
 ---
 
-## Evaluation E — Design-system parity (should not trigger)
+## Evaluation E, Design-system parity (should not trigger)
 
 ### User prompt
 
@@ -249,17 +249,17 @@ NO. This is system object ↔ system object parity.
 
 ### Primary owner
 
-`design-systems-consistency` (Skill 05).
+`design-systems-consistency`.
 
 ### Expected behavior (if this skill is invoked manually)
 
-- Recognises the question as reusable design-system parity — the Figma Button component vs the
-  code Button API — not feature implementation parity.
+- Recognises the question as reusable design-system parity, the Figma Button component vs the
+  code Button API, not feature implementation parity.
 - Routes it to `design-systems-consistency`, optionally noting the evidence that skill will want
   (the Figma component properties and variants, the code props, real usage, any Code Connect
   mapping).
 - Notes, at most in one line, what stays with this skill: checking that a specific feature build
-  used the approved Button once Skill 05 has settled the component.
+  used the approved Button once `design-systems-consistency` has settled the component.
 
 ### Pass criteria
 
@@ -281,7 +281,7 @@ NO. This is system object ↔ system object parity.
 
 ---
 
-## Evaluation F — Feature implementation parity
+## Evaluation F, Feature implementation parity
 
 ### User prompt
 
@@ -298,9 +298,9 @@ YES.
 ### Expected behavior
 
 - Establishes the baseline: which approved design and version, the acceptance criteria, and
-  whether the design changed after handoff — or states that these were not supplied.
+  whether the design changed after handoff, or states that these were not supplied.
 - Establishes the build: staging build or commit, viewports, browsers/devices, themes, locale,
-  roles/accounts, test data (for example test cards and a declined payment), feature flags — or
+  roles/accounts, test data (for example test cards and a declined payment), feature flags, or
   states what is missing.
 - Selects the checkout-relevant QA dimensions instead of comparing pixels: behavior against the
   acceptance criteria (including validation and payment-failure paths), loading/error/empty
@@ -335,7 +335,7 @@ YES.
 
 ---
 
-## Evaluation G — Missing interaction decision
+## Evaluation G, Missing interaction decision
 
 ### User prompt
 
@@ -343,24 +343,24 @@ YES.
 
 ### Should this skill trigger?
 
-YES — for the readiness evaluation.
+YES, for the readiness evaluation.
 
 ### Primary owner
 
 `delivery-product-collaboration` for the readiness verdict; the missing behavior is owned by
-`interaction-design` (Skill 03).
+`interaction-design`.
 
 ### Expected behavior
 
 - Identifies focus placement after Cancel as an implementation-critical interaction and
-  accessibility decision for a destructive dialog — not a dev detail and not a cosmetic gap.
+  accessibility decision for a destructive dialog, not a dev detail and not a cosmetic gap.
 - Checks whether the team's approved system dialog/modal contract already defines focus
   restoration: if it does, cites it as resolving the gap instead of inventing anything; if it
   does not (or none is supplied), treats the gap as open.
 - Classifies the open gap as `Missing design decision` (`Product/design decision required`) and
   routes the behavior definition to `interaction-design`, naming what the decision must cover
   without answering it.
-- Blocks readiness (`Not Ready`) while the decision is open — or, if the team scopes the dialog
+- Blocks readiness (`Not Ready`) while the decision is open, or, if the team scopes the dialog
   out of the current build, conditions the rest of the handoff on it with an owner and a
   resolve-before point. It never marks the dialog Ready.
 
@@ -386,7 +386,7 @@ YES — for the readiness evaluation.
 
 ---
 
-## Evaluation H — Tracking-plan definition (should not trigger)
+## Evaluation H, Tracking-plan definition (should not trigger)
 
 ### User prompt
 
@@ -394,11 +394,11 @@ YES — for the readiness evaluation.
 
 ### Should this skill trigger?
 
-NO. Defining the measurement contract is Skill 06 work.
+NO. Defining the measurement contract is `prototype-testing-analytics` work.
 
 ### Primary owner
 
-`prototype-testing-analytics` (Skill 06).
+`prototype-testing-analytics`.
 
 ### Expected behavior (if this skill is invoked manually)
 
@@ -423,7 +423,7 @@ NO. Defining the measurement contract is Skill 06 work.
 
 ---
 
-## Evaluation I — Tracking implementation QA
+## Evaluation I, Tracking implementation QA
 
 ### User prompt
 
@@ -449,8 +449,8 @@ YES.
   property list rather than inventing one when it is not.
 - Names the evidence needed (network or analytics debugger on staging with success and forced
   failure paths) and marks the checks "not inspected" if there is no access.
-- Classifies a mismatch as an implementation defect — or `Product/design decision required` if
-  engineering proposes different semantics — with impact-based severity.
+- Classifies a mismatch as an implementation defect, or `Product/design decision required` if
+  engineering proposes different semantics, with impact-based severity.
 
 ### Pass criteria
 
@@ -472,7 +472,7 @@ YES.
 
 ---
 
-## Evaluation J — Simple developer question
+## Evaluation J, Simple developer question
 
 ### User prompt
 
@@ -511,7 +511,7 @@ YES.
 
 ---
 
-## Evaluation K — Technical constraint requires redesign
+## Evaluation K, Technical constraint requires redesign
 
 ### User prompt
 
@@ -530,7 +530,7 @@ by `interaction-design`, with PM for the product trade-off.
 
 - Records the limitation as a Confirmed technical constraint (asking who confirmed it and where,
   if that is not stated).
-- Identifies the affected approved behavior: the undo affordance and what depends on it — the
+- Identifies the affected approved behavior: the undo affordance and what depends on it, the
   safety of the destructive action, related acceptance criteria, announcements, and any analytics
   trigger tied to undo.
 - States that a product/design decision is required and routes the replacement interaction to
@@ -559,7 +559,7 @@ by `interaction-design`, with PM for the product trade-off.
 
 ---
 
-## Evaluation L — Visual redesign request (should not trigger)
+## Evaluation L, Visual redesign request (should not trigger)
 
 ### User prompt
 
@@ -567,11 +567,11 @@ by `interaction-design`, with PM for the product trade-off.
 
 ### Should this skill trigger?
 
-NO. Visual redesign belongs to Skill 04.
+NO. Visual redesign belongs to `ui-visual-design`.
 
 ### Primary owner
 
-`ui-visual-design` (Skill 04).
+`ui-visual-design`.
 
 ### Expected behavior (if this skill is invoked manually)
 
@@ -579,7 +579,7 @@ NO. Visual redesign belongs to Skill 04.
 - Distinguishes the two situations: if the build departs from the approved visual design (raw
   spacing instead of tokens, wrong type roles), that is an implementation mismatch this skill can
   document; if the build matches the approved design and still feels dense, the design itself
-  needs revising — Skill 04.
+  needs revising, `ui-visual-design`.
 
 ### Pass criteria
 
