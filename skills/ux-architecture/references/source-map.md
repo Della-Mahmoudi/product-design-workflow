@@ -242,7 +242,7 @@ All accessed 20 October 2026. Short names match the tags used in the reference f
 ## 6. Copyright and access limits
 
 - Everything in this skill is original synthesis. Direct quotes are limited to short terms. No page numbers are given, and no passages are reproduced.
-- The books were used privately while the skill was built. The skill doesn't need the PDFs at runtime.
+- Works without the original books; links are for optional verification.
 - Baymard Premium content wasn't accessed or copied. Free articles are summarized with dates.
 - The online sources change. Re-check the figures before citing them in a deliverable that will be shared.
 

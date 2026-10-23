@@ -16,7 +16,7 @@ Where this skill's guidance comes from, how much weight each source deserves, an
 5. Known tensions and how this skill resolves them
 6. Access, licensing and limits
 
-The skill works without the original books or websites. Links are for optional verification; do not browse them unless asked.
+Works without the original books; links are for optional verification. Do not browse them unless asked.
 
 ---
 

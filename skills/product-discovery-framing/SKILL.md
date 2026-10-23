@@ -31,7 +31,7 @@ Give a confidence level (High / Medium / Low, with a short reason) for any claim
 
 1. **Never invent** users, quotes, research findings, personas, market sizes, metrics, baselines or stakeholder decisions. Write *Unknown* and say how to find out. A plausible guess turns into a "fact" at the next meeting.
 2. **A feature request is a hypothesis about a problem.** Restate it as the underlying need. If a statement can only be addressed one way, it is a solution in disguise.
-3. **Product evidence outranks frameworks.** Credible product-specific evidence (Tier 0) beats generic methods and book heuristics, which structure reasoning but never supply product facts. Source tiers and conflict rules: `references/source-map.md`.
+3. **Product evidence outranks frameworks.** Credible product-specific evidence (Tier 0) beats generic methods and book heuristics, which structure reasoning but never supply product facts. Source tiers and conflict rules: `references/source-map.md`. Works without the original books; links are for optional verification.
 4. **Claim only what the evidence supports.** Small qualitative studies show what exists and why, not how common it is. A metric that moved after a change shows a sequence, not a cause. A competitor's feature shows what they chose to build, not what users need.
 5. **Success is an outcome.** Define it as a change in user behaviour or business results, never as "shipped X".
 6. **Research serves a decision.** Every proposed study or analysis names the decision it informs and the result that would change it.

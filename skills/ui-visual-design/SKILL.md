@@ -83,7 +83,7 @@ Never blend Material, Apple, Carbon and Fluent into one UI. The full algorithm a
 - A quick critique usually needs one reference or none.
 - Section 10 of the responsive reference holds one block each for web, Apple, Android/Material and enterprise exemplars. Find the block you need by its heading and read only that one. If the whole file gets read, apply only the matching block.
 - For enterprise or data-dense UI where the design system has no answer, benchmark against Carbon or Fluent, one of them, never both unless a comparison is the point. Never copy their styling.
-- Never reopen the original books.
+- Works without the original books; links are for optional verification.
 - Browse only to fetch one specific missing or disputed fact. If a source can't be reached, say so; don't reconstruct its content from memory.
 
 ## Workflow (internal; show only what the answer needs)

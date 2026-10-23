@@ -2,9 +2,9 @@
 
 **A design partner for Claude that checks the brief, does the work step by step, and lets you make every call.**
 
-A free, MIT-licensed Claude Code plugin by Della Mahmoudi, product designer. Eight skills plus one independent QA agent. No hooks, no MCP servers, no scripts, nothing to sign up for.
+A free, MIT-licensed Claude Code plugin by Della Mahmoudi, product designer. Eight skills plus one independent QA agent. No hooks, no MCP servers, no scripts.
 
-You ask for design work the way you normally would. A Supervisor skill picks it up, checks whether the brief is ready, loads only the design expertise that step needs, reviews the result against design-system and accessibility standards, and then pauses so you decide what happens next. When everything is accepted, a separate Final QA agent gives the finished deliverable a fresh, read-only review.
+You ask for design work the way you normally would. A Supervisor skill picks it up, checks whether the brief is ready, loads only the design expertise that step needs, reviews the result against design-system and accessibility standards, and then pauses so you decide what happens next. When everything is accepted, a separate Final QA agent gives the finished deliverable a fresh, independent review. It is instructed not to write (see [Optional connectors](#optional-connectors)).
 
 **Nothing moves forward until you say so.** The plugin advises. You decide.
 
@@ -21,7 +21,8 @@ This plugin builds those checks into the workflow. It asks one focused question 
 
 ## Requirements
 
-- [Claude Code](https://code.claude.com/docs) with plugin support.
+- [Claude Code](https://code.claude.com/docs) with plugin support (requires a paid Claude plan or API access).
+- Use your strongest available model.
 
 ## Install
 
@@ -68,7 +69,7 @@ Before you start, check whether the brief is ready and tell me what's missing.
 Then break the work into steps, do the first one, and stop so I can review it.
 ```
 
-You don't need to name the plugin. The Supervisor is the default entry point for design requests, and it also understands Persian and Finglish.
+You don't need to name the plugin. The Supervisor is the default entry point for design requests, and it understands requests in English, Persian and Finglish (Persian written in Latin letters), because those are the author's working languages.
 
 ## What you can ask for
 
@@ -84,6 +85,19 @@ You don't need to name the plugin. The Supervisor is the default entry point for
 
 ## What's inside
 
+The domain skills carry concrete, checkable knowledge rather than generic advice:
+
+- **Accessibility mappings**: WCAG 2.2 criteria and WAI-ARIA APG patterns mapped to states, focus, keyboard, errors and contrast.
+- **Design-system consumption rules**: reuse > compose > extend > create, token and variant consistency, Figma vs code parity.
+- **Handoff checklists**: Ready-for-Dev, acceptance criteria, Definition of Done, implementation QA.
+- **RTL, dark mode, responsive and localization checks** for the visual layer.
+- **Quality gates** that separate hard failures from flags. For example, from `ui-visual-design`:
+
+> **Fail: fix before calling the design done.**
+> - Text or required non-text contrast misses the applicable threshold.
+> - Color is the only carrier of meaning or state, or states are indistinguishable.
+> - Focus can't be seen.
+
 | Component | Type | Purpose |
 |---|---|---|
 | `product-design-supervisor` | Skill | Entry point. Frames scope, checks readiness, splits work into steps, selects domain skills, reviews each result, pauses for a human decision, then hands off to Final QA. |
@@ -94,17 +108,13 @@ You don't need to name the plugin. The Supervisor is the default entry point for
 | `design-systems-consistency` | Skill | Reuse vs. create decisions, component APIs and variants, token architecture, audits, governance, deprecation, Figma vs code parity. |
 | `prototype-testing-analytics` | Skill | Prototype and usability-test planning, research findings, UX metrics, tracking plans, A/B experiments. |
 | `delivery-product-collaboration` | Skill | Ready-for-Dev, handoff completeness, acceptance criteria, Definition of Done, implementation QA. |
-| `independent-final-qa` | Agent | Fresh, read-only review of the finished deliverable against scope and standards. Returns PASS / FAIL / BLOCKED. |
+| `independent-final-qa` | Agent | Fresh, independent review of the finished deliverable against scope and standards. Returns PASS / FAIL / BLOCKED. Instructed not to write. Edit, Write, MultiEdit, NotebookEdit and Bash are blocked; it still inherits MCP tools from your session, so connected write tools (e.g. Figma, Gmail) are not technically blocked. |
 
-Each domain skill comes with `references/` (standards, with a `source-map.md` pointing to public sources such as WCAG 2.2, WAI-ARIA APG, NN/g, GOV.UK, Material and Carbon) and `evals/` (test cases).
-
-## Which model to use
-
-Use your strongest model.
+Each domain skill comes with `references/` (standards, with a `source-map.md` pointing to public sources such as WCAG 2.2, WAI-ARIA APG, NN/g, GOV.UK, Material and Carbon) and `evals/`: eval specs (test cases with pass/fail criteria). The `evals.json` files follow the format used by Anthropic's [skill-creator](https://github.com/anthropics/skills/tree/main/skills/skill-creator) skill, which can run them against a skill. These are specs only; no results are published. Works without the original books; links are for optional verification.
 
 ## Optional connectors
 
-Figma, Google Drive and browser tools help with grounding and QA. The QA agent blocks editing and shell tools with `disallowedTools` and otherwise inherits your session's tools (any connected browser or Figma MCP), and it is told never to submit, save, publish, share, pay or delete. Browser tools can still click and type, so point QA at a safe preview. Without suitable tools, QA marks the affected criteria BLOCKED instead of guessing.
+Figma, Google Drive and browser tools help with grounding and QA. Final QA agent: Instructed not to write. Edit, Write, MultiEdit, NotebookEdit and Bash are blocked; it still inherits MCP tools from your session, so connected write tools (e.g. Figma, Gmail) are not technically blocked. It is told never to submit, save, publish, share, pay or delete. Browser tools can still click and type, so point QA at a safe preview. Without suitable tools, QA marks the affected criteria BLOCKED instead of guessing.
 
 ## How it works
 
@@ -123,10 +133,6 @@ A few ground rules it follows:
 - It never invents facts or quietly makes product decisions for you.
 - It never retries, repairs or escalates on its own.
 - A technical "pass" is advice, not approval. You approve.
-
-## Example: what it returns
-
-<!-- TODO: add a real, unedited example of a Supervisor step report and a Final QA report from an actual run. Do not invent output. -->
 
 ## Known limits
 

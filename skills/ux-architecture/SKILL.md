@@ -73,7 +73,7 @@ Each reference opens with a contents list. Jump to the section you need, not the
 | Which source governs, conflicting advice, citations | `references/source-map.md` | |
 | Quick architecture question | nothing; answer from this file | diagrams, JSON, research plans |
 
-The skill works without the original books and without browsing. Use the URLs in `source-map.md` only when the user asks for current figures, a citation check, or something the references don't cover. If a reference file is missing, continue with the rules in this file and say which reference was unavailable.
+Works without the original books; links are for optional verification. Use the URLs in `source-map.md` only when the user asks for current figures, a citation check, or something the references don't cover. If a reference file is missing, continue with the rules in this file and say which reference was unavailable.
 
 ## Evidence and sources
 

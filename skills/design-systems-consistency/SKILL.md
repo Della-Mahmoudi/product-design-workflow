@@ -104,7 +104,7 @@ Details and provenance: `references/source-map.md`.
 | Built feature or staging page vs approved design, design QA, Ready for Dev, handoff | none | Route to `delivery-product-collaboration`; return only for a specific reusable component/token mismatch |
 | Simple reuse decision ("should we make a DangerButton?") | none | Inspect the existing object's semantics and answer with REUSE > COMPOSE > EXTEND > CREATE |
 
-Do not read every reference, browse all exemplar sites, or reread books. Do not produce governance documents for
+Do not read every reference, or browse all exemplar sites. Works without the original books; links are for optional verification. Do not produce governance documents for
 simple audits, machine-readable token files unless asked, or full component specs when a reuse decision suffices.
 
 ## Output modes

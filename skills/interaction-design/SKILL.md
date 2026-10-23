@@ -61,7 +61,7 @@ Pick the lowest mode that fully answers; escalate only for real complexity or ri
 
 Typical combinations: destructive action → feedback file (+ behavior §7 for permissions, accessibility §3 for dialog focus); custom web widget → accessibility file (+ the single APG pattern page if a detail is in doubt); complex async or batch work → behavior + feedback (+ accessibility §3–5 for focus and announcements, §8 when files, drag or touch are involved); critique → whichever file covers the problems found.
 
-Each reference opens with a section list: load a file because the request needs it, not by default, and in any file read only the sections the task needs. The source books were construction-time references: never read them at runtime. Browse only to check a mandatory requirement or one specific pattern page, and say what you checked.
+Each reference opens with a section list: load a file because the request needs it, not by default, and in any file read only the sections the task needs. Works without the original books; links are for optional verification. Browse only to check a mandatory requirement or one specific pattern page, and say what you checked.
 
 ## Fast defaults (Quick mode)
 

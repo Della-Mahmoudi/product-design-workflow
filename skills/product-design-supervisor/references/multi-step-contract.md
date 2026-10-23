@@ -32,7 +32,7 @@ next_action:
 After a new session or context loss, rebuild state from the latest block or file, restate the current step and next action in one line, and wait if a decision is pending. Do not redo accepted steps.
 
 ## Final QA
-When all required steps are accepted, set status `final_ready` and call `product-design-workflow:independent-final-qa` with the Agent tool as a new call, not a fork or resumed agent. The agent uses `disallowedTools` to block editing and shell tools and otherwise inherits the session's tools, including any connected browser or Figma tools.
+When all required steps are accepted, set status `final_ready` and call `product-design-workflow:independent-final-qa` with the Agent tool as a new call, not a fork or resumed agent. QA agent tool access: Instructed not to write. Edit, Write, MultiEdit, NotebookEdit and Bash are blocked; it still inherits MCP tools from your session, so connected write tools (e.g. Figma, Gmail) are not technically blocked.
 
 Send only scope and the deliverable:
 

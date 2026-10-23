@@ -204,6 +204,5 @@ Never blend Carbon, Fluent, Material and product conventions into a hybrid.
 - **When not to use:** its framework survey (Bootstrap, Foundation, Semantic UI, Materialize, Blueprint, UIkit,
   Fluent circa 2019) is historical; current official documentation outranks it for any tool or system detail.
 - **Conflict rule:** conceptual only; never cited against Tier 0 or Tier 1.
-- **Licensing/access:** copyrighted; private construction-time copy. Do not reproduce passages. The runtime skill
-  does not depend on the PDF and must not request it.
-- **Runtime:** none (construction-time only; ideas are already synthesized into the reference files).
+- **Licensing/access:** copyrighted. Do not reproduce passages. Works without the original books; links are for optional verification.
+- **Runtime:** not needed; ideas are already synthesized into the reference files.

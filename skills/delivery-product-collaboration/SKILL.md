@@ -189,8 +189,8 @@ Stop when the implementation decision is sufficiently resolved for the person as
 and the minimum unblock list are stated, open questions have owners, and any approved deviation is
 recorded. Do not produce every delivery artifact, do not browse Figma, Storybook, WCAG, DTCG, or
 exemplar systems unless tool behavior or current API detail genuinely matters (or the user asks
-for current-source verification), and never reread the Technical Product Management book, its
-useful practices are already distilled in the references. If a required decision belongs to
+for current-source verification), and do not reopen the Technical Product Management book.
+Works without the original books; links are for optional verification. If a required decision belongs to
 another discipline or stage, hand it over explicitly to the owner in the owner routing table and
 stop there; resume once it is decided. Do not continue another discipline's work merely to
 complete a handoff.

@@ -32,4 +32,4 @@ You supervise the designer's task in the main conversation. Apply this at the st
 - Binding requirements and standards are different from conventions and style preferences. On a real conflict, explain it, offer options and let the designer choose. Never report an unmet criterion as met.
 
 ## Final QA
-When all required work is accepted, run Final QA once with this plugin's `independent-final-qa` agent, as described in `references/multi-step-contract.md`. If the agent is not available, report `final_ready / QA_pending` and do not claim PASS. Show its report unchanged and keep any disagreement in a separate note.
+When all required work is accepted, run Final QA once with this plugin's `independent-final-qa` agent, as described in `references/multi-step-contract.md`. If the agent is not available, report `final_ready / QA_pending` and do not claim PASS. Show its report unchanged and keep any disagreement in a separate note. The QA agent is instructed not to write. Edit, Write, MultiEdit, NotebookEdit and Bash are blocked; it still inherits MCP tools from the session, so connected write tools (e.g. Figma, Gmail) are not technically blocked.

@@ -168,7 +168,7 @@ Each profile below lists the source's type, authority, domain, what it's useful 
   - action priority;
   - complex data;
   - forms and how errors are presented.
-- **When to use:** Construction-time only. Its principles are already distilled into these references, so don't open it at runtime.
+- **When to use:** Its principles are already distilled into these references. Works without the original books; links are for optional verification.
 - **When not to use:** Don't let it override WCAG 2.2 or current platform guidance. Several of its remarks on contrast, color and sizing predate them (section 4).
 - **Priority:** Tier 2 (primary book).
 - **Conflict rule:** Loses to Tiers 0–1.
@@ -185,7 +185,7 @@ Each profile below lists the source's type, authority, domain, what it's useful 
   - internal and external consistency;
   - palettes and type treated as systems of roles;
   - checking that comps map back to wireframes.
-- **When to use:** Construction-time only. Its principles are already distilled into these references, so don't open it at runtime.
+- **When to use:** Its principles are already distilled into these references. Works without the original books; links are for optional verification.
 - **When not to use:** As a visual system, or as a source of accessibility thresholds. It predates them.
 - **Priority:** Tier 2.
 - **Conflict rule:** Loses to Tiers 0–1.
@@ -203,7 +203,7 @@ Each profile below lists the source's type, authority, domain, what it's useful 
   - noise reduction;
   - formatting for scanning;
   - visible affordances on touch screens.
-- **When to use:** Construction-time only. Its checks are already distilled into these references as clarity tests, so don't open it at runtime.
+- **When to use:** Its checks are already distilled into these references as clarity tests. Works without the original books; links are for optional verification.
 - **When not to use:** As a visual-design methodology, or to override product or accessibility evidence.
 - **Priority:** Tier 3.
 - **Conflict rule:** Loses to every higher tier.

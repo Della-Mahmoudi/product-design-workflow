@@ -55,7 +55,7 @@ Generative and exploratory studies (needs, workflows, motivations, mental models
 | A/B tests, experiment design, causal claims, sample size or duration, reading experiment results | `references/experiments-and-measurement-quality.md` (add the metrics reference when the metrics are undefined) | moderator guides, prototype plans |
 | which external source is authoritative, or the user wants citations | `references/source-map.md` | anything else |
 
-Conditional sources: Baymard only for ecommerce flows, and only as risk hints or domain benchmarks, never as evidence about this product. Figma documentation only when prototype construction or capability matters. Storybook only for component-level implementation checks; it is not user research. Analytics-vendor documentation only when implementation syntax on a platform the product actually uses is required; never assume a platform. Do not browse any online source at runtime unless the user asks for current citations, tool syntax matters, or currentness materially changes the answer.
+Conditional sources: Baymard only for ecommerce flows, and only as risk hints or domain benchmarks, never as evidence about this product. Figma documentation only when prototype construction or capability matters. Storybook only for component-level implementation checks; it is not user research. Analytics-vendor documentation only when implementation syntax on a platform the product actually uses is required; never assume a platform. Do not browse any online source at runtime unless the user asks for current citations, tool syntax matters, or currentness materially changes the answer. Works without the original books; links are for optional verification.
 
 ## Source hierarchy and conflicts
 
