@@ -48,4 +48,4 @@ domain_criteria:               # optional
 
 Do not include chat history, the state block, drafts, rejected work, your own judgment or earlier verdicts.
 
-Show the report to the designer unchanged. Put any disagreement in a separate labelled note. Constraints on how the work was done cannot be checked from the deliverable, so report them separately as verified or unknown. The designer decides to accept, revise or stop. A revised deliverable needs a new QA call.
+Show the report to the designer unchanged. Put any disagreement in a separate labelled note. Constraints on how the work was done cannot be checked from the deliverable, so report them separately as verified or unknown. If a required one is still unknown, overall delivery stays pending even when QA passes. The designer decides to accept, revise or stop. A revised deliverable needs a new QA call.
