@@ -29,7 +29,7 @@ This plugin builds those checks into the workflow. It asks one focused question 
 Run these two commands in Claude Code:
 
 ```text
-/plugin marketplace add dellamahmoudi93-max/product-design-workflow
+/plugin marketplace add Della-Mahmoudi/product-design-workflow
 /plugin install product-design-workflow@product-design-workflow
 ```
 
@@ -147,4 +147,4 @@ Current version: 0.3.2. See [docs/RELEASE-NOTES.md](docs/RELEASE-NOTES.md).
 
 ## License and author
 
-MIT, see [LICENSE](LICENSE). Made by [Della Mahmoudi](https://github.com/dellamahmoudi93-max), product designer.
+MIT, see [LICENSE](LICENSE). Made by [Della Mahmoudi](https://github.com/Della-Mahmoudi), product designer.
