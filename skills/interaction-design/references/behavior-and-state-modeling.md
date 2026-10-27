@@ -14,6 +14,10 @@ Sections: 1 Goal-directed framing · 2 The action contract · 3 Pattern decision
 - **Specify the probable path first, then provide for the possible:** key path → alternative branches → rare but necessary uses → edge cases. Keep rare cases off the main path but reachable. (AF CH4 "Three types of scenarios"; CH5 Steps 5–6; CH11 "Design for the probable but anticipate the possible")
 - **Ask what a considerate human assistant would do**: remember what the user already said, avoid needless questions, keep them informed without interrupting, take responsibility when things fail. (AF CH8 "Designing Considerate Products"; CH5 "Pretend the product is human")
 
+**When simplifying by automation or defaults:** identify which necessary work remains, who now does it (user, system or operator), and who must notice and correct a wrong inference. Keep consequential inferred values inspectable and correctable before commitment; do not promise inference or automation not established by the inputs. Removing a step is not an improvement if its hidden failure cost outweighs the saved effort. This is a design trade-off check, not a claim that total complexity is fixed.
+
+**When progressively disclosing options:** separate frequency from consequence. Advanced or rare options can stay off the main path, but expose any condition or consequence needed for the current informed decision when it becomes relevant, not only after opening Advanced. Keep a recognizable route to the details and the existing keyboard/state requirements. This does not mean showing every advanced setting at once. (Design inference from the rules above.)
+
 ## 2 The action contract
 
 Every meaningful action needs an answer to each question; a question nobody answered is a defect waiting to ship. Write down only the answers that aren't obvious: for a simple control most are one line or go without saying, and a field filled for form's sake is noise.
@@ -32,6 +36,27 @@ Every meaningful action needs an answer to each question; a question nobody answ
 - **Command vs configuration.** Run commands with sensible or last-used settings and keep configuration separate instead of interrogating the user every time. (AF CH11 "Differentiate between command and configuration", "Provide choices rather than ask questions")
 - **Changing a value must not by itself change the context** (navigate, submit, move focus elsewhere) unless the user was told beforehand. (WCAG 3.2.2; focus alone never does it, 3.2.1)
 
+**Finding motion opportunities (only when requested)**
+A request to find where motion could help authorizes recommendations, not implementation or changes to accepted behavior. Stay within the requested surface; finding no worthwhile additions is a valid result.
+- Inspect plausible gaps in acknowledgment, state-change continuity, the connection between a trigger and its surface, or an existing gesture's response. An instant change or a missing animation selector is not itself a defect; check existing component behavior first.
+- For each plausible candidate, name the user benefit and expected exposure, marking an unknown frequency as an assumption. Compare with simpler non-moving feedback. Repetition and keyboard-driven work increase the cost of delay, but neither a fixed daily count nor input method alone decides the answer. Do not move reading content or action targets merely for decoration, delay a usable action, or treat rare use as sufficient reason for celebration.
+- Return worthwhile candidates in order of expected task benefit, with location/evidence, current behavior, the proposed outcome and its benefit/cost rationale. Reuse established product motion values when known; leave a missing token mapping as a design-system dependency rather than importing fixed values or a library. Code or a still image does not establish timing or feel: distinguish observed behavior from inference and name what remains to inspect.
+- Briefly explain meaningful deliberate no-change choices and the limits of inspected coverage; do not fill a suggestion/rejection quota or invent candidates. For surviving proposals, describe interruption and reduced-motion outcomes using the contract below; the equivalent outcome can omit motion while retaining necessary feedback. This remains a behavior recommendation, not an implementation or runtime-verification claim.
+
+**Motion within an approved interaction**
+Apply only when motion is already in scope; do not add animation or select a library to use this guidance.
+- Specify the meaningful sequence or overlap and when the control becomes usable, not just a duration.
+ For repeated or opposite input during a transition, define whether it reverses, retargets, queues or ignores
+ the input, and the resulting state. Use the product's existing behavior where established; do not invent a
+ new interaction or a delay before a usable action merely to finish decorative motion.
+- Keep product state separate from playback state: a completed animation is not proof that a save succeeded,
+ and reversing an animation does not undo a committed action. Essential feedback and state changes must not
+ depend solely on an animation-completion callback that may never run when motion is skipped or interrupted.
+- Define the equivalent reduced-motion outcome, including a preference change while motion is in progress.
+ Preserve the current task state, required content, controls, focus and announcements; changing the preference
+ must not replay a committed action or strand the interface between states. Specify the required outcome;
+ API choice and cleanup implementation belong to engineering, and runtime parity to delivery QA.
+
 ## 3 Pattern decisions
 
 | Decision | Default | Switch when | Sources |
@@ -47,6 +72,8 @@ Every meaningful action needs an answer to each question; a question nobody answ
 
 Wizard vs single form and drill-down vs split view also shape a task's steps and navigation. When an approved flow already settles them, specify behavior within it; when the open question is which steps or destinations exist, it belongs to `ux-architecture`.
 
+**When choice count is used to justify a design (Hick–Hyman):** the evidence concerns choice-reaction time under specific stimulus–response conditions; option probabilities, practice and mapping matter. It is not a universal menu-size limit or a formula for total task time. Before hiding or deleting choices, consider what users recognize, label clarity, grouping and searchability, and the cost of extra steps. Twelve familiar, well-grouped options versus four vague ones is a comparison to investigate, not a winner to declare. Preserve necessary choices. Structural grouping belongs to `ux-architecture`; behavioral control choice stays here. If evidence is needed to choose, name the decision for `prototype-testing-analytics` without planning a study. ([Schneider & Anderson, 2011](https://pmc.ncbi.nlm.nih.gov/articles/PMC3031137/); product application is design inference.)
+
 ## 4 Selection, editing, commands, drag
 
 - **Object first, then action.** Keep the selection visible and unambiguous by more than color. (AF CH18 "Command ordering and selection", "Visual indication of selection"; WCAG 1.4.1)
@@ -57,6 +84,26 @@ Wizard vs single form and drill-down vs split view also shape a task's steps and
 - **Repetition**: when users repeat work, offer one action for it (apply to all, bulk edit); keep a history for long-running work. (DI Ch 1 "Streamlined Repetition"; Ch 8 "Command History")
 - **Direct manipulation and drag**: give immediate feedback; identify what is being dragged; valid targets show they can receive it; show the insertion point; dropping on an invalid target does nothing; Escape cancels; tiny accidental movements are ignored; scrollable targets auto-scroll. Always provide a non-drag way to do the same thing. (AF CH13 "Direct Manipulation and Pliancy"; CH18 "Drag and drop"; WCAG 2.5.7)
 - **Signal what is interactive** without depending on hover, which touch screens and keyboards don't have. (AF CH13 "Pliancy and hinting"; DMMT Ch 10 "No cursor = no hover = no clue")
+
+**Custom gestures: scroll ownership and interruption**
+Apply only to custom drag, swipe, slider or similar gesture behavior already in scope; do not replace a
+native control or add a gesture to use this guidance.
+- Where the gesture competes with page or container scrolling, specify which region, direction and input
+ belongs to the control and which to scrolling. Preserve relevant native scrolling/zoom and the existing
+ non-drag alternative; do not suppress scrolling across the whole page to repair one control.
+- Define what happens when another pointer appears, the browser takes over the gesture, pointer tracking
+ is lost, release occurs outside the control, or the window loses focus. The active gesture must not jump
+ to an unrelated pointer, leave the control stuck, or cause an unintended commit or duplicate action.
+- Use the control's established commit/cancel contract to decide whether an uncommitted preview is kept
+ or reverted; interruption is not a promise to undo an already committed action. The next supported tap
+ or drag must work without reloading. Specify these outcomes; event APIs and cleanup belong to engineering,
+ and evidence of implementation behavior belongs to delivery QA.
+
+**Embedded 3D controls (only for an approved interactive scene)**
+Where camera navigation, object selection/manipulation and page scrolling coexist, specify which owns each supported input and how the user leaves that mode. Define selection through overlapping objects and the relationship between visible targets and actionable regions; reuse the existing gesture interruption and non-drag contracts. State initial view, navigation limits or reset behavior only where the task needs them, without adding controls to decorative scenes. Changing or resetting a view must not silently change the product configuration: for example, rotating a product preserves its chosen finish, and dragging a hotspot does not also orbit the camera. Appearance belongs to UI; control APIs and picking algorithms belong to engineering.
+
+**Continuous direct manipulation (only where already intended)**
+For a control whose approved behavior follows the pointer, preserve the grab offset and current visible position when it is re-grabbed or redirected; it must not jump to an old target or the pointer's center. Specify how release becomes settling or snapping, including slow release, a flick and reversal only where those distinctions matter. Momentum is not permission to commit: retain the established dismissal, destructive-action and cancellation rules and the non-drag alternative. Prefer native behavior where it meets the need; spring APIs, numeric thresholds and physics formulas remain implementation choices, not universal design requirements.
 
 ## 5 Forms and input behavior
 
@@ -78,6 +125,8 @@ The steps and their order come from the flow (`ux-architecture`); specify how pe
 - Assume interruption: preserve inputs, position and system state, resume where the user left off, and never auto-close or auto-clear the user's items. (DOET Ch 5 "Understanding Why There Is Error", "Designing for Error"; DI Ch 1 "Changes in Midstream", "Microbreaks", "Prospective Memory")
 - Save-and-resume, drafts and deep-linkable steps need engineering support `[confirm: engineering]`: specify the supported behavior and the fallback.
 - Time limits and session expiry → feedback file §11.
+
+**When progress is intended to improve motivation or completion:** treat the goal-gradient effect as a context-dependent hypothesis, not a guarantee that a progress bar increases completion. Reward-program findings do not establish that result for every form. Use a user-valued, real goal and truthful completed/remaining work; never fabricate progress or completion. A step count is not elapsed effort: do not imply equal effort or a precise percentage when branches or remaining work are unknown. Mark optional steps as optional; do not make skipped optional data look like failure or pressure people to supply unnecessary information. Keep supported skip, exit and resume paths clear. If uplift is claimed, name it as a validation question for `prototype-testing-analytics`; do not prescribe an experiment for every wizard. ([Kivetz, Urminsky & Zheng, 2006](https://www.columbia.edu/~rk566/Session4/Goal-Gradient_Illusionary_Goal_Progress.pdf); these safeguards are design recommendations, not findings of that study.)
 
 ## 7 Permissions and conditional behavior
 

@@ -193,6 +193,23 @@ difference, a one-off layout, a behaviour that exists only because of one featur
 bar is unmet, return EXTEND/COMPOSE with the gap list, or an *exception* (time-boxed local override with owner)
 when the need is real but not yet repeated.
 
+**External implementation candidates, only when adoption is in scope**
+A gallery or registry item is a candidate implementation, not an approved system component. Keep the
+reuse/compose/extend/create decision above; do not add an effect, library or shared object to use this guidance.
+- Identify the exact source revision, files and implementation variant being considered (for example language
+ and styling flavor), with its actual dependencies and required assets. A library-wide dependency list is not
+ the dependency list of one component; a matching name or prop table does not prove variants are equivalent.
+- Separate the copied component's guarantees from its demo host's behavior. Theme providers, layout wrappers,
+ input handling, offscreen pausing or adaptive rendering supplied elsewhere do not transfer automatically.
+ Assess the selected source against the existing component contract, including required content and controls
+ when an optional effect or rendering capability is unavailable; mark unverified guarantees explicitly.
+- Where material to adoption, confirm framework/client-rendering constraints, browser or graphics requirements,
+ and integration/performance cost with engineering rather than inferring suitability from a smooth demo.
+ Retain source/usage terms and any unresolved reuse restrictions; identify who maintains local adaptations.
+ Do not assume copying source provides automatic upstream updates or permission to redistribute it separately.
+This is evidence for the system decision, not authority to install, configure an integration, copy code, or
+change the approved design. Implementation and runtime verification retain their existing owners and permissions.
+
 ## 13. Component families
 
 - A family shares anatomy rules, token roles, states and vocabulary; members differ in interaction

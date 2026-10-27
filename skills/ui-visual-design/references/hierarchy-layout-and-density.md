@@ -33,6 +33,10 @@ This reference covers how to make importance, grouping and sequence visible at s
 5. **Check again.** Repeat step 2. Then confirm the emphasis still works in grayscale and that de-emphasized text still meets contrast minimums.
 6. **Apply the escalation test.** If the fix needs content added, removed or re-prioritized, a different control, or a different destination, it belongs to IA, interaction or content. Write `[DEPENDENCY: …]` and stop styling that part.
 
+**When a decision depends on people noticing a message:** blur, grayscale and a designer's first-read order are expert diagnostics, not evidence of selective attention in use. A message being visible does not establish that someone noticed or understood it. For a consequential unresolved message, flag the needed task observation and comprehension evidence for `prototype-testing-analytics`, without cueing users toward the message or requiring a study for every styling change. Preserve the interaction owner's accessible feedback and announcement requirements; visual emphasis does not replace them.
+
+**When polish or liking is offered as usability evidence (aesthetic–usability effect):** attractive appearance can influence perceived ease, but the relationship is not universal and is not evidence of successful task performance. Report visual preference, perceived ease and observed completion/errors separately when supplied; never infer one from another. A polished checkout with critical task failures still needs those failures fixed by their owner. When the open question is whether people can use it, route that question to `prototype-testing-analytics`, not to more styling. ([Tractinsky et al., 2000](https://cris.bgu.ac.il/en/publications/what-is-beautiful-is-usable-2/); contrasting findings: [Tuch et al., 2012, researcher summary](https://research.google/blog/is-beautiful-usable-what-is-the-influence-of-beauty-and-usability-on-reactions-to-a-product/).)
+
 ## 2. Hierarchy levers
 
 | Lever | Best at communicating | Symptom of overuse |
@@ -65,6 +69,8 @@ This reference covers how to make importance, grouping and sequence visible at s
 **Similarity**
 - Peers share one treatment: size, color, shape and alignment.
 - To mark one peer as special, change one attribute, not three.
+
+**When an item is intended to be remembered (Von Restorff / isolation effect):** distinctiveness is relative to a surrounding context; it is not a promise that a contrasting CTA will be noticed, clicked or convert. Preserve coherent peer grouping and meaningful accessible differences rather than styling every peer as special. If later recall is the decision, name recall as the validation need; if discovery or task completion is the decision, name that outcome instead. Study design belongs to `prototype-testing-analytics`. ([Smith, 2011](https://pmc.ncbi.nlm.nih.gov/articles/PMC3183572/); UI application is design inference.)
 
 **Common region**
 - A background tint, border or card says "these belong together".
@@ -142,6 +148,14 @@ Both problems can appear on one screen, such as a flat header above a fragmented
 - If the scale lacks a value you need, try the neighboring steps first. If neither works, record the need as a `[DS GAP]` (e.g. "no step between 16 and 24 for compact card padding") and use the nearest token. A missing step is a signal, not permission to invent one.
 - Keep a consistent rhythm: section spacing is larger than group spacing, which is larger than item spacing, which is larger than internal padding. Apply it the same way on every screen.
 - Don't express hierarchy with one-off spacing values. If a screen needs special spacing, record it as a `[LOCAL EXCEPTION]` with the reason.
+
+### Requested spacing audits
+
+- Keep the audit to the named frames or regions; no selection does not authorize a whole-page audit. Inspect per-side padding, item gaps and spacing between groups, sections and content edges where evidence is available. Distinguish authored spacing properties, measured node-to-node geometry and screenshot estimates. A measured distance does not establish its controlling property or token binding; retain the unit/scale context and do not turn screenshot estimates into exact design values.
+- Compare same-role peers in the same density/layout context against the product's approved scale and exceptions, not a universal 4/8pt grid. The nearest or most frequent value is a candidate, not proof of intent. Keep inspected token/variable bindings and their relevant mode values; a suspected wrong-role binding is a finding to verify, not a reason to overwrite the binding with a literal.
+- Preserve intentional optical offsets and approved manual overrides. Distances produced by content sizing, hug/fill or space distribution are not automatically editable gap values; do not snap them or change sizing behavior to make the numbers regular. Hairlines and strokes are not spacing. If a consistent nonstandard rhythm has unclear intent, report it once for verification rather than mass-normalizing it.
+- Group findings by frame/region with the property or measured relation, observed value and evidence limit, applicable product rule, and proposed token/value or verification needed. Separate confirmed drift from possible differences and intentional exceptions; note what stays untouched and why. Report only actual inspected coverage, and label proposed changes as proposed, not as completed before/after results.
+- An audit-only request ends at findings and recommendations; showing a summary is not edit permission. If spacing fixes are authorized, change only the affected spacing properties, preserving content, structure, sizing behavior and unrelated styling. Recheck affected grouping, wrapping, clipping and target separation rather than forcing a number at their expense; report the resulting rhythm only to the extent inspected. Keep existing Human review and independent-QA gates.
 
 ## 8. Density
 
@@ -289,6 +303,12 @@ Density is a product decision about who uses the screen, how often and for what.
 - Choosing the chart type is a data-visualization decision.
 - Avoid a wall of separate cards. Related tiles can share one surface, separated by dividers or tight gutters.
 - Make the active scope (date range, filters) visible near the title. Where those controls live is an IA/interaction decision.
+- Keep displayed facts consistent with the approved data and metric definitions: labels, units, periods, filters, comparison baselines and denominators must agree across repeated values, totals, tables and charts. Reconcile apparent arithmetic differences using the source precision and rounding rule; do not assume a total must equal the sum of rounded display values.
+- Keep zero, missing data, no comparator and forecasts distinguishable; a positive delta is not automatically a good outcome. Match legends to the marks they describe and label sample data as sample. Do not invent an insight, metric definition or missing value to complete the layout. Route unresolved data meaning to content/measurement owners; this check does not expand UI ownership into chart-type selection or analytics.
+
+**Chart legibility, only for charts already in scope**
+Check the approved chart at its actual container widths: units, tick labels and series identification must remain readable and unambiguous. Use the existing direct labels or legend where each serves the task; do not require both or hide essential context to make the marks fit. Any simplification must preserve the approved meaning, comparisons and scope; a change requiring aggregation, a different encoding or a new interaction is a dependency for its owner, not a visual shortcut.
+Keep the specified accessible data or summary presentation consistent with the displayed chart. Interaction owns the equivalent task path; UI does not invent conclusions, alternative datasets, chart types or new controls.
 
 ### Settings screens
 

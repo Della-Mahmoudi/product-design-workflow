@@ -116,6 +116,12 @@ Do not prototype the entire product. Derive scope from the task list:
 
 Document every meaningful limitation in the study notes before testing, and carry the list into the findings so that observed failures can be checked against it.
 
+### Requested live comparison of alternatives
+
+When a live comparison is requested and authoring is authorized, use an isolated prototype surface rather than modifying production. Name the meaningful difference between directions and compare them at their real scale in equivalent surrounding context, with comparable task, data and starting state unless that difference is itself under study. Keep harness controls distinct from the candidate UI; variant-switch effects must not bias the comparison. A replay control is useful only when motion needs inspection. Keep comparison controls keyboard-accessible and avoid unscoped character shortcuts that interfere with the prototype.
+
+Verify the interactions being claimed, disclose fake paths, and preserve the requested fidelity and scope. No fixed variant count, prescribed picker styling, automatic integration or cleanup is required. The Human's selection is a direction choice, not evidence of usability superiority; use the existing stage checkpoint rather than adding a gate for each internal build or repair.
+
 ## 9. Concept, flow, interaction and comprehension validation
 
 - **Concept validation**: show the least detailed artifact that conveys the idea; ask what it is, who it is for, what they could do here, what they would expect to happen next, before any explanation. Record expectations verbatim. Preference and desirability come last and are labeled attitudinal.

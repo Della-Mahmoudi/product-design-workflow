@@ -51,6 +51,7 @@ Generative and exploratory studies (needs, workflows, motivations, mental models
 |---|---|---|
 | what to prototype, which fidelity, how to validate a flow or concept, which method fits an unclear question | `references/prototype-and-method-selection.md` | analytics or experiment references |
 | planning or moderating a usability or interview study, including generative or exploratory interviews and IA validation studies another stage has scoped; turning observations into findings; reviewing an existing study or its findings | `references/usability-testing-and-evidence.md` (add method selection only if the method itself is in doubt) | metrics or experiment references |
+| analyzing supplied feedback, reviews, survey comments or feature-request records | `references/usability-testing-and-evidence.md` §22 | metrics or experiment references unless the evidence question also needs them |
 | UX or product metrics, HEART, events, properties, tracking plans, funnels, retention, instrumentation requirements, reading analytics | `references/metrics-analytics-and-instrumentation.md` | usability-study artifacts |
 | A/B tests, experiment design, causal claims, sample size or duration, reading experiment results | `references/experiments-and-measurement-quality.md` (add the metrics reference when the metrics are undefined) | moderator guides, prototype plans |
 | which external source is authoritative, or the user wants citations | `references/source-map.md` | anything else |

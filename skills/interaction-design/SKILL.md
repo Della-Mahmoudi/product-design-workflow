@@ -55,6 +55,7 @@ Pick the lowest mode that fully answers; escalate only for real complexity or ri
 |---|---|
 | A common control choice covered by the fast defaults below | nothing |
 | Other pattern decisions; multi-state, async, branching or multi-step behavior; selection, editing, filtering, commands, drag; form structure; permissions; any Deep spec | `references/behavior-and-state-modeling.md` |
+| A requested search for where motion would help; motion behavior within an approved interaction | `references/behavior-and-state-modeling.md` §2 |
 | Feedback, loading and latency, validation, error messages, undo/cancel/back/retry, destructive actions, partial failure, offline, stale data, sessions, interaction copy | `references/feedback-errors-and-recovery.md` |
 | Keyboard, focus, screen readers, custom widgets, touch and gestures, Apple or Material conventions, design-system reuse, Carbon or GOV.UK examples, AI behavior (§12 only) | `references/accessibility-and-platform.md` (read only the section you need) |
 | Source authority, conflicting guidance, "where does this rule come from" | `references/source-map.md` |
@@ -72,6 +73,8 @@ Each reference opens with a section list: load a file because the request needs 
 - **Where a task lives** → inline first; a non-modal panel for supporting work; a modal only when the user must decide before continuing or for a short focused subtask; never stack modals. [Apple Modality; Carbon Dialogs; DI Ch 3]
 - **Waiting** → acknowledge at once; show an indicator beyond about a second; long jobs get determinate progress, Cancel, and background work. [AF CH11; DOET Ch 1; DI Ch 8]
 - **Form errors** → validate on submit by default; inline message plus summary; keep what was typed; never flag valid input while the user is still typing. [GOV.UK; DI Ch 10; conflicts in source-map]
+
+**Option-count caveat.** The option counts above are starting points for control choice, not hard limits or a Hick–Hyman rule. Consider familiarity, label clarity, scanning and search needs as well as count. For a disputed choice-set rationale, see behavior §3; a routine control choice still stays Quick.
 
 ## Evidence and safety rules
 

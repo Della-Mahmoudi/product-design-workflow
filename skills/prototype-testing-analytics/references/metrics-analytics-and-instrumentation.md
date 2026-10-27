@@ -179,3 +179,11 @@ Collect the minimum; prefer identifiers over personal data; no free text that ma
 **Analytics interpretation**: the observation in descriptive terms; instrumentation check status; composition and timing checks; location of the change; magnitude against baseline; ranked hypotheses with the explanatory evidence needed for each; what the data cannot say.
 
 Stop when the decision has its metrics defined or its observation correctly characterized. Do not build a usability study or an experiment unless the request asks for it.
+
+## 18. Requested monitoring
+
+For a requested dashboard or monitoring specification, connect each actionable signal to an agreed owner, review/refresh cadence appropriate to the outcome lag, and a threshold grounded in baseline variability or product risk. Distinguish a trigger to investigate from permission to intervene; name the expected response window and evidence that resolves the alert when known. Missing owners, thresholds or response rules remain dependencies, not invented commitments. A specification does not authorize creating alerts, paging people, rolling back or scheduling automation.
+
+## 19. Inspectable calculations
+
+When reporting calculations from supplied data, retain enough to inspect the result: source/version or date range, filters and exclusions, unit of analysis, grouping/window rules and calculation. Distinguish missing observations from measured zero. Provide the query or reusable calculation when requested or necessary to make a consequential result inspectable; do not require a separate artifact by default. A generated query is a proposed extraction until actually run and checked against the confirmed schema and dialect. State execution and validation status, including limits. Never call an unexecuted query production-ready or treat synthetic examples as product evidence. This adds no database access or execution authority.

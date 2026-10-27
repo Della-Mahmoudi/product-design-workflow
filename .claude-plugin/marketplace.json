@@ -6,14 +6,14 @@
   },
   "metadata": {
     "description": "Supervised Product Design workflow skills for Claude",
-    "version": "0.3.1"
+    "version": "0.3.2"
   },
   "plugins": [
     {
       "name": "product-design-workflow",
       "source": "./",
       "description": "Supervised Product Design workflow: a coordinating Supervisor Skill, seven selectively loaded domain Skills and an independent Final QA agent.",
-      "version": "0.3.1",
+      "version": "0.3.2",
       "author": {
         "name": "Della Mahmoudi"
       },

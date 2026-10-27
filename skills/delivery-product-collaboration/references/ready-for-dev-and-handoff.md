@@ -206,7 +206,7 @@ carry most of it; write explicitly only what the feature adds or customises.
 | Area | What to define |
 |---|---|
 | Semantics | element roles (button vs link vs menuitem), landmarks, headings, list/table structure |
-| Names | accessible names for icon-only controls, images, custom widgets; label associations for fields |
+| Names and text alternatives | accessible names for icon-only controls and custom widgets; label associations for fields; context-appropriate image alternatives, or decorative treatment where no information or control purpose is lost |
 | Keyboard | every action reachable; expected key behavior for custom widgets (arrow keys in a listbox, Escape to dismiss) |
 | Focus | initial focus on open, focus order, focus trap for modals, focus restoration on close/delete, visible focus (and not obscured by sticky UI) |
 | Announcements | live-region messages for save success, errors, async results; error identification wording |
@@ -251,6 +251,19 @@ optimistic updates are safe; duplicate detection exists; limits (max saved items
 Dependencies: external APIs, other teams' work, feature flags, content delivery, legal review,
 design-system additions. Each with owner and status. A dependency that changes the user-facing
 behavior and has no owner is a blocker.
+
+When exported design assets are part of the approved delivery, use the existing handoff record to map each
+required source node/asset to its actual delivered file; distinguish original fill media, rendered nodes
+and cropped/transformed derivatives. Verify relevant crop/mask, transparency and animation against the
+approved appearance, and distinguish actual raster dimensions/export scale from intended display size.
+Confirm the delivered path is usable in the target project/runtime, not merely present on an export
+server. Download counts, aliases and processing-success labels alone do not establish completeness or
+fidelity. Record missing assets, unresolved mappings and unavailable checks with an owner rather than
+inventing evidence or requirements. This adds no mandatory manifest or authority to export, download,
+install tools or publish.
+
+**Embedded 3D assets (only for relevant approved delivery)**
+In the existing dependency record, identify the shipped model revision and required textures/environment or other companion assets, their owner, and any unresolved compatibility or readiness condition. Link the approved appearance/quality variants and loading/failure/task-access contract; do not decide missing behavior here. Where cost affects acceptance, record agreed budgets and measurement conditions for relevant transfer/loading, preparation/decode and usable rendering/interaction separately. A smaller file is not proof of readiness or runtime suitability. Unknown budgets stay explicit with an owner and UX impact; invent no polygon, file-size or frame-rate limits and mandate no compression tool. Any visible simplification that changes approved intent needs the relevant product/design decision, not silent engineering handoff.
 
 ## 13. Analytics handoff
 
@@ -327,6 +340,8 @@ open_questions:
 Every `defined` must be true in the artifact; the manifest is a summary of evidence, not a
 promise.
 
+**Only when a product-walkthrough video is an explicitly requested deliverable:** use the existing handoff record to identify its revision, the requested export and any agreed editable source, and the viewing or downstream-use constraints that affect acceptance. Record applicable agreed dimensions, timing, audio/caption availability or transparency needs without prescribing formats, codecs or defaults. Link the inspected artifact and note preview-only evidence, unavailable checks and unresolved requirements with their owner. This adds no video requirement to other prototypes, no mandatory storyboard or production stage, and no authority to record, render, install tools or publish.
+
 ## 16. Figma Dev Mode, when the team uses it
 
 Apply only if the team hands off in Figma. Figma is optional: nothing in the gate depends on it,
@@ -357,6 +372,26 @@ detail matters, check the current page (see the source map).
   mappings is design-system work (`design-systems-consistency`).
 - **Resource links** (Jira, Storybook, GitHub) on components propagate to instances, link the
   story or ticket rather than describing it in prose.
+
+**Layer hygiene, only when requested as part of handoff preparation**
+- Review the specified frames/subtree, not the whole file by default; distinguish inspected,
+ skipped and inaccessible layers. Keep this check read-only; existing authorization gates govern
+ any later edit. Tidier names or a lower depth count do not establish Ready-for-Dev status.
+- For a useful rename proposal, record node ID/location, old → proposed name and reason; follow
+ the team's established vocabulary/casing and preserve intentional names. Check collisions with
+ all siblings, not just other proposals. A default-looking or repeated name is only a candidate.
+- Hidden, empty, off-canvas or deeply nested does not mean disposable. Do not delete, flatten,
+ ungroup, reparent or reorder as incidental cleanup: first establish the layer's role in layout,
+ constraints, clipping/masks, prototype behavior and export consumers. Non-overlapping bounds or
+ matching screenshots alone do not establish that a structural change is safe.
+- Preserve component instances, their child overrides, main components, variable/style bindings
+ and export contracts. Route a necessary reusable-object change to the design-system owner;
+ matching index paths or names do not establish semantic equivalence or propagation authority.
+- Keep a node-linked proposed/applied diff distinct from observations. Before any separately
+ authorized edit or reversal, recheck current identity, name and dependencies against the plan;
+ do not overwrite newer manual work. Prior reports and unchanged names are not proof of current
+ safety. State verification limits; never promise pixel-identical output or single-step undo
+ without evidence for the actual operation and environment.
 
 ## 17. Avoiding over-documentation
 

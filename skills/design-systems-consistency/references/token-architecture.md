@@ -126,6 +126,32 @@ rules that prevent recurrence (lint: no raw colour outside the primitives file; 
 Report counts only after classification; do not forecast how many primitives or roles "will" result before the
 inventory exists, a guessed number anchors the audit and is indistinguishable from evidence to the reader.
 
+### When the inventory comes from a rendered page or an extraction report
+
+Apply this only when extracted evidence informs the current token decision; it is not an extra audit or a
+requirement to install an extractor, crawl more pages, or produce a manifest for a Quick naming question.
+
+- Keep enough capture context to re-check the affected observation: source URL/route or artifact and version,
+ capture time when available, selector/node and property, viewport/zoom, theme, component state and relevant
+ locale. Record the method/tool version and supplied limits when known; do not invent missing metadata or
+ collect credentials. Reuse the audit coverage record in `governance-and-consistency.md` §2 when applicable.
+- Preserve the authored value or declaration when available, the computed value at the captured condition,
+ and any normalized value separately. Keep colour space/alpha and the root-size context for rem/px conversion;
+ do not collapse materially different values through rounding, dropped alpha or an assumed conversion.
+- Separate **observed value/use**, **inferred semantic role** (with its reason and uncertainty), and
+ **proposed mapping to the product's token**. Frequency, visual similarity and classifier confidence do not
+ establish intent. Generated ramps, default values and suggested modes are proposals, not observations.
+- A computed value proves that rendering, not the authored token, alias chain or winning CSS declaration.
+ A matching stylesheet rule is only a candidate source until the cascade/binding is inspected. If code or
+ bindings are unavailable, leave token use/bypass unverified even when the displayed value matches a token.
+- One page, viewport or theme is a sample, not the complete design system. Route-local values may be valid
+ exceptions; observed foreground/background pairs must retain their state, theme and text size/weight.
+ An unassessed transparent, image or gradient background, failed capture, or zero inspected pairs is not a
+ contrast pass. Use the applicable pair requirement in §4; an extractor's score is not conformance evidence.
+- Reconcile candidates with the accepted product system before proposing changes. Preserve approved names,
+ aliases, modes and manual overrides unless changing them is in scope; extraction never authorizes importing
+ another site's identity or overwriting the current system. Keep unresolved mappings explicit.
+
 ## 7. Deduplication and semantic distinction
 
 - Identical value ≠ identical meaning. `color.border.focus` and `color.action.primary.background` may both be
@@ -206,6 +232,16 @@ for retired names; `$extensions` for tool-specific data under a vendor key; file
 `*.tokens`. Modes: the 2025.10 format has no mode construct, represent modes as separate files or sets per mode
 with identical semantic names, or via the consuming tool's theme mechanism, and say which you chose. Check the
 consuming tool's support: several pipelines still expect legacy string values (`"#2457F5"`, `"16px"`).
+
+**When importing or exporting extracted token data:**
+- Confirm the destination's actual format/version and validate the requested output against it; a filename,
+ `$value`/`$type` pair or successful JSON round-trip alone does not establish schema compatibility.
+- Check that aliases resolve without cycles or missing targets, and preserve required types, colour alpha,
+ mode identity and source metadata through conversion. Report any flattening, substitution or information
+ loss instead of silently converting it into an approved value; never fill missing evidence with defaults.
+- Compare the proposed mapping/output with the accepted system before an authorized import or replacement.
+ Export generation does not itself authorize writing into production code or a design library. Do not claim
+ a destination import or round-trip was verified unless it was actually checked; otherwise name that limit.
 
 ## 11. Warnings
 

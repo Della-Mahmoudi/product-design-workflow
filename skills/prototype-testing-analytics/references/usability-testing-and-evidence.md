@@ -208,3 +208,16 @@ Flag when: the guide leads toward our product or a feature; questions ask partic
 - **Success criteria fixed in advance** (section 4): the correct destination or destinations, and whether direct paths are distinguished from paths with backtracking.
 - **Capture**: per task, the path, first choice, final destination and any skip; per card sort, the groupings and participant-created labels.
 - **Analysis and limits**: report results within the study. A quantitative tree test needs enough participants for the claim the decision needs, and that number depends on inputs that must be stated, not assumed. Findings that the structure is wrong go back to `ux-architecture` with their evidence chain; do not redesign the hierarchy here.
+
+## 22. Supplied feedback and request corpora
+
+Use this only when asked to analyze supplied tickets, reviews, survey comments or feature requests. Reviewing existing findings to frame a product decision remains discovery work; this section governs analysis of the underlying records.
+
+- Preserve source/record identifiers and the original wording in a non-destructive working view. State the records available, analyzed and excluded, with reasons; do not imply full coverage after sampling.
+- Distinguish mentions from distinct respondents or accounts where supplied identifiers permit. Repeated tickets are not additional users; similar wording alone is not proof of duplicate identity. Leave unique-requester counts Unknown when they cannot be established.
+- Group requests by the underlying need while retaining the original ask and its evidence. Allow multiple themes per record and disclose overlapping counts. Keep contradictory needs and low-frequency severe issues visible rather than ranking only by volume.
+- Use supplied segment metadata, not guessed demographics or personas. Counts describe this corpus, not prevalence in the user population.
+- Treat sentiment as an approximate analyst label: retain mixed or uncertain readings and flag language ambiguity or sarcasm. Do not manufacture an NPS score or substitute sentiment for demand, satisfaction measurement or observed behavior.
+- Link each material theme to source records. Keep quoted observation, inferred need or cause, and recommendation distinct; a stated churn threat is not observed churn. Report missing context and counter-evidence that could change the decision.
+
+Use the smallest output that serves the request; no required theme count, persona, chart or enriched export. Create an export only when needed for the requested deliverable, preserving raw data and privacy constraints. Hand product priorities back to discovery and design changes to their existing owners. No supplied evidence means hypotheses or an evidence request, not synthesized research findings.

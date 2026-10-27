@@ -49,6 +49,9 @@ Specify each moment that applies:
 - Structure and relationships are programmatic: labels tied to fields, groups with legends (WCAG 1.3.1, 3.3.2). Personal-data fields identify their purpose for autofill (WCAG 1.3.5).
 - **Respect what a role may contain.** A listbox holds only options and groups, so "Loading", "No results", error text and buttons such as Retry go outside it, in a status region next to it. (APG Listbox; WAI-ARIA owned-element rules)
 
+**Compact-label behavior, only for existing badges, tags or chips**
+Choose semantics from purpose, not the pill shape: a status label is not automatically actionable, a filter choice exposes selection, and a removable value has a clearly named removal action. Reuse the existing control and removal-focus contracts. Where overflow or truncation is approved, specify how supported input methods reach the full value or collection; a “+n” disclosure must be operable and expose its state, not merely look like a badge. Missing behavior is an explicit dependency, not permission to add a component.
+
 ## 5 Announcements
 
 - **Status messages** (results, success, waiting, progress, and errors that don't take focus) must be exposed programmatically so assistive technology announces them without moving focus. (WCAG 4.1.3)
@@ -56,6 +59,8 @@ Specify each moment that applies:
   - WCAG requires the outcome (the message is exposed without moving focus); these roles are documented ways to achieve it, not the only ones.
   - An error shown in a dialog that takes focus is announced by the focus move and is not a status message. Expanding menus, accordions or tabs is a state change (4.1.2), not a status message.
 - Practice that the checked sources don't spell out: the live region must exist before its content changes. Announce when a long operation starts, at sparse milestones if it runs long, and the final outcome once ("17 uploaded, 3 failed"); never every item or percentage. Keep routine updates polite.
+
+For changing badge counts or compact statuses, include enough context to make an announcement meaningful (for example, “3 items in cart”, not just “3”). Apply the policy above through one appropriate announcement path; do not make every badge a competing live region or announce changes already conveyed adequately by focus or control state.
 
 ## 6 WCAG 2.2 quick reference
 
@@ -72,6 +77,7 @@ Interaction-relevant success criteria, checked against W3C documents on 2026-10-
 | 2.1.2 No Keyboard Trap | A | Focus can always leave by keyboard |
 | 2.1.4 Character Key Shortcuts | A | Single-key shortcuts can be turned off, remapped, or limited to focus |
 | 2.2.1 Timing Adjustable | A | Time limits can be turned off, adjusted or extended (warning, at least 20 s) |
+| 2.2.2 Pause, Stop, Hide | A | User control of qualifying automatic movement and updates; see below |
 | 2.2.5 Re-authenticating | AAA | No data loss after logging back in |
 | 2.2.6 Timeouts | AAA | Warn about inactivity timeouts that lose data |
 | 2.3.3 Animation from Interactions | AAA | Motion triggered by interaction can be turned off |
@@ -99,6 +105,21 @@ Interaction-relevant success criteria, checked against W3C documents on 2026-10-
 
 4.1.1 Parsing is obsolete and removed in WCAG 2.2.
 
+**Automatically changing content, only when already in scope**
+- Automatic movement, blinking or scrolling alongside other content needs pause/stop/hide when it continues
+ beyond five seconds, unless essential to the activity. Automatic updates alongside other content need
+ pause/stop/hide or user control of update frequency, with no five-second exemption. Apply the criterion's
+ essential-activity exception narrowly, not because an effect is visually preferred. ([WCAG 2.2, SC 2.2.2](https://www.w3.org/WAI/WCAG22/Understanding/pause-stop-hide.html))
+- A pause must let the person use the rest of the page without holding hover or focus. Reduced-motion handling
+ that only removes interpolation does not stop timed content changes. Define whether resuming continues the
+ paused item or returns to current live information; do not silently present stale data as current.
+- For an auto-rotating carousel, specify a keyboard-accessible stop/restart control before its rotating content
+ in the tab order. Rotation stops on focus entry and restarts only on explicit user request; it also stops
+ while hovered. Previous/next controls keep focus. These are [APG Carousel](https://www.w3.org/WAI/ARIA/apg/patterns/carousel/)
+ recommendations, not proof of conformance; verify the chosen implementation and supported input behavior.
+Do not introduce autoplay, a carousel or new content. Specify only the applicable behavior; reuse the existing
+acceptance criteria and delivery checks rather than creating a separate test gate.
+
 ## 7 APG pattern router
 
 For custom web widgets only, when no native element does the job. Open only the pattern page you need: https://www.w3.org/WAI/ARIA/apg/patterns/
@@ -115,6 +136,7 @@ For custom web widgets only, when no native element does the job. Open only the 
 | A modal task or a confirmation | Dialog (Modal); Alert and Message Dialogs | Focus rules in §3; `alertdialog` for urgent confirmations |
 | Show and hide | Disclosure; Accordion | `aria-expanded` |
 | Views in place | Tabs | Arrows between tabs; selection may follow focus when panels render instantly |
+| A rotating set of slides | Carousel | Stop/restart, focus-entry stop, hover pause and stable focus; automatic rotation is optional |
 | Grouped controls | Toolbar | One tab stop, arrows inside |
 | Interactive tabular data | Grid; Treegrid | Cell-level navigation |
 | Hierarchies | Tree View | Arrows expand and collapse |
@@ -131,6 +153,13 @@ For custom web widgets only, when no native element does the job. Open only the 
 - **There is no hover on touch**: never hide essential actions or information behind hover, and make hover or focus content dismissible, hoverable and persistent. (DMMT Ch 10 "No cursor = no hover = no clue"; WCAG 1.4.13)
 - **Long-press and multi-finger gestures are hard to discover**: back them with a visible control. (AF CH19 "Multi-Touch Gestures")
 - **Keep standard platform gestures** (back swipe; shake or three-finger swipe to undo on iPhone) and don't redefine them. (Apple Undo and redo)
+
+**Chart task access, only for an approved chart**
+Apply the existing keyboard, focus and naming contracts to the chart's actual task. Information revealed on hover needs an equivalent supported non-hover route. Where zoom, range selection, series toggling or drill-down already exists, specify accessible operation, relevant state and a clear reset or return path; do not assume making every plotted mark a tab stop produces a usable interface.
+The approved alternative must preserve the required information and task, not merely provide a chart image or generic label. A summary may explain a trend but cannot replace exact values or choices needed to complete the task. Reuse available data presentations and controls; missing equivalence remains a product/engineering dependency. This does not authorize adding a table, export, zoom or drill-down feature, selecting a chart library, or changing metric definitions.
+
+**Embedded 3D task access (only when relevant)**
+Apply the existing keyboard, focus, naming and gesture-alternative requirements to the scene's actual purpose. Distinguish a decorative scene from one conveying information or enabling a task: an informative view needs equivalent information, and a functional configurator needs accessible choices, selected-state information and a usable task path, not merely a poster image. Reuse supported surrounding controls rather than inventing a special 3D widget. Define what remains available when the scene is inaccessible or unavailable; if equivalence needs a new capability or consequential product choice, mark that dependency instead of asserting it exists. Do not restart discovery or add an alternative interaction to a purely decorative scene to fill this contract.
 
 ## 9 Platform conventions
 

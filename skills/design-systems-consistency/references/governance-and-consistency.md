@@ -34,6 +34,21 @@ the impact warrants it. For governance questions, say explicitly which tier appl
 7. **Prevent** recurrence: lint rule, Figma library restriction, review checklist item, docs update.
 8. Stop at the findings and recommendations; do not redesign screens or implement fixes.
 
+**Coverage when an audit uses extracted or sampled evidence**
+- State what was requested and what was actually inspected: relevant routes, components/states, themes and
+ viewports. Retain failed, skipped, inaccessible and out-of-scope portions separately from successful samples;
+ lack of observation is not proof that a token, component or state is absent. Reuse supplied valid evidence;
+ this record does not require a full-site crawl or authorize clicks, authenticated access or other actions.
+- Keep each route/artifact independently identifiable even when several have the same page type. If reporting
+ coverage or frequency, name the numerator, denominator and sampling limit; failed samples must not silently
+ become successful or disappear from the reported scope. Use “shared in the inspected sample,” not “canonical.”
+- Page-local or uncommon does not mean off-system; common does not mean approved. A DOM/style cluster is a
+ candidate grouping, not proof of a reusable component, variant API or semantic equivalence. Verify purpose,
+ actual system identity and relevant states before merging or classifying a defect; preserve valid exceptions.
+- Keep extraction failure, measured difference and confirmed rule violation distinct. Counts, similarity and
+ aggregate design scores can describe a sample, but cannot establish quality, accessibility conformance or
+ severity. Use the finding labels below and the product's approved rules, not an external score threshold.
+
 ## 3. Finding classification (mandatory labels)
 
 | Label | Meaning | Action |

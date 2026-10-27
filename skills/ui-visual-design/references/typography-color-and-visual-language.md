@@ -52,6 +52,7 @@ This reference covers applying type, color, surfaces, shape, iconography, imager
 - Check glyph coverage for every target locale and define fallbacks.
 - Scripts with tall shapes or stacked marks, such as Thai, Arabic, Devanagari and Vietnamese, need more line height.
 - Avoid letter-spacing on connected scripts such as Arabic.
+- When a supported locale uses a joining script and text animation is already in scope, preserve glyph connections and attached marks throughout the motion. Independently moving letter boxes can break shaping even with correct RTL order; use word- or line-level motion where it fits the approved intent, and check the actual font and mixed-direction content on the supported target. This does not add locales or authorize new animation.
 - Custom fonts must support the platform's text-scaling and bold-text settings the way system fonts do.
 
 **If no type scale exists**
@@ -149,7 +150,7 @@ Assign each color a role and use the design system's semantic tokens:
 
 **Radius**
 - Take radii from one family in the design system, and scale them with component size.
-- Keep nested shapes concentric: the inner radius is roughly the outer radius minus the padding.
+- For closely nested shapes with a visible, even inset, use concentric radii as an optical check: the inner radius is roughly the outer radius minus the padding. Preserve product radius tokens and intentional asymmetry; independent surfaces do not need to satisfy this equation.
 - Elements that touch the screen edge are usually square.
 - Mixing sharp and rounded corners needs a semantic reason.
 
@@ -162,6 +163,8 @@ Assign each color a role and use the design system's semantic tokens:
 **Consistency**
 - Use one icon family per product and platform, with a consistent style (outline or fill), stroke weight, corner treatment, perspective and level of detail.
 - Size and weight icons to match the adjacent text.
+- For icons being designed or reviewed, check recognizability at the intended render sizes, especially the smallest in-scope use, not only enlarged artwork. Strokes, counters and distinguishing details must remain legible; reuse an appropriate size-specific variant from the existing family when available rather than merely shrinking a detailed glyph.
+- Check optical balance with adjacent text and the control's container, preserving intentional offsets. A geometric center or bounding box is not proof of visual balance. Propose a local correction only for an observed mismatch; changes to a shared icon asset or component belong to the design-system owner.
 - A filled variant can mark a selected state, as long as the system does so consistently.
 
 **Meaning and labels**
@@ -174,8 +177,15 @@ Assign each color a role and use the design system's semantic tokens:
 
 ## 7. Imagery and illustration
 
+**Available, honest assets**
+- Plan around assets that exist or can be obtained within the task's scope; mark unavailable assets and replacement needs instead of designing around imaginary product shots. Keep user-supplied and approved artwork unless changing it is in scope.
+- For assets used, distinguish owned/verified product imagery, contextual reference imagery, generated or prototype imagery, and placeholders. Never present a stock scene, generated person or mock interface as evidence of the real product, place, team or customer.
+- For external assets, retain the source page, creator and stated usage terms, attribution needed, intended role and any unresolved rights or replacement requirement. Repository or search-result licensing is not proof of rights to every asset. Ordinary authorized public research needs no new checkpoint; spending, disclosure or new access still follows the task's actual authority.
+- Check the focal subject and any text-safe area at the intended crops and widths; a desktop crop does not establish the mobile crop. Do not add images to satisfy a quota.
+
 **Images**
 - First decide whether each image is content or decoration. Decorative images are the first thing to cut on small screens or in dense layouts.
+- Carry that purpose into the text-alternative requirement: informative images need equivalent information in context; purely decorative images, or images whose information is already fully conveyed by adjacent text, should be ignored by assistive technology. For a decorative web `<img>`, specify `alt=""`, not an omitted attribute. If an image provides a control's only label, the alternative names its function. Flag unresolved meaning or wording for Content/Interaction as appropriate; semantic implementation and verification belong to engineering/Delivery. A screenshot alone cannot verify the alternative. ([W3C SC 1.1.1](https://www.w3.org/WAI/WCAG22/Understanding/non-text-content.html); [WAI decorative images](https://www.w3.org/WAI/tutorials/images/decorative/).)
 - Within a collection, use one aspect ratio and crop to the subject. Keep native proportions only when the shape itself carries meaning.
 - Always specify a fallback for missing and broken images at the same size and ratio, so the layout holds.
 - Text over an image needs a scrim or a region with guaranteed contrast. Measure the worst case.
@@ -188,6 +198,12 @@ Assign each color a role and use the design system's semantic tokens:
 - Use illustration in empty states, onboarding and success moments, not in dense work areas.
 - Keep one consistent style.
 - Never let an illustration be the only carrier of essential information.
+
+**Embedded 3D appearance, only when already in scope**
+- Reuse the approved scene or product reference. Specify only the visual decisions the task needs: initial framing and composition at relevant widths/views, subject scale and orientation, material finish together with lighting/environment, texture direction and perceived scale, and intentional effects. Camera behavior and selectable parts belong to Interaction; do not invent them to complete a visual spec.
+- Identify which appearance details carry product meaning and must survive any approved quality variant. A simpler shadow may be acceptable; silently changing the selected finish, silhouette or essential detail is not. Keep any unresolved fidelity trade-off explicit rather than choosing it for the Human.
+- Judge the rendered combination against the accepted reference, not a color value or material name alone. Apply existing backdrop-contrast and asset-honesty rules to the scene and surrounding controls. Compare relevant views at matching settings; a still render establishes only the view and quality shown, not dynamic fidelity.
+- Keep the product's design system, brand and accepted direction above borrowed scene aesthetics. Specify the intended result, not renderer choices, shader recipes or numeric material settings; do not add 3D or reopen accepted choices to use this guidance.
 
 ## 8. Visual affordance
 
@@ -232,6 +248,15 @@ Style the states that already exist: those defined by the interaction spec, prod
 
 **The decoration budget**
 - For every shadow, gradient, glass or blur effect, border, card and extra accent, name its job: separate, layer, emphasize, identify, or delight in a low-stakes moment. If it has no job, remove it.
+
+**References during visual exploration**
+Use this only when the task calls for visual exploration or an important visual decision is genuinely open. A known design system, clear approved direction or routine edit is not a reason to gather references or reopen choices; assess only the actual gap and ask only for a missing decision that would materially change the result.
+
+- Ground the direction in verified product or brand material: what belongs to this subject, and which visual decision expresses it? In identity-led work, substituting a competitor's name can expose a generic rationale; it is a critique prompt, not a requirement to make familiar task UI unique.
+- Give each reference a specific role and state **what to borrow and what not to borrow**. For example: A informs motion rhythm, not its scroll behavior; B informs color proportions, not a replacement for brand colors; C informs composition, not its content or navigation. Four or five references can be useful if each resolves a real decision; no minimum or fixed count applies.
+- Separate observed evidence from inference. A still image supports visible composition, not animation timing, transitions, interaction or responsiveness. Mark an inferred proposal and its evidence limit when that distinction matters; do not claim to have observed motion without suitable evidence.
+- References are inspiration, not authority. Apply the source hierarchy: mandatory constraints and the product's brief, brand, design system and accepted decisions govern. Preserve designer taste and manual work within the agreed scope. Consume approved motion behavior; route a proposed behavior change to Interaction rather than silently inventing it.
+- Check compatibility across the borrowed parts: hierarchy, type, density, color roles, imagery, motion, responsive behavior and target scripts/RTL. Resolve a real conflict explicitly rather than averaging styles or copying another identity. Return one coherent direction with a short rationale; offer alternatives only when requested or a real fork needs a decision, and do not reopen an accepted selection without new evidence or Human direction.
 
 **Glass and translucency**
 - Use translucent and glass materials only where the platform's design language calls for them, and only where legibility is verified over the worst backdrop.

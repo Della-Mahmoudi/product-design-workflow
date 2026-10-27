@@ -141,7 +141,7 @@ A few ground rules it follows:
 
 ## Release notes
 
-Current version: 0.3.0. See [docs/RELEASE-NOTES.md](docs/RELEASE-NOTES.md).
+Current version: 0.3.2. See [docs/RELEASE-NOTES.md](docs/RELEASE-NOTES.md).
 
 ## License and author
 

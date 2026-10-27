@@ -52,6 +52,16 @@ A decision guide for adaptive layout, resilience (zoom, text spacing, translatio
    - long translations;
    - RTL.
 
+### Adapting an existing desktop design to mobile
+
+Use this only for a requested adaptation of an existing design, not as a universal mobile recipe.
+
+- **Identify the source and scope.** Inspect the supplied screen's available structure, sections, content, controls, assets and relevant styles/components before recomposing it. A selected component or partial screenshot does not establish the whole page; adapt only that scope or ask for the missing screen when necessary. Don't infer unseen content or behavior.
+- **Keep the source safe.** When authorized to create a separate mobile version, leave the original unchanged and make the result separately identifiable by source, target width and relevant state. If only a recommendation is requested, return one rather than editing a file. Canvas placement, frame naming and authoring operations follow the brief and actual authority, not a fixed offset or device template.
+- **Map source regions to their mobile counterparts.** Preserve the supplied copy, assets, data relationships, actions, destinations and approved priority unless changing them is explicitly in scope. For tables and pricing comparisons, retaining individual values is not enough if the task needs comparison across rows or plans; use the task-based table guidance in `hierarchy-layout-and-density.md` §10. Do not shorten copy, drop a comparison matrix, promote a plan or hide content merely to fit. Route unresolved content/priority changes to IA/content and changed behavior to Interaction (§2).
+- **Reuse the existing responsive solution.** Check the relevant library's supported responsive composition, sizes or adaptive counterparts before rebuilding; preserve meaningful bindings and manual overrides. A missing counterpart is a `[DS GAP]`, not permission to detach or invent a mobile component. When editable frame authoring is in scope, use suitable auto layout/constraints and growing content containers rather than flattening the result or cropping it to an arbitrary height. Apply the product's target widths and tokens through §1, not fixed percentage reductions of desktop type or spacing.
+- **Reconcile before reporting.** Check the source-to-mobile mapping for missing content, controls and relationships, alongside the applicable resilience checks below. Report the material transformations, crops, authorized omissions/reordering/conversions, reuse exceptions and unresolved fit issues. Show additional menu/disclosure states only when the chosen interaction and requested fidelity need them; drawing them does not define or verify their behavior. Distinguish inspected design properties from untested runtime behavior.
+
 ## 2. Transformation patterns
 
 These transformations stay visual while they rearrange approved content. If a breakpoint seems to need a new navigation model, removed functionality, different destinations, a new content hierarchy, priorities re-ranked without evidence or a different task flow, that's a structural problem: flag `[DEPENDENCY: IA]` instead of styling around it.
@@ -71,8 +81,8 @@ These transformations stay visual while they rearrange approved content. If a br
 ## 3. Small and large screens
 
 **Mobile is a recomposition, not a shrunken desktop**
-- Use fewer elements, in one column, in priority order.
-- Get useful content into the first view: cut decorative chrome and collapse stacked header bands.
+- Reduce simultaneous visual complexity where useful; stack or wrap when the content and task need it, preserving approved content, meaningful order and comparison needs.
+- Get useful content into the first view by reducing nonessential chrome; removing or hiding content or changing priority still needs the corresponding decision in §2.
 - Put labels above fields.
 - Stack buttons unless they fit side by side with translated labels at enlarged text sizes.
 - Plan for glare and movement: no low-contrast text and no tiny type.
@@ -137,6 +147,16 @@ Stress-test with real content, not ideal placeholders. Check only what the reque
 - CJK text can use fewer characters yet take more width per glyph. Thai, Arabic, Devanagari and some other scripts often need more vertical space.
 - Don't abbreviate to make text fit, because other languages may not abbreviate the same way.
 - Check that aligned items stay aligned when they grow at different rates, and that key content still shows in the first view.
+
+**Compact labels and collections, only where present**
+Distinguish the space needed by one label from the layout of its collection. Prefer letting the collection reflow before compressing essential labels; follow the existing component contract rather than imposing single-line pills or a universal wrapping rule. Check the actual container width, enlarged text and supported locales, keeping selected values and removal controls understandable.
+If the approved design uses an overflow summary such as “+3”, do not treat it as permission to hide values permanently. Preserve the specified route to the full collection or value; disclosure behavior and semantic ownership belong to Interaction. A missing route is a dependency, not authority to add a new control, abbreviate approved content or silently clip it.
+
+### Choosing reproducible stress content
+
+When content resilience is in scope, trace the relevant fields to supplied data and known schema/API limits. Use plausible boundary values; record an unknown limit as unknown, not as a defect or permission to impose a cap. Compare at the component's actual container width, not only the full viewport. Where relevant, include missing or whitespace-only optional content, singular counts, duplicate display names, grapheme-rich names/emoji, and collection boundaries such as empty, one, or page-size-plus-one. Preserve supported locales and the product's formatting and fallback rules; do not invent a universal initials algorithm.
+
+Use existing safe fixtures or supplied examples where available. Creating fixtures or a dev-only data switch requires the task's existing authoring authority; never modify real records for a visual stress check. Record the case and what was actually inspected, distinguishing a rendered failure from a risk inferred from styles. Runtime verification and regression evidence belong to Delivery QA.
 
 ## 7. Right-to-left
 
@@ -218,6 +238,8 @@ Use exactly one platform design language per platform build, and read only the b
 ### Web (default)
 - Use the product's design system plus WCAG 2.2.
 - No platform visual language is imposed. Don't bring Material or Apple styling into a web product unless the product chose it.
+
+**Mobile web, when in scope:** check the visible area with browser controls and the software keyboard open, fixed bottom controls and safe areas, portrait/landscape, and browser versus installed mode when supported. Keep focused fields and required actions reachable without disabling zoom, content selection or native scrolling. Stable content areas and viewport-following app surfaces may need different sizing behavior; do not prescribe one viewport unit or global CSS reset for every surface. Treat exact browser support and runtime behavior as implementation checks, not conclusions from a desktop-sized preview.
 
 ### Apple platforms
 Applies to iOS, iPadOS, macOS, watchOS, tvOS and visionOS. Checked against the HIG on 2026-10-20.

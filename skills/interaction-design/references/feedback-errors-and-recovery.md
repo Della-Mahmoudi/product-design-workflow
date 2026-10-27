@@ -14,6 +14,8 @@ Sections: 1 Feedback · 2 Latency and progress · 3 The async contract · 4 Vali
 - **Use more than one channel**: text plus icon or shape, never color alone; on native platforms pair sound with haptics. Don't use silence as the failure signal. (WCAG 1.4.1; Apple Accessibility; the conflict with AF CH15's audio advice is in the source map)
 - **Timed messages lose people.** Don't put critical information, or the only route to recovery, in a message that disappears on a timer. Prefer persistent or user-dismissed messages; if one must time out, make the time generous or adjustable and keep the action reachable elsewhere. (Carbon Notifications "Accessibility"; Apple Accessibility "Minimize use of time-boxed interface elements"; AF CH16 "Use response times that support all users")
 
+**Notification lifecycle (when notifications are already in scope):** define whether a loading notification updates in place on success/failure, and prevent repeated triggers from creating misleading duplicates. For an approved timed message, state what happens while the page is hidden or the message is being read or operated, and how dismissal/resumption works. Preserve the required status and any recovery action elsewhere; do not introduce a timer, undo capability or notification merely to fill this contract. Delivery QA checks that the displayed state and announcement occur once and remain reachable in the relevant overlay and input context.
+
 ## 2 Latency and progress
 
 These are perceptual heuristics, not requirements; a design system may set its own values. (AF CH11 "Optimize for responsiveness but accommodate latency"; AF CH17 "Respond to commands"; DOET Ch 1 "Feedback", Ch 2 "Blaming the Wrong Things"; DI Ch 8 "Spinners and Loading Indicators")
@@ -31,6 +33,9 @@ These are perceptual heuristics, not requirements; a design system may set its o
 - **Background refresh** keeps the current content visible and signals new content without shifting the layout under the user.
 - **Scope the busy state** to the component that is working. Block the whole interface only when the action really makes the app unusable meanwhile. (Carbon Loading "Full-screen loading", "Inline loading")
 - **Slow feedback makes people repeat the action**, which can double or cancel the request, so design for repeated activation (§3). (DOET Ch 2 "Blaming the Wrong Things")
+
+**Embedded 3D readiness (only when the scene is in scope)**
+Distinguish asset-transfer progress from the required scene being usable: finished downloads alone do not establish that the intended view, required materials or controls are ready. Define the user-facing loading, failed or degraded outcome only where it changes the task, using the existing honest-progress and recovery rules. Keep supported surrounding choices and current configuration usable when possible; a fallback must not falsely depict the chosen configuration. Link the task-equivalent access requirement in `accessibility-and-platform.md` §8. Missing retry, fallback or configuration-preservation capabilities remain engineering/product dependencies, not promises or reasons to invent new mechanisms.
 
 ## 3 The async contract
 
@@ -182,6 +187,9 @@ Include a case only if it is plausible for this interaction and failing it would
 
 ## 13 Interaction copy
 
+- **Copy meaning and dynamic data**: ground a replacement in the surrounding action and state, not the sentence alone. During copy polish, preserve numeric meaning, units, dynamic-token syntax, variable references and plural conditions; do not replace live values with sample data. Keep component structure, bindings and styling intact. If the intended meaning or token contract is unknown, flag that dependency rather than guessing.
+- **Language, voice and terminology**: for interface copy, use an explicitly requested target language; otherwise preserve each existing locale and its conventions for casing, punctuation, dates, numbers and units. Reuse the product's established voice and terms while adapting tone to the moment; consistency does not mean making an error sound celebratory or renaming the same action for variety. Harmonize only the requested scope, and translate meaning rather than word order when translation is in scope.
+- **Sensitive meaning**: copy polish must not silently change consent, privacy, security, payment or deletion terms, the choice offered, its scope, consequence or reversibility. Do not turn a qualified statement into a guarantee or legal meaning into marketing language. Route unresolved material meaning changes to the relevant product, policy, security or legal owner; routine meaning-preserving edits remain within existing authority.
 - **Labels**: a verb that names the outcome ("Delete workspace", "Send invite"), in the design system's casing; the final step uses the specific verb, not "Submit" or "OK". (GOV.UK Button; Apple Alerts; DI Ch 8 "Prominent 'Done' Button or Assumed Next Step")
 - **Confirmations**: a question naming the action and the object; a body stating consequences; buttons that repeat the action verb, plus "Cancel". (Apple Alerts)
 - **Errors**: what happened and how to fix it, specific to the field and the cause, in plain language, without blame, bare codes or words like "invalid". (GOV.UK Error message; NN/g heuristic 9; DOET Ch 2 "Positive Psychology"; AF CH21 "Improving error messages: the last resort")

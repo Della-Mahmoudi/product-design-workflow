@@ -53,6 +53,8 @@ For each source, note:
 
 Then sort the research questions by what existing evidence covers: fully answered, partly answered, or not answered at all. Only the gaps need new research. [UXR Ch3]
 
+When the request requires analysis of the underlying feedback, review or feature-request corpus rather than framing from existing findings, hand that analysis to `prototype-testing-analytics` (`references/usability-testing-and-evidence.md`, supplied feedback and request corpora). Discovery retains the product decision and uses the returned evidence with its coverage and uncertainty limits.
+
 ## 3. Choosing a method
 
 **Choose the method from the question, not from habit.** Use three lenses: [NNG]
