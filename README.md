@@ -4,7 +4,7 @@
 
 A free, MIT-licensed Claude Code plugin by Della Mahmoudi, product designer. Eight skills plus one independent QA agent. No hooks, no MCP servers, no scripts.
 
-You ask for design work the way you normally would. A Supervisor skill picks it up, checks whether the brief is ready, loads only the design expertise that step needs, reviews the result against design-system and accessibility standards, and then pauses so you decide what happens next. When everything is accepted, a separate Final QA agent gives the finished deliverable a fresh, independent review. It is instructed not to write (see [Optional connectors](#optional-connectors)).
+You ask for design work the way you normally would. A Supervisor skill picks it up, checks whether the brief is ready, loads only the design expertise that step needs, checks its own work against design-system and accessibility standards, fixes clear in-scope problems itself, and then pauses at the end of each stage so you decide what happens next. It also stops early for a real product or taste decision, missing permission, or when it isn't making progress. When everything is accepted, a separate Final QA agent gives the finished deliverable a fresh, independent review. It is instructed not to write (see [Optional connectors](#optional-connectors)).
 
 **Nothing moves forward until you say so.** The plugin advises. You decide.
 
@@ -17,7 +17,7 @@ Design work slows down for the same few reasons again and again:
 - **too many rounds of edits**, because problems surface late
 - **design-system rules get lost**, so components, tokens and states drift
 
-This plugin builds those checks into the workflow. It asks one focused question only when a real product decision is blocking, applies the domain standards while working, and after each step tells you what it made, what it checked and what is still open.
+This plugin builds those checks into the workflow. It asks one focused question only when a real product decision is blocking, applies the domain standards while working, fixes obvious defects before you ever see them, and at the end of each stage tells you what it made, what it checked and what is still open.
 
 ## Requirements
 
@@ -100,7 +100,7 @@ The domain skills carry concrete, checkable knowledge rather than generic advice
 
 | Component | Type | Purpose |
 |---|---|---|
-| `product-design-supervisor` | Skill | Entry point. Frames scope, checks readiness, splits work into steps, selects domain skills, reviews each result, pauses for a human decision, then hands off to Final QA. |
+| `product-design-supervisor` | Skill | Entry point. Frames scope, checks readiness, splits work into steps, selects domain skills, self-checks and repairs clear defects, pauses for your decision after each stage, then hands off to Final QA and waits for you after its report. |
 | `product-discovery-framing` | Skill | Turns vague briefs and "the CEO wants X" into a real problem frame: users, facts vs. assumptions, risk, MVP scope, success metrics. |
 | `ux-architecture` | Skill | IA, navigation, taxonomy, labels, sitemaps, structural user flows and journeys, findability. |
 | `interaction-design` | Skill | Behavior: states, feedback, validation, errors and recovery, loading/async, focus and keyboard, interaction copy. |
@@ -108,7 +108,7 @@ The domain skills carry concrete, checkable knowledge rather than generic advice
 | `design-systems-consistency` | Skill | Reuse vs. create decisions, component APIs and variants, token architecture, audits, governance, deprecation, Figma vs code parity. |
 | `prototype-testing-analytics` | Skill | Prototype and usability-test planning, research findings, UX metrics, tracking plans, A/B experiments. |
 | `delivery-product-collaboration` | Skill | Ready-for-Dev, handoff completeness, acceptance criteria, Definition of Done, implementation QA. |
-| `independent-final-qa` | Agent | Fresh, independent review of the finished deliverable against scope and standards. Returns PASS / FAIL / BLOCKED. Instructed not to write. Edit, Write, MultiEdit, NotebookEdit and Bash are blocked; it still inherits MCP tools from your session, so connected write tools (e.g. Figma, Gmail) are not technically blocked. |
+| `independent-final-qa` | Agent | Fresh, independent review of the finished deliverable against scope and standards. Returns PASS / FAIL / BLOCKED; the report is shown unchanged and any re-check after fixes is a fresh review. Instructed not to write. Edit, Write, MultiEdit, NotebookEdit and Bash are blocked; it still inherits MCP tools from your session, so connected write tools (e.g. Figma, Gmail) are not technically blocked. |
 
 Each domain skill comes with `references/` (standards, with a `source-map.md` pointing to public sources such as WCAG 2.2, WAI-ARIA APG, NN/g, GOV.UK, Material and Carbon) and `evals/`: eval specs (test cases with pass/fail criteria). The `evals.json` files follow the format used by Anthropic's [skill-creator](https://github.com/anthropics/skills/tree/main/skills/skill-creator) skill, which can run them against a skill. These are specs only; no results are published. Works without the original books; links are for optional verification.
 
