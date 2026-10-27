@@ -122,8 +122,10 @@ Figma, Google Drive and browser tools help with grounding and QA. Final QA agent
 flowchart TD
     A["Your request"] --> B["Supervisor checks the brief"]
     B --> C["Domain skill does one step"]
-    C --> D["Supervisor reviews and reports"]
-    D --> E{"You decide"}
+    C --> D["Supervisor self-checks"]
+    D -- "clear in-scope defect" --> G["Fixes it"]
+    G --> D
+    D -- "stage done or real decision" --> E{"Stage result: you decide"}
     E -- "revise or next step" --> C
     E -- "all accepted" --> F["Independent Final QA"]
 ```
